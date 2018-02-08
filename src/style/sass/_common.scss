@@ -1,0 +1,21 @@
+@import './variables';
+
+body {
+    // background: $blue url("~/assets/bg-1.png") center;
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;    
+}
+
+#logo-brand-top {
+    max-height: 120px;
+}
+
+// .fc-bt-tertiary-2 {
+//     border-top: 2px solid $tertiary;
+// }
+
+// .fc-bb-tertiary-2 {
+//     border-bottom: 2px solid $tertiary;
+// }

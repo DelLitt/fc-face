@@ -1,0 +1,65 @@
+$blue-var-a: #002B6E;
+$blue-var-b: #00378F;
+$blue-var-c: #1771FF;
+$blue-var-d: #7DAFFF;
+$blue-var-e: #ACCCFF;
+
+
+//
+// Color system
+//
+
+// stylelint-disable
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #868e96;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+$blue:    $blue-var-a;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #e83e8c;
+$red:     #dc3545;
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #28a745;
+$teal:    #20c997;
+$cyan:    #17a2b8;
+
+$primary:       $blue;
+$secondary:     $blue-var-d;
+$tertiary:      $blue-var-e;
+$success:       $green;
+$info:          $blue-var-c;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-800;
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:                   $primary;
+$body-color:                $gray-900 !default;
+
+$theme-colors: ();
+$theme-colors: map-merge((
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "tertiary":   $tertiary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+  ), $theme-colors);
