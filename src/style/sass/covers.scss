@@ -1,0 +1,54 @@
+@import './variables';
+
+.cover {
+    @extend .container-fluid;
+
+    background: transparent;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    .cover-var-a,
+    .cover-var-b,
+    .cover-var-c,
+    .cover-var-d {
+        @extend .col-12;
+
+        border: 1px solid $secondary;
+        border-radius: 0;
+        height: auto;
+        min-height: 50rem;
+        padding-top: 1rem;
+    }
+
+    .cover-var-a {        
+        // background: $blue url("static/cover-bg-2.png") center;
+        background-size: cover;
+        background-position: 50% 50%;
+        color: $white;
+
+    }
+
+    .cover-var-b {        
+        background: $gray-100;
+        color: $gray-900;
+    }
+
+    .cover-var-c {        
+        background: transparentize($blue, 0.5);
+        color: $gray-100;
+    }
+
+    .cover-var-d {        
+        background: $blue;
+        color: $gray-100;
+    }
+
+    .cover-container {
+        @extend .container;
+
+        display: table;
+        height: 100%;
+        min-height: 32rem;
+        margin: 0 auto;
+    }    
+}
