@@ -10,3 +10,10 @@
     <a class="dropdown-item" href="#!">Another action</a>
   </div>
 </div>
+<hr>
+<div>
+  <button class="btn btn-outline-secondary" (click)="switchLanguage('en')">en</button>
+  <button class="btn btn-outline-secondary" (click)="switchLanguage('ru')">рус</button>
+</div>
+<h4 class="text-uppercase text-white">{{ 'MAIN_NEWS' | translate }}</h4>
+<h4 class="text-uppercase text-white">{{ 'STANDINGS' | translate }}</h4>    
