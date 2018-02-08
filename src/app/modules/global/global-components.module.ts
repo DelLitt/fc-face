@@ -4,6 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { GlobalNavigationComponent } from '../../components/global/global-navigation/global-navigation.component';
 import { GlobalHeaderComponent } from '../../components/global/global-header/global-header.component';
 import { GlobalBreadcrumbComponent } from '../../components/global/global-breadcrumb/global-breadcrumb/global-breadcrumb.component';
+import { GlobalSearchComponent } from '../../components/global/global-search/global-search.component';
 
 @NgModule({
   imports: [
@@ -13,12 +14,14 @@ import { GlobalBreadcrumbComponent } from '../../components/global/global-breadc
   declarations: [
     GlobalNavigationComponent,
     GlobalHeaderComponent,
-    GlobalBreadcrumbComponent
+    GlobalBreadcrumbComponent,
+    GlobalSearchComponent
   ],
   exports: [
     GlobalNavigationComponent,
     GlobalHeaderComponent,
-    GlobalBreadcrumbComponent
+    GlobalBreadcrumbComponent,
+    GlobalSearchComponent
   ]
 })
 export class GlobalComponentsModule { }
