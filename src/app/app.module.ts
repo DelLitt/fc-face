@@ -4,6 +4,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { GlobalComponentsModule } from './modules/global/global-components.module';
+import { MainComponentsModule } from './modules/main/main-components.module';
 
 
 import { AppComponent } from './app.component';
@@ -27,7 +28,8 @@ export function createTranslateLoader(http: HttpClient) {
           deps: [HttpClient]
       },
   }),
-  GlobalComponentsModule
+  GlobalComponentsModule,
+  MainComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
