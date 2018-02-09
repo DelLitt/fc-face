@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Publication } from '../../../model/publication';
+import { LogService } from '../../../services/log.service';
 
 @Component({
   selector: 'app-fc-image-slider',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FcImageSliderComponent implements OnInit {
 
-  constructor() { }
+  _publications: Array<Publication> = new Array<Publication>();
+
+  constructor(private logger: LogService) {
+  }
+
+  public get publications(): Array<Publication> {
+    return this._publications;
+  }
+
+  @Input() public set publications(value: Array<Publication>) {
+    this._publications = value || new Array<Publication>();
+    this.logger.logInfo(`'${(<any>this).constructor.name}' received publications. Count: ${this._publications.length}.`);
+  }
 
   ngOnInit() {
+    this.logger.logDebug(`'${(<any>this).constructor.name}' component is being initialized.`);
   }
 
 }
