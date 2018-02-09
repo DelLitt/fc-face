@@ -5,6 +5,7 @@ import { GlobalNavigationComponent } from '../../components/global/global-naviga
 import { GlobalHeaderComponent } from '../../components/global/global-header/global-header.component';
 import { GlobalBreadcrumbComponent } from '../../components/global/global-breadcrumb/global-breadcrumb/global-breadcrumb.component';
 import { GlobalSearchComponent } from '../../components/global/global-search/global-search.component';
+import { LogService, LogLevel } from '../../services/log.service';
 
 @NgModule({
   imports: [
@@ -17,6 +18,17 @@ import { GlobalSearchComponent } from '../../components/global/global-search/glo
     GlobalBreadcrumbComponent,
     GlobalSearchComponent
   ],
+  providers: [
+    {provide: LogLevel, useValue: LogLevel.DEBUG},
+    {
+      provide: LogService,
+    deps: [LogLevel],
+    useFactory: (level) => {
+      const logger = new LogService();
+      logger.minLevel = LogLevel.DEBUG;
+      return logger;
+    }
+  }],
   exports: [
     GlobalNavigationComponent,
     GlobalHeaderComponent,

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { LogService } from '../../../services/log.service';
 
 @Component({
   selector: 'app-global-search',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./global-search.component.scss']
 })
 export class GlobalSearchComponent implements OnInit {
+  searchText = '1';
 
-  constructor() { }
+  @Output() search: EventEmitter<any> = new EventEmitter();
+
+  constructor(private logger: LogService) { }
 
   ngOnInit() {
+  }
+
+  public doSearching() {
+    this.logger.logInfo(`Search is called for "${this.searchText}"!`);
+    this.searchText += '11';
+    this.search.emit(null);
   }
 
 }
