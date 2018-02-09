@@ -8,6 +8,6 @@ export class PublicationsRepositoryService {
   constructor(private dataSource: DataSourceService) { }
 
   public getHotPublications(): Array<Publication> {
-    return this.dataSource.getLatestPublications(3);
+    return this.dataSource.getLatestPublications(3) || [];
   }
 }
