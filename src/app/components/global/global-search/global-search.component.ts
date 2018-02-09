@@ -7,7 +7,7 @@ import { LogService } from '../../../services/log.service';
   styleUrls: ['./global-search.component.scss']
 })
 export class GlobalSearchComponent implements OnInit {
-  searchText = '1';
+  private searchText: string;
 
   @Output() search: EventEmitter<any> = new EventEmitter();
 
@@ -16,10 +16,8 @@ export class GlobalSearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  public doSearching() {
+  public doSearch() {
     this.logger.logInfo(`Search is called for "${this.searchText}"!`);
-    this.searchText += '11';
-    this.search.emit(null);
+    this.search.emit(this.searchText);
   }
-
 }

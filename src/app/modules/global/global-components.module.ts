@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { GlobalNavigationComponent } from '../../components/global/global-navigation/global-navigation.component';
 import { GlobalHeaderComponent } from '../../components/global/global-header/global-header.component';
@@ -10,6 +11,7 @@ import { LogService, LogLevel } from '../../services/log.service';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     TranslateModule
   ],
   declarations: [
