@@ -13,6 +13,13 @@ body {
     max-height: 120px;
 }
 
+.global-header {        
+    background: $blue url("/assets/img/skin/x-bg1.jpg") center;
+    background-size: cover;
+    background-position: 50% 50%;
+    color: $white;
+}
+
 .fc-bt-tertiary-2 {
     border-top: 2px solid $tertiary;
 }
