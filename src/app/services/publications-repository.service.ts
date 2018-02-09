@@ -8,6 +8,21 @@ export class PublicationsRepositoryService {
   constructor(private dataSource: DataSourceService) { }
 
   public getHotPublications(): Array<Publication> {
-    return this.dataSource.getLatestPublications(3) || [];
+    const data: Array<Publication> = this.dataSource.getLatestPublications(3) || [];
+    if (data.length === 0) { return data; }
+
+    const publications: Array<Publication> = new Array<Publication>();
+
+    data.forEach(element => {
+      const publication = new Publication();
+      publication.header = element.header;
+      publication.img = element.img;
+      publication.lead = element.lead;
+      publication.title = element.title;
+
+      publications.push(publication);
+    });
+
+    return publications;
   }
 }
