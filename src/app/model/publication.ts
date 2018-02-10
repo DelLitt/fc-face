@@ -4,4 +4,6 @@ export class Publication {
     public header: string;
     public img: string;
     public lead: string;
+    public hasGallery: boolean;
+    public hasVideo: boolean;
 }
