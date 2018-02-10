@@ -10,8 +10,9 @@ import { MainComponentsModule } from './modules/main/main-components.module';
 
 
 import { AppComponent } from './app.component';
-import { HomeViewComponent } from './components/main/home-view/home-view.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HomeViewComponent } from './components/main/home-view/home-view.component';
+import { PublicationViewComponent } from './components/publications/publication-view/publication-view.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -21,7 +22,8 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     HomeViewComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PublicationViewComponent
   ],
   imports: [
     BrowserModule,
