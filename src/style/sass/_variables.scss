@@ -63,3 +63,6 @@ $theme-colors: map-merge((
     "light":      $light,
     "dark":       $dark
   ), $theme-colors);
+
+
+$link-hover-decoration:     none;

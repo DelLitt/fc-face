@@ -9,6 +9,10 @@ body {
     background-attachment: fixed;    
 }
 
+a, .btn-link {
+    cursor: pointer;
+}
+
 #logo-brand-top {
     max-height: 120px;
 }
