@@ -8,7 +8,7 @@ import { LogService } from '../../../services/log.service';
   templateUrl: './fc-image-slider-ngx.component.html',
   styleUrls: ['./fc-image-slider-ngx.component.scss'],
   providers: [
-    { provide: CarouselConfig, useValue: { interval: 500000, noPause: false, showIndicators: true } }
+    { provide: CarouselConfig, useValue: { interval: 10000, noPause: false, showIndicators: true } }
   ]
 })
 export class FcImageSliderNgxComponent implements OnInit {
