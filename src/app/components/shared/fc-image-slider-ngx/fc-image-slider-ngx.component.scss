@@ -1,0 +1,7 @@
+@import './src/style/sass/_variables.scss';
+
+.carousel-caption {
+    background-color: transparentize($primary, 0.25);
+    padding-left: 10px;
+    padding-right: 10px;
+}
