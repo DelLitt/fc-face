@@ -15,6 +15,7 @@ export class PublicationsRepositoryService {
 
     data.forEach(element => {
       const publication = new Publication();
+      publication.id = element.id;
       publication.header = element.header;
       publication.img = element.img;
       publication.lead = element.lead;
