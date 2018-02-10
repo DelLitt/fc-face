@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CarouselModule } from 'ngx-bootstrap';
 import { FcImageSliderComponent } from '../../components/shared/fc-image-slider/fc-image-slider.component';
+import { FcImageSliderNgxComponent } from '../../components/shared/fc-image-slider-ngx/fc-image-slider-ngx.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    CarouselModule.forRoot()
   ],
   declarations: [
-    FcImageSliderComponent
+    FcImageSliderComponent,
+    FcImageSliderNgxComponent
   ],
   exports: [
-    FcImageSliderComponent
+    FcImageSliderComponent,
+    FcImageSliderNgxComponent
   ]
 })
 export class SharedComponentsModule { }
