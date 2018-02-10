@@ -1,0 +1,9 @@
+<carousel>
+  <slide *ngFor="let publication of publications index as i">
+    <img class="d-block w-100" [src]="publication.img" [alt]="publication.title">
+    <div class="carousel-caption d-block bg-primary">
+      <h3>{{publication.title}}</h3>
+      <p>{{publication.header}}</p>
+    </div>    
+  </slide>
+</carousel>
