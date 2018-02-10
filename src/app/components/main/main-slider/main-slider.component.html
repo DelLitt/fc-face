@@ -1,10 +1,10 @@
 <div class="row">
-    <div class="col-sm-8">
-        <app-fc-image-slider-ngx [publications]="publications"></app-fc-image-slider-ngx>
+    <div class="col-lg-8 align-self-top">
+        <app-fc-image-slider-ngx [publications]="publications" [(activeSlide)]="index" (activeSlideChange)="onActiveSlideChange()"></app-fc-image-slider-ngx>
     </div>
-    <div class="col-sm-4">
-        <div class="publication-preview" *ngFor="let publication of publications index as i" [class.active]="i==0">
-            <h4 class="text-primary">{{publication.title}}</h4>
+    <div class="d-none d-lg-block col-lg-4 align-self-top">
+        <div class="publication-preview" *ngFor="let publication of publications index as i" [class.active]="i==index" (click)="selectPreview({index: i, id: publication.id})">
+            <h5 class="d-none d-xl-block">{{publication.title}}</h5>
             <p>{{getLead(publication)}}</p>
         </div>
     </div>

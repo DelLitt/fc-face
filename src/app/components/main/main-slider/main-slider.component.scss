@@ -1,10 +1,15 @@
 @import './src/style/sass/_variables.scss';
 
 .publication-preview {
-    padding: 4px 10px 2px 10px;
+    // padding: 4px 8px;
+    border-bottom: 1px solid $gray-200;
+    color: $gray-700;
+    cursor: pointer;
 
     &.active {
-        border-bottom: 1px solid $tertiary;
-        background-color: $gray-200
+        border-bottom: 1px solid $gray-400;
+        font-weight: 500;
+        color: inherit;
+        // background-color: $gray-100;
     }
 }
