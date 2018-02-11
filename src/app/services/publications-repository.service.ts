@@ -20,6 +20,8 @@ export class PublicationsRepositoryService {
       publication.img = element.img;
       publication.lead = element.lead;
       publication.title = element.title;
+      publication.hasGallery = element.hasGallery;
+      publication.hasVideo = element.hasVideo;
 
       publications.push(publication);
     });
