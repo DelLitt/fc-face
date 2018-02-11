@@ -4,4 +4,13 @@
     background-color: transparentize($primary, 0.25);
     padding-left: 10px;
     padding-right: 10px;
+
+    .carusel-caption-extra {
+        right: 0;
+        bottom: 0;
+    }
+
+    a {
+        color: $white;        
+    }
 }

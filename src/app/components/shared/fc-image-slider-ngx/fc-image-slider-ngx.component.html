@@ -1,9 +1,13 @@
 <carousel [(activeSlide)]="_activeSlide" (activeSlideChange)="onActiveSlideChange()">
   <slide *ngFor="let publication of publications index as i">
-    <img class="d-block w-100" [src]="publication.img" [alt]="publication.title">
+    <img class="d-block w-100" [src]="publication.img" [alt]="publication.title">    
     <div class="carousel-caption d-block">
-      <h4>{{publication.title}}</h4>
-      <p class="d-none d-md-inline">{{publication.header}}</p>
+        <div class="carusel-caption-extra text-tertiary position-absolute pr-2">
+          <i *ngIf="publication.hasGallery" class="fa fa-camera d-inline-block pl-2"></i>
+          <i *ngIf="publication.hasVideo" class="fa fa-video-camera d-inline-block pl-2"></i>
+        </div>
+      <h4><a [routerLink]="['/publication', publication.id]">{{publication.title}}</a></h4>
+      <div class="d-none d-md-inline"><a [routerLink]="['/publication', publication.id]">{{publication.header}}</a></div>
     </div>    
   </slide>
 </carousel>

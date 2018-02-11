@@ -2,13 +2,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { Publication } from '../../../model/publication';
 import { LogService } from '../../../services/log.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fc-image-slider-ngx',
   templateUrl: './fc-image-slider-ngx.component.html',
   styleUrls: ['./fc-image-slider-ngx.component.scss'],
   providers: [
-    { provide: CarouselConfig, useValue: { interval: 10000, noPause: false, showIndicators: true } }
+    { provide: CarouselConfig, useValue: { interval: 5000, noPause: false, showIndicators: true } }
   ]
 })
 export class FcImageSliderNgxComponent implements OnInit {
@@ -18,7 +19,7 @@ export class FcImageSliderNgxComponent implements OnInit {
 
   @Output() public activeSlideChange = new EventEmitter();
 
-  constructor(private logger: LogService) {
+  constructor(private logger: LogService, private router: Router) {
   }
 
   @Input() public get activeSlide() {
