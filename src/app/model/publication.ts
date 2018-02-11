@@ -4,6 +4,10 @@ export class Publication {
     public header: string;
     public img: string;
     public lead: string;
+    public content: string;
     public hasGallery: boolean;
     public hasVideo: boolean;
+    public author: string;
+    public displayDate: Date;
+    public sortDate: Date;
 }
