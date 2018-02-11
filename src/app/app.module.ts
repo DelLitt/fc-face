@@ -7,12 +7,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { GlobalComponentsModule } from './modules/global/global-components.module';
 import { MainComponentsModule } from './modules/main/main-components.module';
+import { PublicationComponentsModule } from '././modules/publications/publication-components.module';
 
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { HomeViewComponent } from './components/main/home-view/home-view.component';
-import { PublicationViewComponent } from './components/publications/publication-view/publication-view.component';
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -21,9 +21,7 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeViewComponent,
-    PageNotFoundComponent,
-    PublicationViewComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +35,8 @@ export function createTranslateLoader(http: HttpClient) {
   }),
   AppRoutingModule,
   GlobalComponentsModule,
-  MainComponentsModule
+  MainComponentsModule,
+  PublicationComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
