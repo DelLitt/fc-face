@@ -1,0 +1,17 @@
+<div class="p-3">
+  <h1 class="text-left pt-1 pb-3">{{publication.title}}
+    <br>
+    <small class="pl-4">{{publication.header}}</small>
+  </h1>
+  <img class="embed-responsive pull-left mt-1 mr-4 mb-3" [src]="publication.img" [alt]="publication.title">
+  <p>
+    <b>{{publication.lead}}</b>
+  </p>
+  <div>{{publication.content}}</div>
+  <div class="alert alert-secondary mt-3" role="alert">
+      <div class="row">
+          <div class="col-8 text-left">{{publication.displayDate | date:'yyyy-MM-dd HH:mm'}}</div>
+          <div class="col-4 text-right">{{publication.author}}</div>
+        </div>
+  </div>  
+</div>
