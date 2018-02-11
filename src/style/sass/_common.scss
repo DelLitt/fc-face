@@ -12,6 +12,21 @@ body {
 a, .btn-link {
     cursor: pointer;
 }
+.tertiary-links {
+    a {
+        color: $tertiary;
+    }
+
+    a:hover {
+        color: $secondary;
+    }
+
+    .breadcrumb-item {
+        &.active {
+            color: $gray-400;
+        }
+    }
+}
 
 #logo-brand-top {
     max-height: 120px;
