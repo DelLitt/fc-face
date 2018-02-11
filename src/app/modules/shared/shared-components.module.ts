@@ -4,6 +4,7 @@ import { AppRoutingModule } from '../../modules/app-routing/app-routing.module';
 import { CarouselModule } from 'ngx-bootstrap';
 import { FcImageSliderComponent } from '../../components/shared/fc-image-slider/fc-image-slider.component';
 import { FcImageSliderNgxComponent } from '../../components/shared/fc-image-slider-ngx/fc-image-slider-ngx.component';
+import { SocialNetworksLinksComponent } from '../../components/shared/social-networks-links/social-networks-links.component';
 
 @NgModule({
   imports: [
@@ -13,11 +14,13 @@ import { FcImageSliderNgxComponent } from '../../components/shared/fc-image-slid
   ],
   declarations: [
     FcImageSliderComponent,
-    FcImageSliderNgxComponent
+    FcImageSliderNgxComponent,
+    SocialNetworksLinksComponent
   ],
   exports: [
     FcImageSliderComponent,
-    FcImageSliderNgxComponent
+    FcImageSliderNgxComponent,
+    SocialNetworksLinksComponent
   ]
 })
 export class SharedComponentsModule { }
