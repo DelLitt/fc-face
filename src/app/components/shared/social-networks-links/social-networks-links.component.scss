@@ -1,0 +1,15 @@
+@import './src/style/sass/_variables.scss';
+
+.fa:focus, 
+.fa:hover, 
+.fa:active,
+a:focus, 
+a:hover, 
+a:active {
+    color: $secondary;
+}
+
+.btn:focus, .btn:hover {
+    text-decoration: none;
+    box-shadow: none;
+}
