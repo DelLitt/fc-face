@@ -7,6 +7,7 @@ export class Publication {
     public content: string;
     public hasGallery: boolean;
     public hasVideo: boolean;
+    public showImageInContent: boolean;
     public author: string;
     public displayDate: Date;
     public sortDate: Date;
