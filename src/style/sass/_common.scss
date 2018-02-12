@@ -12,6 +12,60 @@ body {
 a, .btn-link {
     cursor: pointer;
 }
+
+.fc-article {
+    padding: 0.25px;
+    font-size: 1.25rem;
+
+    .fc-heder {
+        @extend h2;
+        text-align: left;
+        padding: 0.75rem 0.25rem 0.75rem 0.25rem;
+
+        .fa, small {
+            color: $secondary;
+        }
+
+        .fa {
+            font-size: 1rem;
+            margin-left: 1rem;
+        }
+
+        small {
+            padding-left: 1rem;
+            font-weight: 300;
+            font-size: 75%;
+        }
+    }
+
+    img {
+        padding: 0.75rem 1.5rem 0.75rem 0.25rem;
+    }
+
+    .fc-data {
+        border-top: 1px solid $tertiary;
+        border-bottom: 1px solid $tertiary;
+        padding-top: 1rem;
+    }
+
+    .fc-lead {
+        font-weight: 500;
+        @extend p;
+    }
+
+    .fc-content {
+        @extend p;
+    }
+
+    .fc-footer {
+        @extend .alert;
+        @extend .alert-light;
+        margin: 0.5rem 0 0 0;
+        color: $tertiary;
+        font-weight: 300;
+    }
+}
+
 .tertiary-links {
     a {
         color: $tertiary;
