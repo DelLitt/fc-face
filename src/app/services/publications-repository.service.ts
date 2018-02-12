@@ -19,6 +19,7 @@ export class PublicationsRepositoryService {
     publication.title = element.title;
     publication.hasGallery = element.hasGallery;
     publication.hasVideo = element.hasVideo;
+    publication.showImageInContent = element.showImageInContent;
     publication.content = element.content;
     publication.author = element.author;
     publication.displayDate = new Date(element.displayDate);
