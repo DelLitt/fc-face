@@ -1,11 +1,11 @@
 $fa-font-path : '../../../node_modules/font-awesome/fonts';
+@import 'node_modules/bootstrap/scss/functions';
 
 $blue-var-a: #002B6E;
 $blue-var-b: #00378F;
 $blue-var-c: #1771FF;
 $blue-var-d: #7DAFFF;
 $blue-var-e: #ACCCFF;
-
 
 //
 // Color system
@@ -36,14 +36,15 @@ $teal:    #20c997;
 $cyan:    #17a2b8;
 
 $primary:       $blue;
-$secondary:     $blue-var-d;
+$secondary:     $blue-var-b;
 $tertiary:      $blue-var-e;
 $success:       $green;
-$info:          $blue-var-c;
+$info:          $blue-var-d;
 $warning:       $yellow;
 $danger:        $red;
-$light:         $gray-100;
+$light:         $blue-var-c;
 $dark:          $gray-800;
+$primary-muted: transparentize($primary, 0.55);
 
 
 // Body
@@ -51,7 +52,7 @@ $dark:          $gray-800;
 // Settings for the `<body>` element.
 
 $body-bg:                   $primary;
-$body-color:                $gray-900 !default;
+$body-color:                $gray-900;
 
 $theme-colors: ();
 $theme-colors: map-merge((
@@ -63,8 +64,16 @@ $theme-colors: map-merge((
     "warning":    $warning,
     "danger":     $danger,
     "light":      $light,
-    "dark":       $dark
+    "dark":       $dark,
+    "primary-muted": $primary-muted
   ), $theme-colors);
 
 
+// Borders
+//
+$border-color:                $primary-muted;
+
+
+// Links
+//
 $link-hover-decoration:     none;
