@@ -1,8 +1,9 @@
 @import './variables';
+@import 'node_modules/bootstrap/scss/functions';
 
 body {
     // background: $blue url("~/assets/bg-1.png") center;
-    background-color: #fff;
+    background-color: $white;
     background-size: cover;
     background-position: 0 0;
     background-repeat: no-repeat;
@@ -21,9 +22,10 @@ a, .btn-link {
         @extend h2;
         text-align: left;
         padding: 0.75rem 0.25rem 0.75rem 0.25rem;
+        color: theme-color("secondary");
 
         .fa, small {
-            color: $secondary;
+            color: theme-color("secondary");
         }
 
         .fa {
@@ -44,9 +46,9 @@ a, .btn-link {
     }
 
     .fc-data {
-        // border-top: 1px solid $gray-300;
-        border-bottom: 1px solid $tertiary;
-        // padding-top: 1rem;
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        padding-top: 1rem;
     }
 
     .fc-lead {
@@ -59,26 +61,24 @@ a, .btn-link {
     }
 
     .fc-footer {
-        @extend .alert;
-        @extend .alert-light;
-        margin: 0.5rem 0 0 0;
-        color: $tertiary;
+        padding: 1rem 0.25rem;
+        color: theme-color("secondary");
         font-weight: 300;
     }
 }
 
 .tertiary-links {
     a {
-        color: $tertiary;
+        color: theme-color("tertiary");
     }
 
     a:hover {
-        color: $secondary;
+        color: theme-color("info");
     }
 
     .breadcrumb-item {
         &.active {
-            color: $gray-400;
+            color: $gray-500;
         }
     }
 }
@@ -95,9 +95,9 @@ a, .btn-link {
 }
 
 .fc-bt-tertiary-2 {
-    border-top: 2px solid $tertiary;
+    border-top: 2px solid theme-color("tertiary");
 }
 
 .fc-bb-tertiary-2 {
-    border-bottom: 2px solid $tertiary;
+    border-bottom: 2px solid theme-color("tertiary");
 }
