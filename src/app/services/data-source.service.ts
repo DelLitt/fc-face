@@ -47,7 +47,6 @@ const publications = [
   {
     id: 2,
     title: 'Актуальные цены могут изменяться',
-    header: 'Цены указаны по состоянию на ноябрь',
     hasGallery: false,
     hasVideo: true,
     showImageInContent: true,
