@@ -40,12 +40,13 @@ a, .btn-link {
 
     img {
         padding: 0.75rem 1.5rem 0.75rem 0.25rem;
+        max-width: 600px;
     }
 
     .fc-data {
-        border-top: 1px solid $tertiary;
+        // border-top: 1px solid $gray-300;
         border-bottom: 1px solid $tertiary;
-        padding-top: 1rem;
+        // padding-top: 1rem;
     }
 
     .fc-lead {
