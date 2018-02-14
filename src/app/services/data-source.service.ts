@@ -1,27 +1,40 @@
 import { Injectable } from '@angular/core';
+import { Publication } from '../model/publication';
 
 @Injectable()
 export class DataSourceService {
 
   constructor() { }
 
-  public getPublication(id: number): any {
+  public getPublication(id: number): Promise<object> {
     return null;
   }
 
-  public getLatestPublications(count: Number) {
+  public getLatestPublications(count: Number): Promise<object[]> {
     return null;
   }
 }
 
 export class FakeDataSourceService extends DataSourceService {
 
-  public getPublication(id: number): any {
-    return publications.find(p => p.id === id);
+  public getPublication(id: number): Promise<object> {
+
+   return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const publication = publications.find(p => p.id === id);
+        resolve(publication);
+      }, 2000);
+    });
   }
 
-  public getLatestPublications(count: number) {
-    return publications.slice(0, count);
+  public getLatestPublications(count: number): Promise<object[]> {
+    return new Promise((resolve, reject) => {
+      let result: object[];
+      setTimeout(() => {
+        result = publications.slice(0, count);
+        resolve(result);
+      }, 2000);
+    });
   }
 }
 
