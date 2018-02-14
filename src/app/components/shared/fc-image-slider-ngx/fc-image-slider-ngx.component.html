@@ -3,7 +3,7 @@
     <img class="d-block w-100" [src]="publication.img" [alt]="publication.title">    
     <div class="carousel-caption d-block">
         <div class="carusel-caption-extra text-tertiary position-absolute pr-2">
-          <i *ngIf="publication.hasGallery" class="fa fa-camera d-inline-block pl-2"></i>
+          <i *ngIf="publication.galleryId > 0" class="fa fa-camera d-inline-block pl-2"></i>
           <i *ngIf="publication.hasVideo" class="fa fa-video-camera d-inline-block pl-2"></i>
         </div>
       <h4><a [routerLink]="['/publication', publication.id]">{{publication.title}}</a></h4>

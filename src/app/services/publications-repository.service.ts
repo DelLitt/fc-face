@@ -17,7 +17,7 @@ export class PublicationsRepositoryService {
     publication.img = element.img;
     publication.lead = element.lead;
     publication.title = element.title;
-    publication.hasGallery = element.hasGallery;
+    publication.galleryId = element.galleryId;
     publication.hasVideo = element.hasVideo;
     publication.showImageInContent = element.showImageInContent;
     publication.content = element.content;
@@ -41,7 +41,7 @@ export class PublicationsRepositoryService {
       publication.img = element.img;
       publication.lead = element.lead;
       publication.title = element.title;
-      publication.hasGallery = element.hasGallery;
+      publication.galleryId = element.galleryId;
       publication.hasVideo = element.hasVideo;
 
       publications.push(publication);

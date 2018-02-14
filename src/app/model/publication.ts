@@ -5,10 +5,10 @@ export class Publication {
     public img: string;
     public lead: string;
     public content: string;
-    public hasGallery: boolean;
     public hasVideo: boolean;
     public showImageInContent: boolean;
     public author: string;
     public displayDate: Date;
     public sortDate: Date;
+    public galleryId: number;
 }
