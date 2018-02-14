@@ -13,10 +13,10 @@
     .cover-var-d {
         @extend .col-12;
 
-        border: 1px solid $secondary;
+        border: 1px solid $border-color;
         border-radius: 0;
         height: auto;
-        min-height: 50rem;
+        min-height: 20rem;
         padding-top: 1rem;
     }
 
