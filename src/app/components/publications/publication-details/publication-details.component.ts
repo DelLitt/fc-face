@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { LogService } from '../../../services/log.service';
 import { PublicationsRepositoryService } from '../../../services/publications-repository.service';
 import { Publication } from '../../../model/publication';
-import { debug } from 'util';
 
 @Component({
   selector: 'app-publication-details',
