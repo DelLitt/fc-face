@@ -77,7 +77,7 @@ const publications = [
     id: 3,
     title: 'В этом году я видел много матчей "Тоттенхэма"',
     header: 'Они очень сильны, в команде сильная оборона и очень хорошая полузащита',
-    galleryId: 0,
+    galleryId: 203,
     hasVideo: false,
     showImageInContent: true,
     img: '/assets/img/_tmp/img-slide-3.png',
