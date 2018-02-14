@@ -24,7 +24,13 @@ export class PublicationDetailsComponent implements OnInit {
   }
 
   private loadPubliction() {
-    this.publication = this.publicationsRepository.getPubliction(this.id);
+    this.logger.logInfo(`'${(<any>this).constructor.name}' is trying to load the publication (id:${this.id}).`);
+
+    this.publicationsRepository.getPubliction(this.id)
+    .then(result => {
+      this.publication = result;
+      this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the publication (id:${this.id}) successfully.`);
+    });
   }
 
 }
