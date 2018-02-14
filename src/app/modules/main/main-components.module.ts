@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatProgressSpinnerModule } from '@angular/material';
 import { HomeViewComponent } from '../../components/main/home-view/home-view.component';
 import { MainBlockFirstComponent } from '../../components/main/main-block-first/main-block-first.component';
 import { MainSliderComponent } from '../../components/main/main-slider/main-slider.component';
@@ -10,7 +11,8 @@ import { PublicationsRepositoryService } from '../../services/publications-repos
 @NgModule({
   imports: [
     CommonModule,
-    SharedComponentsModule
+    SharedComponentsModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

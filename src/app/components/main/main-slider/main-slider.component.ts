@@ -12,7 +12,7 @@ const MaxLeadLength = 100;
   styleUrls: ['./main-slider.component.scss']
 })
 export class MainSliderComponent implements OnInit {
-  private _publications: Array<Publication> = null;
+  private publications: Array<Publication> = null;
   public index = 0;
 
   constructor(
@@ -22,15 +22,16 @@ export class MainSliderComponent implements OnInit {
 
   ngOnInit() {
     this.logger.logDebug(`'${(<any>this).constructor.name}' component is being initialized.`);
+    this.loadPublications();
   }
 
-  public get publications(): Array<Publication> {
-    if (this._publications == null) {
-      this._publications = this.publicationsRepository.getHotPublications();
-      this.logger.logInfo(`'${(<any>this).constructor.name}' loaded publications. Count: ${this.publications.length}.`);
-    }
-
-    return this._publications;
+  private loadPublications() {
+    this.logger.logInfo(`'${(<any>this).constructor.name}' is trying to get hot publications.`);
+    this.publicationsRepository.getHotPublications()
+      .then(result => {
+        this.publications = result;
+        this.logger.logInfo(`'${(<any>this).constructor.name}' loaded publications. Count: ${this.publications.length}.`);
+      });
   }
 
   private getLead(publication: Publication) {
