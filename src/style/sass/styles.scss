@@ -6,3 +6,9 @@
 @import 'covers.scss';
 @import 'flags.scss';
 @import './common';
+
+
+// Required for ngx-gallery
+.mat-sidenav-container, .mat-sidenav-content, .mat-tab-body-content {
+    transform: none !important;
+}
