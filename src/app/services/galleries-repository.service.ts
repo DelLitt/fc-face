@@ -16,8 +16,8 @@ export class GalleriesRepositoryService {
       this.dataSource.getGallery(id)
         .then(result => {
           if (result) {
-            const gallery: Gallery = this.ConvertResponseToGallery(result);
             this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the gallery (id:${id}) successfully.`);
+            const gallery: Gallery = this.ConvertResponseToGallery(result);
             resolve(gallery);
           } else {
             const errorMsg = `'${(<any>this).constructor.name}' not found the gallery (id:${id})!`;

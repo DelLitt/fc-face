@@ -14,12 +14,15 @@ export class PublicationsRepositoryService {
 
       this.dataSource.getPublication(id)
         .then(result => {
-          if (!result) { reject (`Publication ${id} is not found!`); }
-
-          const publication: Publication = this.ConvertResponseToPublication(result);
-          this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the publication (id:${id}) successfully.`);
-
-          resolve(publication);
+          if (result) {
+            const publication: Publication = this.ConvertResponseToPublication(result);
+            this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the publication (id:${id}) successfully.`);
+            resolve(publication);
+          } else {
+            const errorMsg = `'${(<any>this).constructor.name}' not found the publication (id:${id})!`;
+            this.logger.logError(errorMsg);
+            reject(new Error(errorMsg));
+          }
         });
     });
   }
@@ -30,12 +33,15 @@ export class PublicationsRepositoryService {
 
       this.dataSource.getLatestPublications(3)
         .then(result => {
-          if (!result) { reject (`No latest publications are found!`); }
-
-          const publications: Publication[] = this.ConvertResponseToHotPublications(result);
-          this.logger.logInfo(`'${(<any>this).constructor.name}' loaded publications successfully.`);
-
-          resolve(publications);
+          if (result) {
+            const publications: Publication[] = this.ConvertResponseToHotPublications(result);
+            this.logger.logInfo(`'${(<any>this).constructor.name}' loaded publications successfully.`);
+            resolve(publications);
+          } else {
+            const errorMsg = `'${(<any>this).constructor.name}' was unable to load the latest publications!`;
+            this.logger.logError(errorMsg);
+            reject(new Error(errorMsg));
+          }
         });
     });
   }
