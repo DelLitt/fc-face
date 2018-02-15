@@ -15,12 +15,15 @@ export class GalleriesRepositoryService {
 
       this.dataSource.getGallery(id)
         .then(result => {
-          if (!result) { reject (`Gallery ${id} is not found!`); }
-
-          const gallery: Gallery = this.ConvertResponseToGallery(result);
-          this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the gallery (id:${id}) successfully.`);
-
-          resolve(gallery);
+          if (result) {
+            const gallery: Gallery = this.ConvertResponseToGallery(result);
+            this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the gallery (id:${id}) successfully.`);
+            resolve(gallery);
+          } else {
+            const errorMsg = `'${(<any>this).constructor.name}' not found the gallery (id:${id})!`;
+            this.logger.logError(errorMsg);
+            reject(new Error(errorMsg));
+          }
         });
     });
   }
