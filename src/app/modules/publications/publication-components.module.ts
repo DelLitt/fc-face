@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatProgressSpinnerModule, MatExpansionModule } from '@angular/material';
+import { MatProgressSpinnerModule } from '@angular/material';
 import { SharedComponentsModule } from '../../modules/shared/shared-components.module';
 import { PublicationsRepositoryService } from '../../services/publications-repository.service';
 import { GalleriesRepositoryService } from '../../services/galleries-repository.service';
@@ -12,7 +12,6 @@ import { PublicationDetailsComponent } from '../../components/publications/publi
   imports: [
     CommonModule,
     MatProgressSpinnerModule,
-    MatExpansionModule,
     SharedComponentsModule
   ],
   declarations: [
