@@ -12,7 +12,8 @@ const MaxLeadLength = 100;
   styleUrls: ['./main-slider.component.scss']
 })
 export class MainSliderComponent implements OnInit {
-  private publications: Array<Publication> = null;
+  private _loaded = false;
+  private publications: Array<Publication> = new Array<Publication>();
   public index = 0;
 
   constructor(
@@ -26,11 +27,16 @@ export class MainSliderComponent implements OnInit {
   }
 
   private loadPublications() {
-    this.logger.logInfo(`'${(<any>this).constructor.name}' is trying to get hot publications.`);
+    this.logger.logDebug(`'${(<any>this).constructor.name}' is trying to get hot publications.`);
+
     this.publicationsRepository.getHotPublications()
       .then(result => {
         this.publications = result;
+        this._loaded = true;
         this.logger.logInfo(`'${(<any>this).constructor.name}' loaded publications. Count: ${this.publications.length}.`);
+      })
+      .catch(reason => {
+        this._loaded = true;
       });
   }
 
