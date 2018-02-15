@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
 import { PublicationsRepositoryService } from '../../../services/publications-repository.service';
 import { Publication } from '../../../model/publication';
 import { LogService } from '../../../services/log.service';
