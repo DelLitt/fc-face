@@ -10,7 +10,7 @@ export class PublicationsRepositoryService {
 
   public getPubliction(id: number): Promise<Publication> {
     return new Promise((resolve, reject) => {
-      this.logger.logInfo(`'${(<any>this).constructor.name}' started loading the publication (id:${id}).`);
+      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading the publication (id:${id}).`);
 
       this.dataSource.getPublication(id)
         .then(result => {
@@ -26,7 +26,7 @@ export class PublicationsRepositoryService {
 
   public getHotPublications(): Promise<Publication[]> {
     return new Promise((resolve, reject) => {
-      this.logger.logInfo(`'${(<any>this).constructor.name}' started loading hot publications.`);
+      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading hot publications.`);
 
       this.dataSource.getLatestPublications(3)
         .then(result => {
