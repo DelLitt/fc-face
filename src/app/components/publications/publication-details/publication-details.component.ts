@@ -5,6 +5,7 @@ import { Publication } from '../../../model/publication';
 import { GalleriesRepositoryService } from '../../../services/galleries-repository.service';
 import { Gallery } from '../../../model/gallery/gallery';
 import { GalleryItem } from '../../../model/gallery/galleryItem';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-publication-details',
@@ -13,15 +14,15 @@ import { GalleryItem } from '../../../model/gallery/galleryItem';
 })
 export class PublicationDetailsComponent implements OnInit {
 
-  private publication: Publication = null;
-  private gallery: Gallery = null;
-  private galleryItems: GalleryItem[] = null;
+  private _loaded = false;
+  private publication: Publication = new Publication();
 
   @Input() public id = 0;
 
   constructor(
     private publicationsRepository: PublicationsRepositoryService,
     private galleriesRepository: GalleriesRepositoryService,
+    private router: Router,
     private logger: LogService) { }
 
   ngOnInit() {
@@ -30,23 +31,16 @@ export class PublicationDetailsComponent implements OnInit {
   }
 
   private loadPubliction() {
-    this.logger.logInfo(`'${(<any>this).constructor.name}' is trying to load the publication (id:${this.id}).`);
+    this.logger.logDebug(`'${(<any>this).constructor.name}' is trying to load the publication (id:${this.id}).`);
 
     this.publicationsRepository.getPubliction(this.id)
     .then(result => {
       this.publication = result;
+      this._loaded = true;
       this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the publication (id:${this.id}) successfully.`);
-
-      this.loadGallery(this.publication.galleryId);
+    })
+    .catch(reason => {
+      this.router.navigate(['/not-found']);
     });
   }
-
-  private loadGallery(id: number) {
-    this.galleriesRepository.getGallery(id)
-    .then(result2 => {
-      this.gallery = result2;
-      this.galleryItems = this.gallery.items;
-    });
-  }
-
 }
