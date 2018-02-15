@@ -11,7 +11,7 @@ export class GalleriesRepositoryService {
 
   public getGallery(id: number): Promise<Gallery> {
     return new Promise((resolve, reject) => {
-      this.logger.logInfo(`'${(<any>this).constructor.name}' started loading the gallery (id:${id}).`);
+      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading the gallery (id:${id}).`);
 
       this.dataSource.getGallery(id)
         .then(result => {
