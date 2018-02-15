@@ -17,6 +17,10 @@ export class DataSourceService {
   public getGallery(id: number): Promise<object> {
     return null;
   }
+
+  public getVideo(id: number): Promise<object> {
+    return null;
+  }
 }
 
 export class FakeDataSourceService extends DataSourceService {
@@ -46,6 +50,15 @@ export class FakeDataSourceService extends DataSourceService {
       setTimeout(() => {
         const gallery = galleries.find(g => g.id === id);
         resolve(gallery);
+      }, 2000);
+    });
+  }
+
+  public getVideo(id: number): Promise<object> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const video = videos.find(v => v.id === id);
+        resolve(video);
       }, 2000);
     });
   }
@@ -156,3 +169,17 @@ const galleries = [
   }
 ];
 
+const videos = [
+  {
+    id: 301,
+    title: 'Видео номер 1',
+    header: 'Первая видео',
+    img: '/assets/img/_tmp/img-slide-1.png',
+    // tslint:disable-next-line:max-line-length
+    lead: 'Мне нравится, хотя предстоит научиться самому сложному: доносить свои знания до других. Хочу начать с юниоров. Но пока я игрок, так это в будущем. Кстати, я начал ходить на тренерские курсы.',
+    author: 'Пресс-служба СФК "Слуцк"',
+    displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
+    sortDate: new Date('Thu, 08 Jan 2017 15:31:12 GMT').toISOString(),
+    htmlCode: '<iframe width="640" height="360" src="https://www.youtube.com/embed/ifiI4bXxXFA" allowfullscreen></iframe>'
+  }
+];
