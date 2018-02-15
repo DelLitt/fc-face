@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { VideoRepositoryService } from './video-repository.service';
+import { VideosRepositoryService } from './videos-repository.service';
 
 describe('VideoRepositoryService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [VideoRepositoryService]
+      providers: [VideosRepositoryService]
     });
   });
 
-  it('should be created', inject([VideoRepositoryService], (service: VideoRepositoryService) => {
+  it('should be created', inject([VideosRepositoryService], (service: VideosRepositoryService) => {
     expect(service).toBeTruthy();
   }));
 });

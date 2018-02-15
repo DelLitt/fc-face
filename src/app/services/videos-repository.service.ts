@@ -4,7 +4,7 @@ import { LogService } from './log.service';
 import { Video } from '../model/video';
 
 @Injectable()
-export class VideoRepositoryService {
+export class VideosRepositoryService {
 
   constructor(
     private dataSource: DataSourceService,
