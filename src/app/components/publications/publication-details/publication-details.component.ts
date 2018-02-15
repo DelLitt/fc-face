@@ -4,7 +4,7 @@ import { PublicationsRepositoryService } from '../../../services/publications-re
 import { Publication } from '../../../model/publication';
 import { GalleriesRepositoryService } from '../../../services/galleries-repository.service';
 import { Gallery } from '../../../model/gallery/gallery';
-import { GalleryItem } from '../../../model/gallery/galleryItem';
+import { GalleryItem } from '../../../model/gallery/gallery-item';
 import { Router } from '@angular/router';
 
 @Component({

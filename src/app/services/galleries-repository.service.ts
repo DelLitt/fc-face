@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { DataSourceService } from './data-source.service';
 import { LogService } from './log.service';
 import { Gallery } from '../model/gallery/gallery';
-import { GalleryItem } from '../model/gallery/galleryItem';
+import { GalleryItem } from '../model/gallery/gallery-item';
 
 @Injectable()
 export class GalleriesRepositoryService {

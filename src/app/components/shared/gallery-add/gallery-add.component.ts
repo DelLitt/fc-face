@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation, NgxGalleryOrder } from 'ngx-gallery';
-import { GalleryItem } from '../../../model/gallery/galleryItem';
+import { GalleryItem } from '../../../model/gallery/gallery-item';
 import { Output } from '@angular/core/src/metadata/directives';
 import { ImageUtilityService } from '../../../services/utilities/image-utility.service';
 import { LogService } from '../../../services/log.service';

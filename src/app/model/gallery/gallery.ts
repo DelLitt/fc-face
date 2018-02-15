@@ -1,4 +1,4 @@
-import { GalleryItem } from './galleryItem';
+import { GalleryItem } from './gallery-item';
 
 export class Gallery {
     public id: number;
