@@ -18,8 +18,8 @@ export class GalleryAddComponent implements OnInit {
   @Input() heightFull = 650;
   @Input() widthMedium = 610;
   @Input() heightMedium = 440;
-  @Input() widthSmall = 900;
-  @Input() heightSmall = 650;
+  @Input() widthSmall = 380;
+  @Input() heightSmall = 275;
 
   private _items: GalleryItem[];
 
@@ -58,16 +58,16 @@ export class GalleryAddComponent implements OnInit {
       {
         width: this.widthFull + 'px',
         height: this.heightFull + 'px',
-        thumbnailsColumns: 4,
-        // thumbnailsRows : 1,
+        thumbnailsColumns: 8,
+        thumbnailsRows : 1,
         imageAnimation: NgxGalleryAnimation.Slide,
         thumbnailsOrder: NgxGalleryOrder.Column,
         previewCloseOnClick: true,
         previewCloseOnEsc: true
       },
-      // max-width 800
+      // max-width 992
       {
-        breakpoint: 800,
+        breakpoint: 992,
         width: this.widthMedium + 'px',
         height: this.heightMedium + 'px',
         imagePercent: 80,
@@ -75,9 +75,11 @@ export class GalleryAddComponent implements OnInit {
         thumbnailsMargin: 20,
         thumbnailMargin: 20
       },
-      // max-width 400
+      // max-width 768
       {
-        breakpoint: 400,
+        breakpoint: 768,
+        width: this.widthSmall + 'px',
+        height: this.heightSmall + 'px',
         preview: false
       }
     ];
