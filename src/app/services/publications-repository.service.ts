@@ -56,7 +56,7 @@ export class PublicationsRepositoryService {
     publication.lead = response.lead;
     publication.title = response.title;
     publication.galleryId = response.galleryId;
-    publication.hasVideo = response.hasVideo;
+    publication.videoId = response.videoId;
     publication.showImageInContent = response.showImageInContent;
     publication.content = response.content;
     publication.author = response.author;
@@ -80,7 +80,7 @@ export class PublicationsRepositoryService {
       publication.lead = element.lead;
       publication.title = element.title;
       publication.galleryId = element.galleryId;
-      publication.hasVideo = element.hasVideo;
+      publication.videoId = element.videoId;
 
       publications.push(publication);
     });
