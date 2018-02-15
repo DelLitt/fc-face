@@ -13,6 +13,10 @@ export class DataSourceService {
   public getLatestPublications(count: Number): Promise<object[]> {
     return null;
   }
+
+  public getGallery(id: number): Promise<object> {
+    return null;
+  }
 }
 
 export class FakeDataSourceService extends DataSourceService {
@@ -33,6 +37,15 @@ export class FakeDataSourceService extends DataSourceService {
       setTimeout(() => {
         result = publications.slice(0, count);
         resolve(result);
+      }, 2000);
+    });
+  }
+
+  public getGallery(id: number): Promise<object> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const gallery = galleries.find(g => g.id === id);
+        resolve(gallery);
       }, 2000);
     });
   }
@@ -108,6 +121,38 @@ const publications = [
     "Нет, он не игрок "Ювентуса",69 - говорит Гвилини в интервью для местного издания l’Unione Sarda. - Барелла - игрок "Кальяри" и на следующий сезон, и я действительно не думаю, что он может перейти в "Ювентус", даже если будет принято решение сменить команду".
     
     Гвилини стал президентом "Кальяри" в 2014 году, сменив на этом посту Массимо Челлино.`
+  }
+];
+
+const galleries = [
+  {
+    id: 201,
+    title: 'Фотогалерея номер 1',
+    header: 'Первая галерея',
+    img: '/assets/img/_tmp/img-slide-1.png',
+    // tslint:disable-next-line:max-line-length
+    lead: 'Кстати, я начал ходить на тренерские курсы. Мне нравится, хотя предстоит научиться самому сложному: доносить свои знания до других. Хочу начать с юниоров. Но пока я игрок, так это в будущем.',
+    author: 'Пресс-служба СФК "Слуцк"',
+    displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
+    sortDate: new Date('Thu, 08 Jan 2017 15:31:12 GMT').toISOString(),
+    items: [
+      {
+        title: 'Фотография номер 1',
+        imgSrc: '/assets/img/_tmp/img-slide-1.png'
+      },
+      {
+        title: 'Фотография номер 2',
+        imgSrc: '/assets/img/_tmp/img-slide-2.png'
+      },
+      {
+        title: 'Фотография номер 3',
+        imgSrc: '/assets/img/_tmp/img-slide-3.png'
+      },
+      {
+        title: 'Фотография номер 4',
+        imgSrc: '/assets/img/_tmp/img-slide-4.png'
+      }
+    ]
   }
 ];
 
