@@ -7,6 +7,7 @@ import { CarouselModule } from 'ngx-bootstrap';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { TextUtilityService } from '../../services/utilities/text-utility.service';
 import { ImageUtilityService } from '../../services/utilities/image-utility.service';
+import { GalleriesRepositoryService } from '../../services/galleries-repository.service';
 
 import { FcImageSliderComponent } from '../../components/shared/fc-image-slider/fc-image-slider.component';
 import { FcImageSliderNgxComponent } from '../../components/shared/fc-image-slider-ngx/fc-image-slider-ngx.component';
@@ -33,7 +34,8 @@ import { MediaAddComponent } from '../../components/shared/media-add/media-add.c
   ],
   providers: [
     TextUtilityService,
-    ImageUtilityService
+    ImageUtilityService,
+    GalleriesRepositoryService
   ],
   exports: [
     FcImageSliderComponent,

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material';
 import { SharedComponentsModule } from '../../modules/shared/shared-components.module';
 import { PublicationsRepositoryService } from '../../services/publications-repository.service';
-import { GalleriesRepositoryService } from '../../services/galleries-repository.service';
 
 import { PublicationViewComponent } from '../../components/publications/publication-view/publication-view.component';
 import { PublicationDetailsComponent } from '../../components/publications/publication-details/publication-details.component';
@@ -19,8 +18,7 @@ import { PublicationDetailsComponent } from '../../components/publications/publi
     PublicationDetailsComponent
   ],
   providers: [
-    PublicationsRepositoryService,
-    GalleriesRepositoryService
+    PublicationsRepositoryService
   ],
   exports: [
     PublicationViewComponent
