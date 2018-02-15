@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { Component, OnInit, Input } from '@angular/core';
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation, NgxGalleryOrder } from 'ngx-gallery';
+import { GalleryItem } from '../../../model/gallery/galleryItem';
+import { Output } from '@angular/core/src/metadata/directives';
+import { ImageUtilityService } from '../../../services/utilities/image-utility.service';
+import { LogService } from '../../../services/log.service';
 
 @Component({
   selector: 'app-gallery-add',
@@ -10,21 +14,62 @@ export class GalleryAddComponent implements OnInit {
   private galleryOptions: NgxGalleryOptions[];
   private galleryImages: NgxGalleryImage[];
 
-  constructor() { }
+  @Input() widthFull = 900;
+  @Input() heightFull = 650;
+  @Input() widthMedium = 610;
+  @Input() heightMedium = 440;
+  @Input() widthSmall = 900;
+  @Input() heightSmall = 650;
+
+  private _items: GalleryItem[];
+
+  constructor(
+    private imageUtility: ImageUtilityService,
+    private logger: LogService) { }
+
+  public get items(): GalleryItem[] {
+    return this._items;
+  }
+
+  @Input() public set items(value: GalleryItem[]) {
+    this._items = value || new Array<GalleryItem>();
+    this.initItems();
+  }
+
+  private initItems() {
+    const images: NgxGalleryImage[] = new Array<NgxGalleryImage>();
+
+    this.items.forEach(element => {
+      const src = element.imgSrc;
+      const galleryImage = new NgxGalleryImage({
+        small: this.imageUtility.addFileVariantSize(src, this.widthSmall, this.heightSmall),
+        medium:  this.imageUtility.addFileVariantSize(src, this.widthMedium, this.heightMedium),
+        big: this.imageUtility.addFileVariantSize(src, this.widthFull, this.heightFull)
+      });
+
+      images.push(galleryImage);
+    });
+
+    this.galleryImages = images;
+  }
 
   ngOnInit() {
     this.galleryOptions = [
       {
-        width: '600px',
-        height: '400px',
+        width: this.widthFull + 'px',
+        height: this.heightFull + 'px',
         thumbnailsColumns: 4,
-        imageAnimation: NgxGalleryAnimation.Slide
+        // thumbnailsRows : 1,
+        imageAnimation: NgxGalleryAnimation.Slide,
+        thumbnailsOrder: NgxGalleryOrder.Column,
+        previewCloseOnClick: true,
+        previewCloseOnEsc: true
       },
       // max-width 800
       {
         breakpoint: 800,
-        width: '100%',
-        height: '600px',
+        width: this.widthMedium + 'px',
+        height: this.heightMedium + 'px',
         imagePercent: 80,
         thumbnailsPercent: 20,
         thumbnailsMargin: 20,
@@ -34,29 +79,6 @@ export class GalleryAddComponent implements OnInit {
       {
         breakpoint: 400,
         preview: false
-      }
-    ];
-
-    this.galleryImages = [
-      {
-        small: '/assets/img/_tmp/img-slide-4.png',
-        medium: '/assets/img/_tmp/img-slide-4.png',
-        big: '/assets/img/_tmp/img-slide-4.png'
-      },
-      {
-        small: '/assets/img/_tmp/img-slide-3.png',
-        medium: '/assets/img/_tmp/img-slide-3.png',
-        big: '/assets/img/_tmp/img-slide-3.png'
-      },
-      {
-        small: '/assets/img/_tmp/img-slide-2.png',
-        medium: '/assets/img/_tmp/img-slide-2.png',
-        big: '/assets/img/_tmp/img-slide-2.png'
-      },
-      {
-        small: '/assets/img/_tmp/img-slide-1.png',
-        medium: '/assets/img/_tmp/img-slide-1.png',
-        big: '/assets/img/_tmp/img-slide-1.png'
       }
     ];
   }
