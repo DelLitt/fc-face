@@ -1,26 +1,25 @@
 <mat-accordion>
-    <!-- <mat-expansion-panel *ngIf="_videoId > 0" (opened)="loadVideo()">
+    <mat-expansion-panel *ngIf="_videoId > 0" (opened)="loadVideo()">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <h6 class="text-secondary">{{ 'VIDEO' | translate}}</h6>
+          <h6 class="text-secondary">{{ 'VIDEO' | translate }}</h6>
         </mat-panel-title>
         <mat-panel-description>
         </mat-panel-description>
-        <div *ngIf="!_loadedVideo" class="row">
-            <div class="col-12 d-flex justify-content-center">
-                <mat-spinner></mat-spinner>
-            </div>
-            <div *ngIf="!_loadedVideo" class="d-flex justify-content-center">
-                Hi video here!
-            </div>
-        </div>
       </mat-expansion-panel-header>
-      
-    </mat-expansion-panel> -->
+      <div *ngIf="!_loadedVideo" class="row">
+        <div class="col-12 d-flex justify-content-center">
+          <mat-spinner></mat-spinner>
+        </div>
+      </div>
+      <div *ngIf="_loadedVideo" class="d-flex justify-content-center">
+        <div [innerHTML]="videoPlayerCode"></div>
+      </div>    
+    </mat-expansion-panel>
     <mat-expansion-panel *ngIf="_galleryId > 0" (opened)="loadGallery()">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <h6 class="text-secondary">{{ 'PHOTO_GALLERY' | translate}}</h6>
+          <h6 class="text-secondary">{{ 'PHOTO_GALLERY' | translate }}</h6>
         </mat-panel-title>
         <mat-panel-description>
         </mat-panel-description>
