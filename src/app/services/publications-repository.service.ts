@@ -14,6 +14,8 @@ export class PublicationsRepositoryService {
 
       this.dataSource.getPublication(id)
         .then(result => {
+          if (!result) { reject (`Publication ${id} is not found!`); }
+
           const publication: Publication = this.ConvertResponseToPublication(result);
           this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the publication (id:${id}) successfully.`);
 
@@ -28,6 +30,8 @@ export class PublicationsRepositoryService {
 
       this.dataSource.getLatestPublications(3)
         .then(result => {
+          if (!result) { reject (`No latest publications are found!`); }
+
           const publications: Publication[] = this.ConvertResponseToHotPublications(result);
           this.logger.logInfo(`'${(<any>this).constructor.name}' loaded publications successfully.`);
 
