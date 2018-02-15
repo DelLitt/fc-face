@@ -9,5 +9,5 @@ export class Gallery {
     public author: string;
     public displayDate: Date;
     public sortDate: Date;
-    public items: Array<Gallery>;
+    public items: GalleryItem[];
 }
