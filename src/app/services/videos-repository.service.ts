@@ -17,11 +17,11 @@ export class VideosRepositoryService {
         this.dataSource.getVideo(id)
           .then(result => {
             if (result) {
-              this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the gallery (id:${id}) successfully.`);
+              this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the video (id:${id}) successfully.`);
               const video: Video = this.ConvertResponseToVideo(result);
               resolve(video);
             } else {
-              const errorMsg = `'${(<any>this).constructor.name}' not found the gallery (id:${id})!`;
+              const errorMsg = `'${(<any>this).constructor.name}' not found the video (id:${id})!`;
               this.logger.logError(errorMsg);
               reject(new Error(errorMsg));
             }
