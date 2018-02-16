@@ -2,6 +2,10 @@
 @import 'node_modules/font-awesome/scss/font-awesome';
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@ngx-share/button/styles/share-buttons';
+@import '~@ngx-share/button/styles/themes/default/default-theme';
+@import '~@ngx-share/button/styles/themes/outline/outline-theme';
+
 @import './mixins';
 @import 'covers.scss';
 @import 'flags.scss';
