@@ -19,6 +19,8 @@ import { SocialNetworksLinksComponent } from '../../components/shared/social-net
 import { SocialNetworksSharingComponent } from '../../components/shared/social-networks-sharing/social-networks-sharing.component';
 import { GalleryAddComponent } from '../../components/shared/gallery-add/gallery-add.component';
 import { MediaAddComponent } from '../../components/shared/media-add/media-add.component';
+import { PreviewPublicationComponent } from '../../components/shared/preview-publication/preview-publication.component';
+import { PreviewContentPanelComponent } from '../../components/shared/preview-content-panel/preview-content-panel.component';
 
 @NgModule({
   imports: [
@@ -37,7 +39,9 @@ import { MediaAddComponent } from '../../components/shared/media-add/media-add.c
     SocialNetworksLinksComponent,
     SocialNetworksSharingComponent,
     GalleryAddComponent,
-    MediaAddComponent
+    MediaAddComponent,
+    PreviewPublicationComponent,
+    PreviewContentPanelComponent
   ],
   providers: [
     TextUtilityService,
@@ -52,7 +56,9 @@ import { MediaAddComponent } from '../../components/shared/media-add/media-add.c
     SocialNetworksLinksComponent,
     SocialNetworksSharingComponent,
     GalleryAddComponent,
-    MediaAddComponent
+    MediaAddComponent,
+    PreviewPublicationComponent,
+    PreviewContentPanelComponent
   ]
 })
 export class SharedComponentsModule { }
