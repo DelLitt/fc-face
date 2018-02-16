@@ -7,13 +7,19 @@
   <div class="fc-heder">{{publication.title}}
     <span *ngIf="publication.header"><br><span class="fa fa-newspaper-o"></span><small>{{publication.header}}</small></span>
   </div>
-  <div class="fc-data">
+  <div class="fc-social-share justify-content-start">
+    <app-social-networks-sharing
+    [title]="publication.title"
+    [description]="publication.lead"
+    [imgSrcLocal]="publication.img"></app-social-networks-sharing>
+  </div>  
+  <div class="fc-data">     
     <img *ngIf="publication.showImageInContent" class="embed-responsive pull-left" [src]="publication.img" [alt]="publication.title">
     <div *ngIf="publication.lead" class="fc-lead">{{publication.lead}}</div>
     <div *ngIf="publication.content" class="fc-content">{{publication.content}}</div>
-    <div *ngIf="publication.galleryId > 0 || publication.videoId > 0">
-      <app-media-add  [galleryId]="publication.galleryId"  [videoId]="publication.videoId"></app-media-add>  
-    </div>
+    <div *ngIf="publication.galleryId > 0 || publication.videoId > 0" class="fc-add">
+        <app-media-add  [galleryId]="publication.galleryId" [videoId]="publication.videoId"></app-media-add>  
+      </div>    
   </div>
   <div class="fc-footer">
     <div class="row">
