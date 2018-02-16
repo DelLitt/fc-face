@@ -20,6 +20,7 @@ export class SocialNetworksSharingComponent implements OnInit {
 
   @Input() public set imgSrcLocal(value: string) {
     this.imgSrc = this.urlUtility.ToAbsolute(value);
+    this.logger.logDebug(`'${(<any>this).constructor.name}' local url ${value} was converted to absolute ${this.imgSrc}.`);
   }
 
   ngOnInit() {
