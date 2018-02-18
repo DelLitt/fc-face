@@ -31,9 +31,9 @@ export class MainSliderComponent implements OnInit {
   }
 
   @Input() public set publications(value: Array<Publication>) {
+    this._loaded = value ? true : false;
     this._publications = value || new Array<Publication>();
     this.index = 0;
-    this._loaded = true;
     this.logger.logInfo(`'${(<any>this).constructor.name}' received publications. Count: ${this._publications.length}.`);
   }
 

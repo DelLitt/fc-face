@@ -15,14 +15,10 @@ import { Router } from '@angular/router';
 })
 export class HomeViewComponent implements OnInit {
 
-  private _loadedPublications = false;
-  private _loadedVideos = false;
-  private _loadedGalleries = false;
-
-  private actualPublications: Publication[] = new Array<Publication>();
-  private publications: Publication[] = new Array<Publication>();
-  private videos: Video[] = new Array<Video>();
-  private galleries: Gallery[] = new Array<Gallery>();
+  private actualPublications: Publication[] = null;
+  private publications: Publication[] = null;
+  private videos: Video[] = null;
+  private galleries: Gallery[] = null;
 
   constructor(
     private publicationsRepository: PublicationsRepositoryService,
@@ -47,7 +43,6 @@ export class HomeViewComponent implements OnInit {
         result => {
           this.publications = result;
           this.actualPublications = this.publications.slice(0, 3);
-          this._loadedPublications = true;
           this.logger.logInfo(`'${(<any>this).constructor.name}' loaded publications. Count: ${this.publications.length}.`);
         },
         err => {
@@ -66,7 +61,6 @@ export class HomeViewComponent implements OnInit {
       .then(
         result => {
           this.videos = result;
-          this._loadedVideos = true;
           this.logger.logInfo(`'${(<any>this).constructor.name}' loaded videos. Count: ${this.videos.length}.`);
         },
         err => {
@@ -85,7 +79,6 @@ export class HomeViewComponent implements OnInit {
       .then(
         result => {
           this.galleries = result;
-          this._loadedGalleries = true;
           this.logger.logInfo(`'${(<any>this).constructor.name}' loaded galleries. Count: ${this.galleries.length}.`);
         },
         err => {
@@ -98,9 +91,11 @@ export class HomeViewComponent implements OnInit {
   }
 
   private rollback(msg: string) {
-    this._loadedPublications = true;
-    this._loadedVideos = true;
-    this._loadedGalleries = true;
+    this.actualPublications = new Array<Publication>();
+    this.publications = new Array<Publication>();
+    this.videos = new Array<Video>();
+    this.galleries = new Array<Gallery>();
+
     this.logger.logInfo(`'${(<any>this).constructor.name}' failed: ${msg}.`);
   }
 
