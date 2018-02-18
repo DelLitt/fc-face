@@ -41,6 +41,10 @@
     .cover-var-d {        
         background: $blue;
         color: $gray-100;
+
+        a {
+            color: $white;
+        }
     }
 
     .cover-container {
