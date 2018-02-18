@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Entity } from '../../../model/entity';
+import { LogService } from '../../../services/log.service';
 
 @Component({
   selector: 'app-preview-content-panel',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreviewContentPanelComponent implements OnInit {
 
-  constructor() { }
+  private _items: Entity[] = new Array<Entity>();
+
+  @Input() public routePart: string;
+
+  constructor(
+    private logger: LogService
+  ) { }
 
   ngOnInit() {
+  }
+
+  public get items(): Entity[] {
+    return this._items;
+  }
+
+  @Input() public set items(value: Entity[]) {
+    this._items = value || new Array<Entity>();
+    this.logger.logInfo(`'${(<any>this).constructor.name}' received items. Count: ${this._items.length}.`);
   }
 
 }
