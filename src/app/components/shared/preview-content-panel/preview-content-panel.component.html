@@ -1,4 +1,9 @@
-<div class="row d-flex flex-wrap align-content-stretch">
+<div *ngIf="!_loaded" class="row">
+    <div class="col-12 d-flex justify-content-center">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>
+<div *ngIf="_loaded" class="row d-flex flex-wrap align-content-stretch">
   <div *ngFor="let item of items" class="col-12 col-sm-6 col-md-4 mt-2">
     <app-preview-publication 
       [item]="item" 

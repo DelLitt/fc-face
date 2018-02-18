@@ -9,6 +9,7 @@ import { LogService } from '../../../services/log.service';
 })
 export class PreviewContentPanelComponent implements OnInit {
 
+  private _loaded = false;
   private _items: Entity[] = new Array<Entity>();
 
   @Input() public routePart: string;
@@ -25,6 +26,7 @@ export class PreviewContentPanelComponent implements OnInit {
   }
 
   @Input() public set items(value: Entity[]) {
+    this._loaded = value ? true : false;
     this._items = value || new Array<Entity>();
     this.logger.logInfo(`'${(<any>this).constructor.name}' received items. Count: ${this._items.length}.`);
   }
