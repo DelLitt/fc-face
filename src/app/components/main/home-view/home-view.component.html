@@ -1,7 +1,7 @@
 <section class="cover">
     <div class="cover-var-b">
         <div class="cover-container d-flex align-items-center">
-            <app-main-slider></app-main-slider>
+            <app-main-slider [publications]="actualPublications"></app-main-slider>
         </div>
     </div>
 </section>
@@ -9,7 +9,10 @@
     <div class="cover-var-d">
         <div class="cover-container">
             <h3>{{ 'NEWS' | translate }}</h3>
-            <app-preview-content-panel></app-preview-content-panel>
+            <app-preview-content-panel 
+                [routePart]="'/publications'"
+                [items]="publications">
+            </app-preview-content-panel>
         </div>
     </div>
 </section>
@@ -17,7 +20,10 @@
     <div class="cover-var-b">
         <div class="cover-container">
             <h3>{{ 'VIDEO' | translate }}</h3>
-            <app-preview-content-panel></app-preview-content-panel>
+            <app-preview-content-panel 
+                [routePart]="'/videos'" 
+                [items]="videos">
+            </app-preview-content-panel>
         </div>
     </div>
 </section>
@@ -25,7 +31,10 @@
     <div class="cover-var-d">
         <div class="cover-container">
             <h3>{{ 'PHOTO' | translate }}</h3>
-            <app-preview-content-panel></app-preview-content-panel>
+            <app-preview-content-panel 
+                [routePart]="'/galleries'" 
+                [items]="galleries">
+            </app-preview-content-panel>
         </div>
     </div>
 </section>
