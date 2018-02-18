@@ -12,10 +12,10 @@ export class PublicationsRepositoryService {
     return new Promise((resolve, reject) => {
       this.logger.logDebug(`'${(<any>this).constructor.name}' started loading the publication (id:${id}).`);
 
-      this.dataSource.getPublication(id)
+      this.dataSource.getEntity(id, 'publications')
         .then(result => {
           if (result) {
-            const publication: Publication = this.ConvertResponseToPublication(result);
+            const publication: Publication = this.convertResponseToPublication(result);
             this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the publication (id:${id}) successfully.`);
             resolve(publication);
           } else {
@@ -27,18 +27,18 @@ export class PublicationsRepositoryService {
     });
   }
 
-  public getHotPublications(): Promise<Publication[]> {
+  public getPublications(count: number, skip: number = 0): Promise<Publication[]> {
     return new Promise((resolve, reject) => {
-      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading hot publications.`);
+      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading publications.`);
 
-      this.dataSource.getLatestPublications(3)
+      this.dataSource.getEntities(count, skip, 'publications')
         .then(result => {
           if (result) {
-            const publications: Publication[] = this.ConvertResponseToHotPublications(result);
+            const publications: Publication[] = this.convertResponseToPublications(result);
             this.logger.logInfo(`'${(<any>this).constructor.name}' loaded publications successfully.`);
             resolve(publications);
           } else {
-            const errorMsg = `'${(<any>this).constructor.name}' was unable to load the latest publications!`;
+            const errorMsg = `'${(<any>this).constructor.name}' was unable to load publications!`;
             this.logger.logError(errorMsg);
             reject(new Error(errorMsg));
           }
@@ -46,14 +46,35 @@ export class PublicationsRepositoryService {
     });
   }
 
-  private ConvertResponseToPublication(response: any): Publication {
+  private convertResponseToPublications(response: Array<any>): Publication[] {
+    const data: Array<any> = response || [];
+    if (data.length === 0) { return new Array<Publication>(); }
+
+    const publications: Publication[] = new Array<Publication>();
+    data.forEach(element => {
+      const publication = new Publication();
+      publication.id = element.id;
+      publication.header = element.header;
+      publication.img = element.img;
+      publication.description = element.lead;
+      publication.title = element.title;
+      publication.galleryId = element.galleryId;
+      publication.videoId = element.videoId;
+
+      publications.push(publication);
+    });
+
+    return publications;
+  }
+
+  private convertResponseToPublication(response: any): Publication {
     if (!response) { return null; }
 
     const publication = new Publication();
     publication.id = response.id;
     publication.header = response.header;
     publication.img = response.img;
-    publication.lead = response.lead;
+    publication.description = response.lead;
     publication.title = response.title;
     publication.galleryId = response.galleryId;
     publication.videoId = response.videoId;
@@ -64,27 +85,5 @@ export class PublicationsRepositoryService {
     publication.sortDate = new Date(response.sortDate);
 
     return publication;
-  }
-
-  private ConvertResponseToHotPublications(response: Array<any>): Publication[] {
-    const data: Array<any> = response || [];
-    if (data.length === 0) { return new Array<Publication>(); }
-
-    const publications: Publication[] = new Array<Publication>();
-
-    data.forEach(element => {
-      const publication = new Publication();
-      publication.id = element.id;
-      publication.header = element.header;
-      publication.img = element.img;
-      publication.lead = element.lead;
-      publication.title = element.title;
-      publication.galleryId = element.galleryId;
-      publication.videoId = element.videoId;
-
-      publications.push(publication);
-    });
-
-    return publications;
   }
 }

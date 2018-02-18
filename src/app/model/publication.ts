@@ -1,9 +1,11 @@
-export class Publication {
+import { Entity } from './entity';
+
+export class Publication implements Entity {
     public id: number;
     public title: string;
     public header: string;
     public img: string;
-    public lead: string;
+    public description: string;
     public content: string;
     public showImageInContent: boolean;
     public author: string;

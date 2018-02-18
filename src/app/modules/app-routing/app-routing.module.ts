@@ -8,7 +8,7 @@ import { PublicationViewComponent } from '../../components/publications/publicat
 
 const routes: Routes = [
   { path: 'home', component: HomeViewComponent },
-  { path: 'publication/:id', component: PublicationViewComponent },
+  { path: 'publications/:id', component: PublicationViewComponent },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '', component: HomeViewComponent },
   { path: '**', component: PageNotFoundComponent }

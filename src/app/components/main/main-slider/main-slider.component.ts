@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { PublicationsRepositoryService } from '../../../services/publications-repository.service';
 import { Publication } from '../../../model/publication';
@@ -13,35 +13,32 @@ const MaxLeadLength = 100;
 })
 export class MainSliderComponent implements OnInit {
   private _loaded = false;
-  private publications: Array<Publication> = new Array<Publication>();
+  private _publications: Publication[] = new Array<Publication>();
   public index = 0;
 
   constructor(
     private publicationsRepository: PublicationsRepositoryService,
     private logger: LogService,
-    private router: Router) { }
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.logger.logDebug(`'${(<any>this).constructor.name}' component is being initialized.`);
-    this.loadPublications();
   }
 
-  private loadPublications() {
-    this.logger.logDebug(`'${(<any>this).constructor.name}' is trying to get hot publications.`);
+  public get publications(): Array<Publication> {
+    return this._publications;
+  }
 
-    this.publicationsRepository.getHotPublications()
-      .then(result => {
-        this.publications = result;
-        this._loaded = true;
-        this.logger.logInfo(`'${(<any>this).constructor.name}' loaded publications. Count: ${this.publications.length}.`);
-      })
-      .catch(reason => {
-        this._loaded = true;
-      });
+  @Input() public set publications(value: Array<Publication>) {
+    this._publications = value || new Array<Publication>();
+    this.index = 0;
+    this._loaded = true;
+    this.logger.logInfo(`'${(<any>this).constructor.name}' received publications. Count: ${this._publications.length}.`);
   }
 
   private getLead(publication: Publication) {
-    const lead: string = (publication.lead || '');
+    const lead: string = (publication.description || '');
     return lead.length < MaxLeadLength ? lead : lead.substring(0, MaxLeadLength) + '...';
   }
 
@@ -54,7 +51,7 @@ export class MainSliderComponent implements OnInit {
 
     if (this.index === value.index) {
       this.logger.logInfo(`'${(<any>this).constructor.name}'. Navigate to preview ${value.id}.`);
-      this.router.navigate(['/publication', value.id]);
+      this.router.navigate(['/publications', value.id]);
       return;
     }
 

@@ -9,7 +9,7 @@ import { LogService } from '../../../services/log.service';
 })
 export class FcImageSliderComponent implements OnInit {
 
-  _publications: Array<Publication> = new Array<Publication>();
+  private _publications: Publication[] = new Array<Publication>();
 
   constructor(private logger: LogService) {
   }

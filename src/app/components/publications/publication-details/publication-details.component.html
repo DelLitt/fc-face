@@ -10,12 +10,12 @@
   <div class="fc-social-share justify-content-start">
     <app-social-networks-sharing
     [title]="publication.title"
-    [description]="publication.lead"
+    [description]="publication.description"
     [imgSrcLocal]="publication.img"></app-social-networks-sharing>
   </div>  
   <div class="fc-data">     
     <img *ngIf="publication.showImageInContent" class="embed-responsive pull-left" [src]="publication.img" [alt]="publication.title">
-    <div *ngIf="publication.lead" class="fc-lead">{{publication.lead}}</div>
+    <div *ngIf="publication.description" class="fc-lead">{{publication.description}}</div>
     <div *ngIf="publication.content" class="fc-content">{{publication.content}}</div>
     <div *ngIf="publication.galleryId > 0 || publication.videoId > 0" class="fc-add">
         <app-media-add  [galleryId]="publication.galleryId" [videoId]="publication.videoId"></app-media-add>  

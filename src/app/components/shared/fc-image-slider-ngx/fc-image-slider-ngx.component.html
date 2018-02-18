@@ -6,8 +6,8 @@
           <i *ngIf="publication.galleryId > 0" class="fa fa-camera d-inline-block pl-2"></i>
           <i *ngIf="publication.videoId > 0" class="fa fa-video-camera d-inline-block pl-2"></i>
         </div>
-      <h4><a [routerLink]="['/publication', publication.id]">{{publication.title}}</a></h4>
-      <div class="d-none d-md-inline"><a [routerLink]="['/publication', publication.id]">{{publication.header}}</a></div>
+      <h4><a [routerLink]="['/publications', publication.id]">{{publication.title}}</a></h4>
+      <div class="d-none d-md-inline"><a [routerLink]="['/publications', publication.id]">{{publication.header}}</a></div>
     </div>    
   </slide>
 </carousel>

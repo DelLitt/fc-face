@@ -8,41 +8,83 @@ export class VideosRepositoryService {
 
   constructor(
     private dataSource: DataSourceService,
-    private logger: LogService) { }
+    private logger: LogService
+  ) { }
 
-    public getVideo(id: number): Promise<Video> {
-      return new Promise((resolve, reject) => {
-        this.logger.logDebug(`'${(<any>this).constructor.name}' started loading the video (id:${id}).`);
+  public getVideo(id: number): Promise<Video> {
+    return new Promise((resolve, reject) => {
+      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading the video (id:${id}).`);
 
-        this.dataSource.getVideo(id)
-          .then(result => {
-            if (result) {
-              this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the video (id:${id}) successfully.`);
-              const video: Video = this.ConvertResponseToVideo(result);
-              resolve(video);
-            } else {
-              const errorMsg = `'${(<any>this).constructor.name}' not found the video (id:${id})!`;
-              this.logger.logError(errorMsg);
-              reject(new Error(errorMsg));
-            }
-          });
-      });
-    }
+      this.dataSource.getEntity(id, 'videos')
+        .then(result => {
+          if (result) {
+            this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the video (id:${id}) successfully.`);
+            const video: Video = this.convertResponseToVideo(result);
+            resolve(video);
+          } else {
+            const errorMsg = `'${(<any>this).constructor.name}' not found the video (id:${id})!`;
+            this.logger.logError(errorMsg);
+            reject(new Error(errorMsg));
+          }
+        });
+    });
+  }
 
-    private ConvertResponseToVideo(response: any): Video {
-      if (!response) { return null; }
+  public getVideos(count: number, skip: number = 0): Promise<Video[]> {
+    return new Promise((resolve, reject) => {
+      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading videos.`);
 
+      this.dataSource.getEntities(count, skip, 'videos')
+        .then(result => {
+          if (result) {
+            const videos: Video[] = this.convertResponseToVideos(result);
+            this.logger.logInfo(`'${(<any>this).constructor.name}' loaded videos successfully.`);
+            resolve(videos);
+          } else {
+            const errorMsg = `'${(<any>this).constructor.name}' was unable to load videos!`;
+            this.logger.logError(errorMsg);
+            reject(new Error(errorMsg));
+          }
+        });
+    });
+  }
+
+  private convertResponseToVideos(response: Array<any>): Video[] {
+    const data: Array<any> = response || [];
+    if (data.length === 0) { return new Array<Video>(); }
+
+    const videos: Video[] = new Array<Video>();
+    data.forEach(element => {
       const video = new Video();
-      video.author = response.author;
-      video.displayDate = new Date(response.displayDate);
-      video.header = response.header;
-      video.htmlCode = response.htmlCode;
-      video.id = response.id;
-      video.img = response.img;
-      video.lead = response.lead;
-      video.sortDate = new Date(response.sortDate);
-      video.title = response.title;
+      video.id = element.id;
+      video.header = element.header;
+      video.img = element.img;
+      video.description = element.lead;
+      video.title = element.title;
+      video.htmlCode = element.htmlCode;
+      video.displayDate = new Date(element.displayDate);
+      video.sortDate = new Date(element.sortDate);
 
-      return video;
-    }
+      videos.push(video);
+    });
+
+    return videos;
+  }
+
+  private convertResponseToVideo(response: any): Video {
+    if (!response) { return null; }
+
+    const video = new Video();
+    video.author = response.author;
+    video.displayDate = new Date(response.displayDate);
+    video.header = response.header;
+    video.htmlCode = response.htmlCode;
+    video.id = response.id;
+    video.img = response.img;
+    video.description = response.lead;
+    video.sortDate = new Date(response.sortDate);
+    video.title = response.title;
+
+    return video;
+  }
 }

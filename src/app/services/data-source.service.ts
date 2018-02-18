@@ -6,60 +6,32 @@ export class DataSourceService {
 
   constructor() { }
 
-  public getPublication(id: number): Promise<object> {
+  public getEntity(id: number, entityType: string): Promise<object> {
     return null;
   }
 
-  public getLatestPublications(count: Number): Promise<object[]> {
-    return null;
-  }
-
-  public getGallery(id: number): Promise<object> {
-    return null;
-  }
-
-  public getVideo(id: number): Promise<object> {
+  public getEntities(count: number, skip: number, entityType: string): Promise<object[]> {
     return null;
   }
 }
 
 export class FakeDataSourceService extends DataSourceService {
 
-  public getPublication(id: number): Promise<object> {
-
-   return new Promise((resolve, reject) => {
+  public getEntity(id: number, entityType: string): Promise<object> {
+    return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const publication = publications.find(p => p.id === id);
-        resolve(publication);
-      }, 2000);
+        const entity: object = db[entityType].find(p => p.id === id);
+        resolve(entity);
+      }, 1000);
     });
   }
 
-  public getLatestPublications(count: number): Promise<object[]> {
-    return new Promise((resolve, reject) => {
-      let result: object[];
-      setTimeout(() => {
-        result = publications.slice(0, count);
-        resolve(result);
-      }, 2000);
-    });
-  }
-
-  public getGallery(id: number): Promise<object> {
+  public getEntities(count: number, skip: number, entityType: string): Promise<object[]> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const gallery = galleries.find(g => g.id === id);
-        resolve(gallery);
-      }, 2000);
-    });
-  }
-
-  public getVideo(id: number): Promise<object> {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const video = videos.find(v => v.id === id);
-        resolve(video);
-      }, 2000);
+        const entities: Array<object> = db[entityType].slice(0, count);
+        resolve(entities);
+      }, 1000);
     });
   }
 }
@@ -183,3 +155,10 @@ const videos = [
     htmlCode: '<iframe width="640" height="360" src="https://www.youtube.com/embed/ifiI4bXxXFA" allowfullscreen></iframe>'
   }
 ];
+
+
+const db = {
+  publications,
+  galleries,
+  videos
+};
