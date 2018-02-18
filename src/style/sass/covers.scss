@@ -21,11 +21,14 @@
     }
 
     .cover-var-a {        
-        // background: $blue url("static/cover-bg-2.png") center;
+        background: $blue url("/assets/img/skin/cover-bg-2.png") center;
         background-size: cover;
         background-position: 50% 50%;
-        color: $white;
-
+        color: $gray-100;
+        
+        a {
+            color: $white;
+        }
     }
 
     .cover-var-b {        
