@@ -1,6 +1,6 @@
 <section class="cover">
     <div class="cover-var-b">
-        <div class="cover-container d-flex align-items-center">
+        <div class="cover-container align-items-center" [class.d-flex]="_actualPublicationsLoaded">
             <app-main-slider [publications]="actualPublications"></app-main-slider>
         </div>
     </div>

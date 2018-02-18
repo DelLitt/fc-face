@@ -4,10 +4,10 @@
     </div>
 </div>
 <div *ngIf="_loaded" class="row">
-    <div class="col-lg-8 align-self-top">
+    <div class="col-lg-8">
         <app-fc-image-slider-ngx [publications]="publications" [(activeSlide)]="index" (activeSlideChange)="onActiveSlideChange()"></app-fc-image-slider-ngx>
     </div>
-    <div class="d-none d-lg-block col-lg-4 align-self-top">
+    <div class="d-none d-lg-block col-lg-4">
         <div class="publication-preview" *ngFor="let publication of publications index as i" [class.active]="i==index" (click)="selectPreview({index: i, id: publication.id})">
             <h5 class="d-none d-xl-block">{{publication.title}}</h5>
             <p>{{getLead(publication)}}</p>

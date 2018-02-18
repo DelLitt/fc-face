@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class HomeViewComponent implements OnInit {
 
+  private _actualPublicationsLoaded = false;
   private actualPublications: Publication[] = null;
   private publications: Publication[] = null;
   private videos: Video[] = null;
@@ -43,6 +44,7 @@ export class HomeViewComponent implements OnInit {
         result => {
           this.publications = result;
           this.actualPublications = this.publications.slice(0, 3);
+          this._actualPublicationsLoaded = true;
           this.logger.logInfo(`'${(<any>this).constructor.name}' loaded publications. Count: ${this.publications.length}.`);
         },
         err => {
@@ -91,6 +93,7 @@ export class HomeViewComponent implements OnInit {
   }
 
   private rollback(msg: string) {
+    this._actualPublicationsLoaded = true;
     this.actualPublications = new Array<Publication>();
     this.publications = new Array<Publication>();
     this.videos = new Array<Video>();
