@@ -48,3 +48,22 @@ a, .btn-link {
 .fc-bb-tertiary-2 {
     border-bottom: 2px solid theme-color("tertiary");
 }
+
+.publication-preview {
+    height: 256px;;
+    overflow: hidden;
+    // border: 1px solid theme-color("tertiary");
+    text-overflow: ellipsis;
+    // padding: 15px;
+    margin-bottom: 12px;
+    background-color: transparentize(theme-color("primary"), 0.5);
+
+    // img {
+    //     padding: 5px;
+    // }
+
+    .publication-preview-text {
+        padding: 3px 10px;
+    }
+}
+
