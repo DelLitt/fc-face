@@ -1,7 +1,7 @@
 <div class="publication-preview">
   <img *ngIf="item.img" class="embed-responsive" [src]="item.img">
   <div class="publication-preview-text">
-    <h5><a [routerLink]="[routePart, item.id]">{{ item.title }}</a></h5>
-    <div *ngIf="!item.img && item.description">{{ item.description }}</div>
+    <h6 class="text-uppercase mt-2 mb-3"><a [routerLink]="[routePart, item.id]">{{ title }}</a></h6>
+    <div *ngIf="!item.img && description" class="publication-preview-description" >{{ description }}</div>
   </div>
 </div>
