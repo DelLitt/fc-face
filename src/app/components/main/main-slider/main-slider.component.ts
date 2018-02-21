@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { PublicationsRepositoryService } from '../../../services/publications-repository.service';
 import { Publication } from '../../../model/publication';
 import { LogService } from '../../../services/log.service';
+import { TextUtilityService } from '../../../services/utilities/text-utility.service';
 
 const MaxLeadLength = 100;
 
@@ -18,6 +19,7 @@ export class MainSliderComponent implements OnInit {
 
   constructor(
     private publicationsRepository: PublicationsRepositoryService,
+    private textUtility: TextUtilityService,
     private logger: LogService,
     private router: Router
   ) { }
@@ -38,8 +40,7 @@ export class MainSliderComponent implements OnInit {
   }
 
   private getLead(publication: Publication) {
-    const lead: string = (publication.description || '');
-    return lead.length < MaxLeadLength ? lead : lead.substring(0, MaxLeadLength) + '...';
+    return this.textUtility.cropWithEllipsis(publication.description);
   }
 
   private onActiveSlideChange() {

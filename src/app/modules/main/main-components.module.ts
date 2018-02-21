@@ -7,6 +7,7 @@ import { MainSliderComponent } from '../../components/main/main-slider/main-slid
 import { SharedComponentsModule } from '../../modules/shared/shared-components.module';
 import { DataSourceService, FakeDataSourceService } from '../../services/data-source.service';
 import { PublicationsRepositoryService } from '../../services/publications-repository.service';
+import { TextUtilityService } from '../../services/utilities/text-utility.service';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { PublicationsRepositoryService } from '../../services/publications-repos
     TranslateModule
   ],
   providers: [
+    TextUtilityService,
     {
       provide: DataSourceService,
       useClass: FakeDataSourceService
