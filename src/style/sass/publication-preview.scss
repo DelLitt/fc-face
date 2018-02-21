@@ -4,11 +4,9 @@
 .publication-preview {
     height: 256px;;
     overflow: hidden;
-    margin-bottom: 12px;
-    background-color: transparentize(theme-color("primary"), 0.5);
 
     .publication-preview-text {
-        padding: 3px 10px;
+        padding: 2px 6px;
 
         h1, h2, h3, h4, h5, h6 {
             font-weight: 400;
@@ -17,7 +15,7 @@
 
         .publication-preview-description {
             overflow: hidden;
-            max-height: 170px;
+            max-height: 192px;
             font-weight: 300;
         }
     }
