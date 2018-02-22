@@ -1,6 +1,6 @@
 <carousel [(activeSlide)]="_activeSlide" (activeSlideChange)="onActiveSlideChange()">
   <slide *ngFor="let publication of publications index as i">
-    <img class="d-block w-100" [src]="publication.img" [alt]="publication.title">    
+    <img class="d-block w-100" [src]="getImage(publication.img, 730, 410)" [alt]="publication.title">    
     <div class="carousel-caption d-block">
         <div class="carusel-caption-extra text-tertiary position-absolute pr-2">
           <i *ngIf="publication.galleryId > 0" class="fa fa-camera d-inline-block pl-2"></i>

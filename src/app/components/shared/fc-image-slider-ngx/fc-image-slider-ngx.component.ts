@@ -3,6 +3,7 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { Publication } from '../../../model/publication';
 import { LogService } from '../../../services/log.service';
 import { Router } from '@angular/router';
+import { ImageUtilityService } from '../../../services/utilities/image-utility.service';
 
 @Component({
   selector: 'app-fc-image-slider-ngx',
@@ -19,7 +20,10 @@ export class FcImageSliderNgxComponent implements OnInit {
 
   @Output() public activeSlideChange = new EventEmitter();
 
-  constructor(private logger: LogService, private router: Router) {
+  constructor(
+    private imageUtility: ImageUtilityService,
+    private logger: LogService,
+    private router: Router) {
   }
 
   @Input() public get activeSlide() {
@@ -32,7 +36,6 @@ export class FcImageSliderNgxComponent implements OnInit {
     this.activeSlideChange.emit(this._activeSlide);
   }
 
-
   private onActiveSlideChange(index: number) {
     this.activeSlide = this._activeSlide;
   }
@@ -44,6 +47,10 @@ export class FcImageSliderNgxComponent implements OnInit {
   @Input() public set publications(value: Array<Publication>) {
     this._publications = value || new Array<Publication>();
     this.logger.logInfo(`'${(<any>this).constructor.name}' received publications. Count: ${this._publications.length}.`);
+  }
+
+  private getImage(src: string, width: number, height: number): string {
+    return this.imageUtility.getImageAnyway(src, width, height);
   }
 
   ngOnInit() {
