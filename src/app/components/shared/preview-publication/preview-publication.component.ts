@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LogService } from '../../../services/log.service';
 import { Entity } from '../../../model/entity';
 import { TextUtilityService } from '../../../services/utilities/text-utility.service';
+import { ImageUtilityService } from '../../../services/utilities/image-utility.service';
 
 @Component({
   selector: 'app-preview-publication',
@@ -15,6 +16,7 @@ export class PreviewPublicationComponent implements OnInit {
   @Input() public routePart: string;
 
   constructor(
+    private imageUtility: ImageUtilityService,
     private textUtility: TextUtilityService,
     private logger: LogService
   ) { }
@@ -32,6 +34,10 @@ export class PreviewPublicationComponent implements OnInit {
     return this.item
       ? this.textUtility.cropWithEllipsis(this.item.description, 330)
       : '';
+  }
+
+  private getImage(src: string, width: number, height: number): string {
+    return this.imageUtility.addFileVariantSize(src, width, height);
   }
 
 }
