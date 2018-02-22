@@ -8,6 +8,7 @@ import { CarouselModule } from 'ngx-bootstrap';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { TextUtilityService } from '../../services/utilities/text-utility.service';
 import { ImageUtilityService } from '../../services/utilities/image-utility.service';
+import { StringCacheUtilityService } from '../../services/utilities/string-cache-utility.service';
 import { UrlUtilityService } from '../../services/utilities/url-utility.service';
 import { GalleriesRepositoryService } from '../../services/galleries-repository.service';
 import { VideosRepositoryService } from '../../services/videos-repository.service';
@@ -47,6 +48,7 @@ import { PreviewContentPanelComponent } from '../../components/shared/preview-co
     TextUtilityService,
     ImageUtilityService,
     UrlUtilityService,
+    StringCacheUtilityService,
     GalleriesRepositoryService,
     VideosRepositoryService
   ],
