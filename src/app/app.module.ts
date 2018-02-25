@@ -9,6 +9,7 @@ import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { GlobalComponentsModule } from './modules/global/global-components.module';
 import { MainComponentsModule } from './modules/main/main-components.module';
 import { PublicationComponentsModule } from '././modules/publications/publication-components.module';
+import { StaticPagesModule } from '././modules/static/static-pages.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -37,7 +38,8 @@ export function createTranslateLoader(http: HttpClient) {
   AppRoutingModule,
   GlobalComponentsModule,
   MainComponentsModule,
-  PublicationComponentsModule
+  PublicationComponentsModule,
+  StaticPagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
