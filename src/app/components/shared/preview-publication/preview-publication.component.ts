@@ -32,7 +32,7 @@ export class PreviewPublicationComponent implements OnInit {
 
   private get description(): string {
     return this.item
-      ? this.textUtility.cropWithEllipsis(this.item.description, 330)
+      ? this.textUtility.cropWithEllipsis(this.item.description, 380)
       : '';
   }
 

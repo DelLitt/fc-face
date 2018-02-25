@@ -2,7 +2,7 @@
 @import 'node_modules/bootstrap/scss/functions';
 
 .publication-preview {
-    height: 256px;;
+    height: 280px;
     overflow: hidden;
 
     .publication-preview-text {
@@ -15,7 +15,7 @@
 
         .publication-preview-description {
             overflow: hidden;
-            max-height: 192px;
+            max-height: 220px;
             font-weight: 300;
         }
     }
