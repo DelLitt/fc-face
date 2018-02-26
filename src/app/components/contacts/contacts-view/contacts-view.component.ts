@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogService } from '../../../services/log.service';
 
 @Component({
   selector: 'app-contacts-view',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsViewComponent implements OnInit {
 
-  constructor() { }
+  private triedToSent = false;
+  private user = { name: '', email: '', message: '' };
+
+  constructor(
+    private logger: LogService
+  ) { }
 
   ngOnInit() {
+  }
+
+  private sendMessage() {
+    // TODO: Add sending of email logic here
+    //
+    this.triedToSent = true;
+    this.logger.logDebug(`'${(<any>this).constructor.name}' sending the message is not working correctly.`);
   }
 
 }

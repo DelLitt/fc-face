@@ -39,30 +39,78 @@
         </app-contacts-item>
       </div> -->
   </div>
-  <dl class="row">
-    <dt class="col-sm-2">
-      <h4 class="fc-page-header"><span class="fa fa fa-map-marker"></span>&nbsp;Адрес:</h4>
-    </dt>
-    <dd class="col-sm-10">
-      <h6>Минская обл., г.Слуцк, ул.Ленина 120а</h6>
-    </dd>
-  </dl>
-  <div class="row">
+  <div class="row mb-4">
     <div class="col-sm-12">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="{{ 'NAME' | translate }}" type="text" required>
+      <div class="card">
+          <div class="card-body">
+              <div class="card-title">
+                  <div class="fc-pair mb-4">
+                    <div class="fc-pair-key display-2"><span class="fa fa-map-marker"></span>&nbsp;{{ 'ADDRESS' | translate }}:</div>
+                    <div class="fc-pair-value display-3 pl-3">{{ 'ADDRESS_OFFICE_VALUE' | translate }}</div>
+                  </div>
+                </div>        
+              <div class="embed-responsive embed-responsive-16by9">
+                <div class="embed-responsive-item">
+                  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1511cfc0b22c2e8282420a7f9293112f9bf94676e21f1c64cab589bd037542dd&amp;source=constructor"
+                    width="800" height="450" frameborder="0"></iframe>
+                </div>
+              </div>
+            </div>
         </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-        </div>
-      </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-right" type="submit">Send</button>
-        </div>
-      </div> 
     </div>
   </div>
+  <form  #userForm="ngForm">    
+    <div class="row" [hidden]="userForm.submitted">
+      <div class="col-sm-12">
+        <div class="display-2 mb-3 text-secondary">{{ 'SEND_US_AN_MESSAGE' | translate }}</div>
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <input class="form-control" id="name" name="name" placeholder="{{ 'NAME' | translate }}*" type="text" 
+                required
+                [(ngModel)]="user.name"
+                #name="ngModel">
+        
+              <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                <div *ngIf="name.errors.required">{{ 'NAME' | translate }} {{ '_IS_REQUIRED' | translate }}</div>
+              </div>
+            </div>
+        
+            <div class="col-sm-6 form-group">
+              <input class="form-control" id="email" name="email" placeholder="{{ 'EMAIL' | translate }}*" type="email" 
+                pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$"
+                required
+                [(ngModel)]="user.email"
+                #email="ngModel">
+        
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                <div *ngIf="email.errors.required">{{ 'EMAIL' | translate }} {{ '_IS_REQUIRED' | translate }}</div>
+                <div *ngIf="!email.errors.required">{{ 'EMAIL' | translate }} {{ '_HAS_INCORRECT_FORMAT_' | translate }}</div>
+              </div>
+            </div>
+          </div>
+          <div>
+          <textarea class="form-control" id="comments" name="comments" placeholder="{{ 'MESSAGE' | translate }}*" rows="5"
+            required
+            [(ngModel)]="user.message"
+            #message="ngModel"></textarea>
+
+            <div *ngIf="message.invalid && (message.dirty || message.touched)" class="alert alert-danger">
+              <div *ngIf="message.errors.required">{{ 'MESSAGE' | translate }} {{ '_IS_REQUIRED' | translate }}</div>
+            </div>
+          </div>
+          <br>
+          <div *ngIf="triedToSent && !userForm.submitted" class="row">
+            <div class="col-sm-12">
+                <div class="alert alert-warning">{{ 'UNABLE_TO_SEND_MESSAGE_REPLY_TO_EMAIL' | translate }}.</div>              
+            </div>              
+          </div>
+          <div class="row">
+            <div class="col-sm-12 form-group">
+              <button class="btn btn-primary pull-right" type="button" [disabled]="userForm.invalid" (click)="submitted = true; sendMessage();">{{ 'SEND' | translate }}</button>
+            </div>      
+        </div>         
+      </div>
+    </div>        
+    <div class="alert alert-info" *ngIf="userForm.submitted">{{ 'YOUR_MESSAGE_WAS_SUCCESSFULLY_SENT' | translate }}!</div>
+  </form>
 </section>
