@@ -60,6 +60,18 @@ a, .btn-link {
     }
 }
 
+.fc-pair {
+    .fc-pair-key {
+        color: theme-color("secondary");
+        display: inline-block;
+        font-weight: normal;
+    }
+
+    .fc-pair-value {
+        display: inline-block;
+    }
+}
+
 .global-header {        
     background: $blue url("/assets/img/skin/x-bg1.jpg") center;
     background-size: cover;
