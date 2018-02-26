@@ -18,5 +18,15 @@
     "COACHES": "Трэнеры",
     "BOOKKEEPENG_AND_HR": "Бухгалтэрыя, аддзел кадраў",
     "ADMINISTRATOR": "Адміністратар", 
-    "PRESS-SERVICE": "Прэс-служба"    
+    "PRESS-SERVICE": "Прэс-служба",
+    "ADDRESS": "Адрас",
+    "ADDRESS_OFFICE_VALUE": "Мінская вобасць, горад Слуцк, вуліца Леніна 120А",
+    "SEND_US_AN_MESSAGE": "Адпраўце нам паведамленне",
+    "NAME": "Імя",
+    "MESSAGE": "Паведамленне",
+    "SEND": "Адправіць",
+    "_IS_REQUIRED": "з'яўляецца абавязковым",
+    "_HAS_INCORRECT_FORMAT_": "мае некарэктны фармат",
+    "YOUR_MESSAGE_WAS_SUCCESSFULLY_SENT": "Ваша паведамленне паспяхова даслана",
+    "UNABLE_TO_SEND_MESSAGE_REPLY_TO_EMAIL": "Не атрымалася даставіць паведамленне. Калі ласка, адпраўце яго на электронную пошту contact@sfc-slutks.by"
 }

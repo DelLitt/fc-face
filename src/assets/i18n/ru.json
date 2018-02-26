@@ -18,5 +18,15 @@
     "COACHES": "Тренеры",
     "BOOKKEEPENG_AND_HR": "Бухгалтерия, отдел кадров",
     "ADMINISTRATOR": "Администратор",    
-    "PRESS-SERVICE": "Пресс-служба"
+    "PRESS-SERVICE": "Пресс-служба",
+    "ADDRESS": "Адрес",
+    "ADDRESS_OFFICE_VALUE": "Минская область, город Слуцк, улица Ленина 120А",
+    "SEND_US_AN_MESSAGE": "Отправьте нам сообщение",
+    "NAME": "Имя",
+    "MESSAGE": "Сообщение",
+    "SEND": "Отправить",
+    "_IS_REQUIRED": "является обязательным",
+    "_HAS_INCORRECT_FORMAT_": "имеет некорректный формат",
+    "YOUR_MESSAGE_WAS_SUCCESSFULLY_SENT": "Ваше сообщение успешно отправлено",
+    "UNABLE_TO_SEND_MESSAGE_REPLY_TO_EMAIL": "Не удалось доставить сообщение. Пожалуйста, отправьте его на электронную почту contact@sfc-slutks.by"
 }

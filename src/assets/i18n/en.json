@@ -18,5 +18,15 @@
     "COACHES": "Coaches",
     "BOOKKEEPENG_AND_HR": "Accountancy, Human Resources",
     "ADMINISTRATOR": "Administrator",
-    "PRESS-SERVICE": "Press-service"
+    "PRESS-SERVICE": "Press-service",
+    "ADDRESS": "Address",
+    "ADDRESS_OFFICE_VALUE": "Minsk Region, Slutsk City, Lenina Street 120A",
+    "SEND_US_AN_MESSAGE": "Send us an message",
+    "NAME": "Name",
+    "MESSAGE": "Message",
+    "SEND": "Send",
+    "_IS_REQUIRED": "is required",
+    "_HAS_INCORRECT_FORMAT_": "has an incorrect format",
+    "YOUR_MESSAGE_WAS_SUCCESSFULLY_SENT": "Your message was successfully sent",
+    "UNABLE_TO_SEND_MESSAGE_REPLY_TO_EMAIL": "Unable to deliver the message. Please, send it to contact@sfc-slutks.by"
 }
