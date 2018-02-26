@@ -9,5 +9,14 @@
     "PHOTO_GALLERY": "Фотогалерея",
     "VIDEO": "Видео",
     "NEWS": "Новости",
-    "PHOTO": "Фото"
+    "PHOTO": "Фото",
+    "CONTACTS": "Контакты",
+    "PHONE": "Телефон",
+    "FAX": "Факс",
+    "EMAIL": "Электронная почта",
+    "CHAIRMAN": "Председатель",
+    "COACHES": "Тренеры",
+    "BOOKKEEPENG_AND_HR": "Бухгалтерия, отдел кадров",
+    "ADMINISTRATOR": "Администратор",    
+    "PRESS-SERVICE": "Пресс-служба"
 }

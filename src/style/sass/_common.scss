@@ -40,6 +40,26 @@ a, .btn-link {
     max-height: 120px;
 }
 
+.fc-page {
+    .fc-page-title, 
+    .fc-page-header {
+        color: theme-color("secondary");
+    }
+
+    .fc-page-title {
+        margin-bottom: 2rem;
+    }
+
+    .fa {
+        color: theme-color("primary");
+    }
+
+    .card-title {
+        color: theme-color("secondary");
+        font-weight: 400;
+    }
+}
+
 .global-header {        
     background: $blue url("/assets/img/skin/x-bg1.jpg") center;
     background-size: cover;

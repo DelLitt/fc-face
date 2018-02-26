@@ -9,5 +9,14 @@
     "PHOTO_GALLERY": "Photo Gallery",
     "VIDEO": "Video",
     "NEWS": "News",
-    "PHOTO": "Photo"
+    "PHOTO": "Photo",
+    "CONTACTS": "Contacts",
+    "PHONE": "Phone",
+    "FAX": "Fax",
+    "EMAIL": "Email",
+    "CHAIRMAN": "Chairman",
+    "COACHES": "Coaches",
+    "BOOKKEEPENG_AND_HR": "Accountancy, Human Resources",
+    "ADMINISTRATOR": "Administrator",
+    "PRESS-SERVICE": "Press-service"
 }
