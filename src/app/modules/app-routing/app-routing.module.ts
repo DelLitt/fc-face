@@ -6,19 +6,12 @@ import { PageNotFoundComponent } from '../../components/page-not-found/page-not-
 import { HomeViewComponent } from '../../components/main/home-view/home-view.component';
 import { PublicationViewComponent } from '../../components/publications/publication-view/publication-view.component';
 import { ContactsViewComponent } from '../../components/contacts/contacts-view/contacts-view.component';
-
-const routes: Routes = [
-  { path: '', component: HomeViewComponent },
-  { path: 'publications/:id', component: PublicationViewComponent },
-  { path: 'contacts', component: ContactsViewComponent },
-  { path: 'not-found', component: PageNotFoundComponent },
-  { path: '**', component: PageNotFoundComponent }
-];
+import { SiteMapService } from '../../services/site-map.service';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(SiteMapService.routes)
   ],
   declarations: [],
   exports: [ RouterModule ]
