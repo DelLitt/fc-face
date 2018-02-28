@@ -7,9 +7,21 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a [routerLink]="['/home']" class="nav-link">{{ 'HOME_PAGE' | translate }}</a>
-      </li>
+      <li class="nav-item" [class.dropdown]="item.subItems" *ngFor="let item of menuItems">
+        <a 
+          class="nav-link"
+          [class.dropdown-toggle]="item.subItems"
+          [attr.data-toggle]="'dropdown'"
+          [routerLink]="[item.path]" 
+          [routerLinkActive]="['active']" 
+          [routerLinkActiveOptions]="{ exact:true }">{{ (item.i18nKey | translate) !== item.i18nKey ? (item.i18nKey | translate) : item.defaultName }}</a>
+          <!-- TODO: Encapsulate to separate component with recursion -->
+          <div *ngIf="item.subItems" class="dropdown-menu">
+            <a *ngFor="let subItem of item.subItems"
+              class="dropdown-item"
+              [routerLink]="[subItem.path]">{{ (subItem.i18nKey | translate) !== subItem.i18nKey ? (subItem.i18nKey | translate) : subItem.defaultName }}</a>
+          </div>
+      </li>    
     </ul>
     <app-global-search></app-global-search>
     <div class="ml-2"><app-language-bar></app-language-bar></div>

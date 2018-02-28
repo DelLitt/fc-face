@@ -10,6 +10,7 @@ import { GlobalBreadcrumbComponent } from '../../components/global/global-breadc
 import { GlobalSearchComponent } from '../../components/global/global-search/global-search.component';
 import { LanguageBarComponent } from '../../components/global/language-bar/language-bar.component';
 import { LogService, LogLevel } from '../../services/log.service';
+import { SiteMapService } from '../../services/site-map.service';
 
 @NgModule({
   imports: [
@@ -30,13 +31,15 @@ import { LogService, LogLevel } from '../../services/log.service';
     {provide: LogLevel, useValue: LogLevel.DEBUG},
     {
       provide: LogService,
-    deps: [LogLevel],
-    useFactory: (level) => {
-      const logger = new LogService();
-      logger.minLevel = LogLevel.DEBUG;
-      return logger;
-    }
-  }],
+      deps: [LogLevel],
+      useFactory: (level) => {
+        const logger = new LogService();
+        logger.minLevel = LogLevel.DEBUG;
+        return logger;
+      },
+    },
+    SiteMapService
+],
   exports: [
     GlobalNavigationComponent,
     GlobalHeaderComponent,
