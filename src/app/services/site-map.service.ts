@@ -8,16 +8,17 @@ import { SiteMap } from '../model/site-map';
 
 
 const routesConfiguration: Routes = [
-  { path: '', component: HomeViewComponent },
+  { path: 'Home', component: HomeViewComponent },
   { path: 'publications/:id', component: PublicationViewComponent },
   { path: 'contacts', component: ContactsViewComponent },
   { path: 'not-found', component: PageNotFoundComponent },
+  { path: '', component: HomeViewComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
 const siteMapConfiguration: SiteMap = [
-  { defaultName: 'Home', i18nKey: 'HOME_PAGE', path: '', visible: true, clickable: true },
-  { defaultName: 'Club', i18nKey: 'CLUB', path: 'club/mainteam', visible: true, clickable: false,
+  { defaultName: 'Home', i18nKey: 'HOME_PAGE', path: 'home', visible: true, clickable: true },
+  { defaultName: 'Club', i18nKey: 'CLUB', path: undefined, visible: true, clickable: false,
       subItems: [
           { defaultName: 'Main team', i18nKey: 'MAIN_TEAM', path: 'club/mainteam', visible: true, clickable: true },
           { defaultName: 'Reserve team', i18nKey: 'RESERVE_TEAM', path: 'club/reserveteam', visible: true, clickable: true }

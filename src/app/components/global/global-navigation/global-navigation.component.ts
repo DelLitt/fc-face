@@ -39,4 +39,12 @@ export class GlobalNavigationComponent implements OnInit {
     return siteMapItems;
   }
 
+  private useHref(item: SiteMapItem): boolean {
+    const path: any = item.path;
+    const cond: boolean = !(typeof item.path === 'undefined' || item.path == null );
+
+    console.log(item.defaultName + ': ' + cond);
+
+    return cond;
+  }
 }

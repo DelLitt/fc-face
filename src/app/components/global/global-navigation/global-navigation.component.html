@@ -11,8 +11,8 @@
         <a 
           class="nav-link"
           [class.dropdown-toggle]="item.subItems"
-          [attr.data-toggle]="'dropdown'"
-          [routerLink]="[item.path]" 
+          [attr.data-toggle]="(item.subItems && item.subItems.length) ? 'dropdown' : undefined"
+          [routerLink]="useHref(item) ? item.path : undefined"
           [routerLinkActive]="['active']" 
           [routerLinkActiveOptions]="{ exact:true }">{{ (item.i18nKey | translate) !== item.i18nKey ? (item.i18nKey | translate) : item.defaultName }}</a>
           <!-- TODO: Encapsulate to separate component with recursion -->
