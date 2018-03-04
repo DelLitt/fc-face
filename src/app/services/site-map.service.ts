@@ -7,18 +7,18 @@ import { HomeViewComponent } from '../components/main/home-view/home-view.compon
 import { SiteMap } from '../model/site-map';
 
 
-const routesConfiguration: Routes = [
-  { path: 'Home', component: HomeViewComponent },
+export const RoutesConfiguration: Routes = [
+  { path: 'home', component: HomeViewComponent },
   { path: 'publications/:id', component: PublicationViewComponent },
   { path: 'contacts', component: ContactsViewComponent },
   { path: 'not-found', component: PageNotFoundComponent },
-  { path: '', component: HomeViewComponent },
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
-const siteMapConfiguration: SiteMap = [
+const SiteMapConfiguration: SiteMap = [
   { defaultName: 'Home', i18nKey: 'HOME_PAGE', path: 'home', visible: true, clickable: true },
-  { defaultName: 'Club', i18nKey: 'CLUB', path: undefined, visible: true, clickable: false,
+  { defaultName: 'Club', i18nKey: 'CLUB', path: 'club', visible: true, clickable: false,
       subItems: [
           { defaultName: 'Main team', i18nKey: 'MAIN_TEAM', path: 'club/mainteam', visible: true, clickable: true },
           { defaultName: 'Reserve team', i18nKey: 'RESERVE_TEAM', path: 'club/reserveteam', visible: true, clickable: true }
@@ -30,14 +30,10 @@ const siteMapConfiguration: SiteMap = [
 @Injectable()
 export class SiteMapService {
 
-  public static get routes(): Routes {
-    return routesConfiguration;
-  }
-
   constructor() { }
 
   public get items(): SiteMap {
-    return siteMapConfiguration;
+    return SiteMapConfiguration;
   }
 
 }

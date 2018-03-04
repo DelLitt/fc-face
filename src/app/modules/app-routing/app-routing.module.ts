@@ -6,12 +6,12 @@ import { PageNotFoundComponent } from '../../components/page-not-found/page-not-
 import { HomeViewComponent } from '../../components/main/home-view/home-view.component';
 import { PublicationViewComponent } from '../../components/publications/publication-view/publication-view.component';
 import { ContactsViewComponent } from '../../components/contacts/contacts-view/contacts-view.component';
-import { SiteMapService } from '../../services/site-map.service';
+import { SiteMapService, RoutesConfiguration } from '../../services/site-map.service';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(SiteMapService.routes)
+    RouterModule.forRoot(RoutesConfiguration)
   ],
   declarations: [],
   exports: [ RouterModule ]
