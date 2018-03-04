@@ -1,11 +1,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb bg-primary tertiary-links">
-    <li class="breadcrumb-item">
-      <a href="#">Home</a>
-    </li>
-    <li class="breadcrumb-item">
-      <a href="#">Library</a>
-    </li>
-    <li class="breadcrumb-item active" aria-current="page">Data</li>
+    <li *ngFor="let item of breadcrumbChain" class="breadcrumb-item">
+      <a [routerLink]="item.path">{{ (item.i18nKey | translate) !== item.i18nKey ? (item.i18nKey | translate) : item.defaultName }}</a></li>
+    <li *ngIf="breadcrumbTitle" class="breadcrumb-item active" >{{ breadcrumbTitle }}</li>
   </ol>
 </nav>
