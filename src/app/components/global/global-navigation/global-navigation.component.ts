@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SiteMap, SiteMapItem } from '../../../model/site-map';
 import { SiteMapService } from '../../../services/site-map.service';
+import { LogService } from '../../../services/log.service';
 
 @Component({
   selector: 'app-global-navigation',
@@ -14,10 +15,13 @@ export class GlobalNavigationComponent implements OnInit {
   private menuItems: SiteMap;
 
   constructor(
-    private siteMapService: SiteMapService
+    private siteMapService: SiteMapService,
+    private router: Router,
+    private logger: LogService
   ) { }
 
   ngOnInit() {
+    this.logger.logDebug(`'${(<any>this).constructor.name}' component is being initialized.`);
     this.menuItems = this.getSuitableItems(this.siteMapService.items);
   }
 
@@ -39,12 +43,12 @@ export class GlobalNavigationComponent implements OnInit {
     return siteMapItems;
   }
 
-  private useHref(item: SiteMapItem): boolean {
-    const path: any = item.path;
-    const cond: boolean = !(typeof item.path === 'undefined' || item.path == null );
+  private isActive(item: SiteMapItem): boolean {
+    return this.router.isActive(item.path, false);
+  }
 
-    console.log(item.defaultName + ': ' + cond);
-
-    return cond;
+  private hasSubItems(item: SiteMapItem) {
+    const condition: boolean = item.subItems instanceof Array && item.subItems.length > 0;
+    return  condition;
   }
 }

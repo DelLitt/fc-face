@@ -6,21 +6,29 @@
   <a class="navbar-brand d-block d-md-none" href="#">&nbsp;<span class="font-weight-light">{{ 'SFC' | translate }}</span>&nbsp;<span class="font-weight-normal">«{{ 'SLUTSK' | translate }}»</span></a>  
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" [class.dropdown]="item.subItems" *ngFor="let item of menuItems">
-        <a 
+      <li class="nav-item" [class.dropdown]="hasSubItems(item)" *ngFor="let item of menuItems">
+        <a *ngIf="!hasSubItems(item)" 
           class="nav-link"
-          [class.dropdown-toggle]="item.subItems"
-          [attr.data-toggle]="(item.subItems && item.subItems.length) ? 'dropdown' : undefined"
-          [routerLink]="useHref(item) ? item.path : undefined"
-          [routerLinkActive]="['active']" 
-          [routerLinkActiveOptions]="{ exact:true }">{{ (item.i18nKey | translate) !== item.i18nKey ? (item.i18nKey | translate) : item.defaultName }}</a>
-          <!-- TODO: Encapsulate to separate component with recursion -->
-          <div *ngIf="item.subItems" class="dropdown-menu">
-            <a *ngFor="let subItem of item.subItems"
-              class="dropdown-item"
-              [routerLink]="[subItem.path]">{{ (subItem.i18nKey | translate) !== subItem.i18nKey ? (subItem.i18nKey | translate) : subItem.defaultName }}</a>
-          </div>
+          [routerLink]="item.path"
+          [routerLinkActive]="'active'">
+          {{ (item.i18nKey | translate) !== item.i18nKey ? (item.i18nKey | translate) : item.defaultName }}
+        </a>
+        <a *ngIf="hasSubItems(item)"
+          class="nav-link dropdown-toggle"
+          [class.active]="isActive(item)"
+          [attr.data-toggle]="'dropdown'">
+          {{ (item.i18nKey | translate) !== item.i18nKey ? (item.i18nKey | translate) : item.defaultName }}
+        </a>
+
+        <div *ngIf="hasSubItems(item)" class="dropdown-menu">
+          <a *ngFor="let subItem of item.subItems"
+            class="dropdown-item"
+            [routerLink]="[subItem.path]"
+            [routerLinkActive]="'active'">{{ (subItem.i18nKey | translate) !== subItem.i18nKey ? (subItem.i18nKey | translate) : subItem.defaultName }}
+          </a>
+        </div>
       </li>    
     </ul>
     <app-global-search></app-global-search>
