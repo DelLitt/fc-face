@@ -6,6 +6,7 @@ import { GalleriesRepositoryService } from '../../../services/galleries-reposito
 import { Gallery } from '../../../model/gallery/gallery';
 import { GalleryItem } from '../../../model/gallery/gallery-item';
 import { Router } from '@angular/router';
+import { SiteMapService } from '../../../services/site-map.service';
 
 @Component({
   selector: 'app-publication-details',
@@ -22,6 +23,7 @@ export class PublicationDetailsComponent implements OnInit {
   constructor(
     private publicationsRepository: PublicationsRepositoryService,
     private galleriesRepository: GalleriesRepositoryService,
+    private siteMapService: SiteMapService,
     private router: Router,
     private logger: LogService) { }
 
@@ -36,6 +38,8 @@ export class PublicationDetailsComponent implements OnInit {
     this.publicationsRepository.getPubliction(this.id)
     .then(result => {
       this.publication = result;
+      this.siteMapService.pageTitle = this.publication.title;
+      this.siteMapService.breadcrumbTitle = this.publication.id.toString();
       this._loaded = true;
       this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the publication (id:${this.id}) successfully.`);
     })
