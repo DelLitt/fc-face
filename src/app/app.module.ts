@@ -34,12 +34,12 @@ export function createTranslateLoader(http: HttpClient) {
           useFactory: (createTranslateLoader),
           deps: [HttpClient]
       },
-  }),
-  AppRoutingModule,
-  GlobalComponentsModule,
-  MainComponentsModule,
-  PublicationComponentsModule,
-  StaticPagesModule
+    }),
+    AppRoutingModule,
+    GlobalComponentsModule,
+    MainComponentsModule,
+    PublicationComponentsModule,
+    StaticPagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
