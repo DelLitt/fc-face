@@ -1,11 +1,25 @@
 <div class="publication-announcement row">
-  <div class="col-md-3">
-    <a [routerLink]="[routePart, item.id]"><img class="embed-responsive embed-responsive-16by9 mb-3" [src]="getImage(497, 280)" [alt]="title"></a>
+  <div class="col-12">
+    <div class="publication-announcement-body row">
+      <div class="col-md-3">
+        <a [routerLink]="[routePart, item.id]">
+          <img class="embed-responsive embed-responsive-16by9 mb-3" [src]="getImage(497, 280)" [alt]="title">
+        </a>
+      </div>
+      <div class="col-md-9 publication-announcement-description">
+        <h5>
+          <a [routerLink]="[routePart, item.id]">{{ title }}</a>
+        </h5>
+        <p>{{ description }}</p>
+      </div>
+    </div>
+    <div class="publication-announcement-meta row text-muted mt-2">
+      <div class="col-6 col-md-2 text-left">{{ item.displayDate | date:'yyyy-MM-dd HH:mm' }}</div>
+      <div class="d-none d-md-block col-md-9 text-right">{{ item.author }}</div>      
+      <div class="col-6 col-md-1 text-right">
+          <i *ngIf="item.hasVideo" class="fa fa-video-camera d-inline-block pl-2"></i>        
+          <i *ngIf="item.hasPhoto" class="fa fa-camera d-inline-block pl-2"></i>
+      </div>
+    </div>
   </div>
-    <div class="col-md-9 publication-announcement-description">
-      <h5>
-        <a [routerLink]="[routePart, item.id]">{{ title }}</a>
-      </h5>
-      <p>{{ description }}</p>
-    </div>
-    </div>
+</div>

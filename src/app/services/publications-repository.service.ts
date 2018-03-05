@@ -60,6 +60,10 @@ export class PublicationsRepositoryService {
       publication.title = element.title;
       publication.galleryId = element.galleryId;
       publication.videoId = element.videoId;
+      publication.author = element.author;
+      publication.displayDate = new Date(element.displayDate);
+      publication.hasPhoto = element.galleryId > 0;
+      publication.hasVideo = element.videoId > 0;
 
       publications.push(publication);
     });
