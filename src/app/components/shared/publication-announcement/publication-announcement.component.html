@@ -1,8 +1,11 @@
-<div class="media">
-    <img class="d-flex align-self-start mr-3" style="max-width: 256px;" src="/assets/img/_tmp/img-slide-4.png" alt="Generic placeholder image">
-    <div class="media-body">
-      <h5 class="mt-0">Top-aligned media</h5>
-      <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-      <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-    </div>
+<div class="publication-announcement row">
+  <div class="col-md-3">
+    <a [routerLink]="[routePart, item.id]"><img class="embed-responsive embed-responsive-16by9 mb-3" [src]="getImage(497, 280)" [alt]="title"></a>
   </div>
+    <div class="col-md-9 publication-announcement-description">
+      <h5>
+        <a [routerLink]="[routePart, item.id]">{{ title }}</a>
+      </h5>
+      <p>{{ description }}</p>
+    </div>
+    </div>

@@ -1,0 +1,16 @@
+@import './variables';
+@import 'node_modules/bootstrap/scss/functions';
+
+.publication-announcement {
+    padding-bottom: 1.5rem;
+    padding-top: 1rem;
+    min-height: 145px;
+    border-bottom: 1px solid theme-color("primary-muted");
+}
+
+.publication-announcement:hover {
+    background-color: $gray-100;
+
+    .publication-announcement-description {        
+    }
+}
