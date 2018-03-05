@@ -46,6 +46,22 @@ export class PublicationsRepositoryService {
     });
   }
 
+  public getPublicationsTotalCount(): Promise<number> {
+    return new Promise((resolve, reject) => {
+      this.dataSource.getEntitiesCount('publications')
+      .then(result => {
+        if (result) {
+          this.logger.logInfo(`'${(<any>this).constructor.name}' loaded publications total count (${result}) successfully.`);
+          resolve(result);
+        } else {
+          const errorMsg = `'${(<any>this).constructor.name}' was unable to load publications total count!`;
+          this.logger.logError(errorMsg);
+          reject(new Error(errorMsg));
+        }
+      });
+    });
+  }
+
   private convertResponseToPublications(response: Array<any>): Publication[] {
     const data: Array<any> = response || [];
     if (data.length === 0) { return new Array<Publication>(); }
