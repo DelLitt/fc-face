@@ -8,4 +8,9 @@
   <div *ngIf="_loaded">
     <app-publication-announcement *ngFor="let item of publications" [item]="item" [routePart]="'/publications'"></app-publication-announcement>
   </div>
+
+  <div class="d-flex justify-content-center">
+    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[10, 25, 50, 100]">
+    </mat-paginator>
+  </div>
 </section>

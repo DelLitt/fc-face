@@ -3,6 +3,8 @@ import { PublicationsRepositoryService } from '../../../services/publications-re
 import { LogService } from '../../../services/log.service';
 import { Publication } from '../../../model/publication';
 import { Router } from '@angular/router';
+import { PageEvent } from '@angular/material';
+
 
 @Component({
   selector: 'app-publications-list',
@@ -13,6 +15,9 @@ export class PublicationsListComponent implements OnInit {
 
   private _loaded = false;
   private publications: Publication[];
+
+  // MatPaginator Output
+  pageEvent: PageEvent;
 
   constructor(
     private publicationsRepository: PublicationsRepositoryService,
