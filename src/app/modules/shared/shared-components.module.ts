@@ -6,6 +6,8 @@ import { AppRoutingModule } from '../../modules/app-routing/app-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { CarouselModule } from 'ngx-bootstrap';
 import { NgxGalleryModule } from 'ngx-gallery';
+
+
 import { TextUtilityService } from '../../services/utilities/text-utility.service';
 import { ImageUtilityService } from '../../services/utilities/image-utility.service';
 import { StringCacheUtilityService } from '../../services/utilities/string-cache-utility.service';
@@ -22,6 +24,9 @@ import { GalleryAddComponent } from '../../components/shared/gallery-add/gallery
 import { MediaAddComponent } from '../../components/shared/media-add/media-add.component';
 import { PreviewPublicationComponent } from '../../components/shared/preview-publication/preview-publication.component';
 import { PreviewContentPanelComponent } from '../../components/shared/preview-content-panel/preview-content-panel.component';
+import { PublicationsListComponent } from '../../components/publications/publications-list/publications-list.component';
+import { EntityAnnouncementComponent } from '../../components/shared/entity-announcement/entity-announcement.component';
+
 
 @NgModule({
   imports: [
@@ -42,7 +47,9 @@ import { PreviewContentPanelComponent } from '../../components/shared/preview-co
     GalleryAddComponent,
     MediaAddComponent,
     PreviewPublicationComponent,
-    PreviewContentPanelComponent
+    PreviewContentPanelComponent,
+    PublicationsListComponent,
+    EntityAnnouncementComponent
   ],
   providers: [
     TextUtilityService,
@@ -60,7 +67,9 @@ import { PreviewContentPanelComponent } from '../../components/shared/preview-co
     GalleryAddComponent,
     MediaAddComponent,
     PreviewPublicationComponent,
-    PreviewContentPanelComponent
+    PreviewContentPanelComponent,
+    PublicationsListComponent,
+    EntityAnnouncementComponent
   ]
 })
 export class SharedComponentsModule { }
