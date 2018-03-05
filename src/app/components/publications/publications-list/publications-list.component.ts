@@ -5,6 +5,7 @@ import { Publication } from '../../../model/publication';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material';
 
+const DefPageSize = 2;
 
 @Component({
   selector: 'app-publications-list',
@@ -14,10 +15,11 @@ import { PageEvent } from '@angular/material';
 export class PublicationsListComponent implements OnInit {
 
   private _loaded = false;
+  private pageIndex = 0;
+  private pageSize: number = DefPageSize;
+  private pageSizeOptions: number[] = [DefPageSize, 25, 50, 100];
+  private publicationsTotalCount = 0;
   private publications: Publication[];
-
-  // MatPaginator Output
-  pageEvent: PageEvent;
 
   constructor(
     private publicationsRepository: PublicationsRepositoryService,
@@ -26,17 +28,39 @@ export class PublicationsListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadPublictions();
+    this.loadPublictionsTotalCount();
   }
 
-  private loadPublictions() {
-    this.logger.logDebug(`'${(<any>this).constructor.name}' is trying to load the publications.`);
+  private paginationHandler($event) {
+    this.pageIndex = $event.pageIndex;
+    this.pageSize = $event.pageSize;
+    this.loadPublictions(this.pageSize, this.pageIndex * this.pageSize);
+    this.logger.logInfo(`'${(<any>this).constructor.name}' has processed pagination event ${$event.pageSize}.`);
+  }
 
-    this.publicationsRepository.getPublications(20)
+  private loadPublictions(count, skip: number = 0) {
+    this.logger.logDebug(`'${(<any>this).constructor.name}' is trying to load the publications.`);
+    this._loaded = false;
+
+    this.publicationsRepository.getPublications(count, skip)
     .then(result => {
       this.publications = result;
       this._loaded = true;
       this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the publications (count: ${this.publications.length}) successfully.`);
+    })
+    .catch(reason => {
+      this.router.navigate(['/not-found']);
+    });
+  }
+
+  private loadPublictionsTotalCount() {
+    this.logger.logDebug(`'${(<any>this).constructor.name}' is trying to load the publications total count.`);
+
+    this.publicationsRepository.getPublicationsTotalCount()
+    .then(result => {
+      this.publicationsTotalCount = result;
+      this.loadPublictions(this.pageSize);
+      this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the publications total count: ${this.publicationsTotalCount}.`);
     })
     .catch(reason => {
       this.router.navigate(['/not-found']);
