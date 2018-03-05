@@ -28,5 +28,8 @@
     "_IS_REQUIRED": "является обязательным",
     "_HAS_INCORRECT_FORMAT_": "имеет некорректный формат",
     "YOUR_MESSAGE_WAS_SUCCESSFULLY_SENT": "Ваше сообщение успешно отправлено",
-    "UNABLE_TO_SEND_MESSAGE_REPLY_TO_EMAIL": "Не удалось доставить сообщение. Пожалуйста, отправьте его на электронную почту contact@sfc-slutks.by"
+    "UNABLE_TO_SEND_MESSAGE_REPLY_TO_EMAIL": "Не удалось доставить сообщение. Пожалуйста, отправьте его на электронную почту contact@sfc-slutks.by",
+    "ITEMS_PER_PAGE": "Элементов на странице",
+    "NEXT_PAGE": "Следущая страница",
+    "PREVIOUS_PAGE": "Предыдущая страница"
 }
