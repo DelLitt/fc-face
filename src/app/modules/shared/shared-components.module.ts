@@ -24,7 +24,6 @@ import { GalleryAddComponent } from '../../components/shared/gallery-add/gallery
 import { MediaAddComponent } from '../../components/shared/media-add/media-add.component';
 import { PreviewPublicationComponent } from '../../components/shared/preview-publication/preview-publication.component';
 import { PreviewContentPanelComponent } from '../../components/shared/preview-content-panel/preview-content-panel.component';
-import { PublicationsListComponent } from '../../components/publications/publications-list/publications-list.component';
 import { PublicationAnnouncementComponent } from '../../components/shared/publication-announcement/publication-announcement.component';
 
 
@@ -48,7 +47,6 @@ import { PublicationAnnouncementComponent } from '../../components/shared/public
     MediaAddComponent,
     PreviewPublicationComponent,
     PreviewContentPanelComponent,
-    PublicationsListComponent,
     PublicationAnnouncementComponent
   ],
   providers: [
@@ -68,7 +66,6 @@ import { PublicationAnnouncementComponent } from '../../components/shared/public
     MediaAddComponent,
     PreviewPublicationComponent,
     PreviewContentPanelComponent,
-    PublicationsListComponent,
     PublicationAnnouncementComponent
   ]
 })
