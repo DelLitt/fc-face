@@ -25,7 +25,7 @@ import { MediaAddComponent } from '../../components/shared/media-add/media-add.c
 import { PreviewPublicationComponent } from '../../components/shared/preview-publication/preview-publication.component';
 import { PreviewContentPanelComponent } from '../../components/shared/preview-content-panel/preview-content-panel.component';
 import { PublicationsListComponent } from '../../components/publications/publications-list/publications-list.component';
-import { EntityAnnouncementComponent } from '../../components/shared/entity-announcement/entity-announcement.component';
+import { PublicationAnnouncementComponent } from '../../components/shared/publication-announcement/publication-announcement.component';
 
 
 @NgModule({
@@ -49,7 +49,7 @@ import { EntityAnnouncementComponent } from '../../components/shared/entity-anno
     PreviewPublicationComponent,
     PreviewContentPanelComponent,
     PublicationsListComponent,
-    EntityAnnouncementComponent
+    PublicationAnnouncementComponent
   ],
   providers: [
     TextUtilityService,
@@ -69,7 +69,7 @@ import { EntityAnnouncementComponent } from '../../components/shared/entity-anno
     PreviewPublicationComponent,
     PreviewContentPanelComponent,
     PublicationsListComponent,
-    EntityAnnouncementComponent
+    PublicationAnnouncementComponent
   ]
 })
 export class SharedComponentsModule { }
