@@ -3,4 +3,8 @@ export interface Entity {
     title: string;
     img: string;
     description: string;
+    displayDate: Date;
+    author: string;
+    hasVideo: boolean;
+    hasPhoto: boolean;
 }

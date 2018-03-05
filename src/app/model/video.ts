@@ -10,4 +10,6 @@ export class Video implements Entity {
     public displayDate: Date;
     public sortDate: Date;
     public htmlCode: string;
+    public hasVideo: boolean;
+    public hasPhoto: boolean;
 }

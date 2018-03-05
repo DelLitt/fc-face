@@ -13,4 +13,6 @@ export class Publication implements Entity {
     public sortDate: Date;
     public galleryId: number;
     public videoId: number;
+    public hasVideo: boolean;
+    public hasPhoto: boolean;
 }

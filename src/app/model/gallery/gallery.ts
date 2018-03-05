@@ -11,4 +11,6 @@ export class Gallery implements Entity {
     public displayDate: Date;
     public sortDate: Date;
     public items: GalleryItem[];
+    public hasVideo: boolean;
+    public hasPhoto: boolean;
 }
