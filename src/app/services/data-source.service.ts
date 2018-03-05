@@ -10,6 +10,10 @@ export class DataSourceService {
     return null;
   }
 
+  public getEntitiesCount(entityType: string): Promise<number> {
+    return null;
+  }
+
   public getEntities(count: number, skip: number, entityType: string): Promise<object[]> {
     return null;
   }
@@ -26,10 +30,16 @@ export class FakeDataSourceService extends DataSourceService {
     });
   }
 
+  public getEntitiesCount(entityType: string): Promise<number> {
+    return new Promise((resolve, reject) => {
+      resolve(db[entityType].length);
+    });
+  }
+
   public getEntities(count: number, skip: number, entityType: string): Promise<object[]> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const entities: Array<object> = db[entityType].slice(0, count);
+        const entities: Array<object> = db[entityType].slice(skip, skip + count);
         resolve(entities);
       }, 1000);
     });
