@@ -2,7 +2,7 @@
   <div class="col-12">
     <div class="publication-announcement-body row">
       <div class="col-md-3">
-        <a [routerLink]="[routePart, item.id]">
+        <a [routerLink]="['/' + routePart, item.id]">
           <img class="embed-responsive embed-responsive-16by9 mb-3" [src]="getImage(497, 280)" [alt]="title">
         </a>
       </div>
