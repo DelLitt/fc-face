@@ -10,6 +10,7 @@ import { GlobalComponentsModule } from './modules/global/global-components.modul
 import { MainComponentsModule } from './modules/main/main-components.module';
 import { PublicationComponentsModule } from '././modules/publications/publication-components.module';
 import { StaticPagesModule } from '././modules/static/static-pages.module';
+import { SearchComponentsModule } from './modules/search/search-components.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -39,6 +40,7 @@ export function createTranslateLoader(http: HttpClient) {
     GlobalComponentsModule,
     MainComponentsModule,
     PublicationComponentsModule,
+    SearchComponentsModule,
     StaticPagesModule
   ],
   providers: [],
