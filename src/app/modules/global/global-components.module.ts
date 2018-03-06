@@ -4,13 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from '../../modules/app-routing/app-routing.module';
 import { SharedComponentsModule } from '../../modules/shared/shared-components.module';
+
+import { LogService, LogLevel } from '../../services/log.service';
+import { SiteMapService } from '../../services/site-map.service';
+
 import { GlobalNavigationComponent } from '../../components/global/global-navigation/global-navigation.component';
 import { GlobalHeaderComponent } from '../../components/global/global-header/global-header.component';
 import { GlobalBreadcrumbComponent } from '../../components/global/global-breadcrumb/global-breadcrumb/global-breadcrumb.component';
 import { GlobalSearchComponent } from '../../components/global/global-search/global-search.component';
 import { LanguageBarComponent } from '../../components/global/language-bar/language-bar.component';
-import { LogService, LogLevel } from '../../services/log.service';
-import { SiteMapService } from '../../services/site-map.service';
+
+
 
 @NgModule({
   imports: [
