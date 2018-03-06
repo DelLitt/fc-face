@@ -3,6 +3,9 @@ import { LogService } from './log.service';
 import { Entity } from '../model/entity';
 import { DataSourceService } from './data-source.service';
 
+
+const MinSearchTextLength = 3;
+
 @Injectable()
 export class SearchService {
 
@@ -11,15 +14,19 @@ export class SearchService {
     private logger: LogService
   ) { }
 
+  public get minSearchTextLength(): number {
+    return MinSearchTextLength;
+  }
+
   public search(text: string): Promise<Entity[]> {
     return new Promise((resolve, reject) => {
-      this.logger.logError(`'${(<any>this).constructor.name}' has started searching for: '${text}'.`);
+      this.logger.logDebug(`'${(<any>this).constructor.name}' has started searching for: '${text}'.`);
 
       this.dataSource.search(text)
         .then(result => {
           if (result) {
             const entities: Entity[] = this.convertResponseToEntities(result);
-            this.logger.logError(`'${(<any>this).constructor.name}' has finished searching successfully.`);
+            this.logger.logDebug(`'${(<any>this).constructor.name}' has finished searching successfully.`);
             resolve(entities);
           } else {
             const errorMsg = `'${(<any>this).constructor.name}' has no found any items for: '${text}'!`;
