@@ -10,5 +10,6 @@ export const SiteMapConfiguration: SiteMap = [
             { defaultName: 'Reserve team', i18nKey: 'RESERVE_TEAM', path: 'club/reserveteam', visible: true, clickable: true }
         ]
     },
+    { defaultName: 'Search', i18nKey: 'SEARCH', path: 'search', visible: false, clickable: false },
     { defaultName: 'Contacts', i18nKey: 'CONTACTS', path: 'contacts', visible: true, clickable: true }
 ];
