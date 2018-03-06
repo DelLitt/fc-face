@@ -24,7 +24,8 @@ a, .btn-link {
     }
 
     .breadcrumb-item {
-        &.active {
+        &.active, 
+        span {
             color: $gray-500;
         }
     }
