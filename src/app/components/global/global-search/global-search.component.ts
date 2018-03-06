@@ -22,6 +22,12 @@ export class GlobalSearchComponent implements OnInit {
 
   public doSearch() {
     this.logger.logInfo(`Search is called for "${this.searchText}"!`);
+
+    if (!this.search || this.searchText.length < 3 ) {
+      this.logger.logWarning(`'${(<any>this).constructor.name}' has recieved too short text for searching: '${this.searchText}'.`);
+      return;
+    }
+
     this.search.emit(this.searchText);
     this.router.navigate(['/search', this.searchText]);
   }
