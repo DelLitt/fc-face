@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LogService } from '../../../services/log.service';
 import { Entity } from '../../../model/entity';
 import { SearchService } from '../../../services/search.service';
+import { AlertService } from '../../../services/alert.service';
 
 const DefPageSize = 2;
 
@@ -22,6 +23,7 @@ export class SearchResultsComponent implements OnInit {
   private entities: Entity[];
 
   constructor(
+    private alertService: AlertService,
     private searchService: SearchService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -35,14 +37,15 @@ export class SearchResultsComponent implements OnInit {
   private setSearchText() {
     this.activatedRoute.params.subscribe(params => {
       this.searchText = params['text'];
+      this.logger.logDebug(`'${(<any>this).constructor.name}' has recieved text for searching: '${this.searchText}'.`);
       this.processSearching();
-      this.logger.logError(`'${(<any>this).constructor.name}' has recieved text for searchingг г г: '${this.searchText}'.`);
    });
   }
 
   private processSearching() {
-    if (!this.search || this.searchText.length < 3 ) {
+    if (!this.search || this.searchText.length < this.searchService.minSearchTextLength ) {
       this.logger.logWarning(`'${(<any>this).constructor.name}' has recieved too short text for searching: '${this.searchText}'.`);
+      this.alertService.alert('ERR_SEARCH_STRING_SHORT');
       return;
     }
 
@@ -50,14 +53,14 @@ export class SearchResultsComponent implements OnInit {
   }
 
   private search(count, skip: number = 0) {
-    this.logger.logError(`'${(<any>this).constructor.name}' has started searching for ${this.searchText}.`);
+    this.logger.logDebug(`'${(<any>this).constructor.name}' has started searching for ${this.searchText}.`);
     this._loaded = false;
 
     this.searchService.search(this.searchText)
     .then(result => {
       this.entities = result;
       this._loaded = true;
-      this.logger.logError(`'${(<any>this).constructor.name}' has finished searching successfully.`);
+      this.logger.logDebug(`'${(<any>this).constructor.name}' has finished searching successfully.`);
     })
     .catch(reason => {
       this.router.navigate(['/not-found']);

@@ -1,6 +1,9 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { LogService } from '../../../services/log.service';
 import { Router } from '@angular/router';
+import { LogService } from '../../../services/log.service';
+import { AlertService } from '../../../services/alert.service';
+import { SearchService } from '../../../services/search.service';
+
 
 @Component({
   selector: 'app-global-search',
@@ -13,6 +16,8 @@ export class GlobalSearchComponent implements OnInit {
   @Output() search: EventEmitter<any> = new EventEmitter();
 
   constructor(
+    private alertService: AlertService,
+    private searchService: SearchService,
     private router: Router,
     private logger: LogService
   ) { }
@@ -23,8 +28,9 @@ export class GlobalSearchComponent implements OnInit {
   public doSearch() {
     this.logger.logInfo(`Search is called for "${this.searchText}"!`);
 
-    if (!this.search || this.searchText.length < 3 ) {
+    if (!this.search || this.searchText.length < this.searchService.minSearchTextLength ) {
       this.logger.logWarning(`'${(<any>this).constructor.name}' has recieved too short text for searching: '${this.searchText}'.`);
+      this.alertService.alert('ERR_SEARCH_STRING_SHORT');
       return;
     }
 

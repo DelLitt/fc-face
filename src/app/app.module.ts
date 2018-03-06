@@ -14,6 +14,8 @@ import { SearchComponentsModule } from './modules/search/search-components.modul
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { MatSnackBarModule } from '@angular/material';
+import { AlertService } from './services/alert.service';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -36,6 +38,7 @@ export function createTranslateLoader(http: HttpClient) {
           deps: [HttpClient]
       },
     }),
+    MatSnackBarModule,
     AppRoutingModule,
     GlobalComponentsModule,
     MainComponentsModule,
@@ -43,7 +46,9 @@ export function createTranslateLoader(http: HttpClient) {
     SearchComponentsModule,
     StaticPagesModule
   ],
-  providers: [],
+  providers: [
+    AlertService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
