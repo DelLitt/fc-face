@@ -31,5 +31,6 @@
     "UNABLE_TO_SEND_MESSAGE_REPLY_TO_EMAIL": "Не атрымалася даставіць паведамленне. Калі ласка, адпраўце яго на электронную пошту contact@sfc-slutks.by",
     "ITEMS_PER_PAGE": "Элементаў на старонцы",
     "NEXT_PAGE": "Наступная старонка",
-    "PREVIOUS_PAGE": "Папярэдняя старонка"
+    "PREVIOUS_PAGE": "Папярэдняя старонка",
+    "ERR_SEARCH_STRING_SHORT": "Занадта кароткі радок пошуку!"
 }
