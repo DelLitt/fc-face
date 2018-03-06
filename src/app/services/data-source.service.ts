@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Publication } from '../model/publication';
+import { Entity } from '../model/entity';
 
 @Injectable()
 export class DataSourceService {
@@ -15,6 +16,10 @@ export class DataSourceService {
   }
 
   public getEntities(count: number, skip: number, entityType: string): Promise<object[]> {
+    return null;
+  }
+
+  public search(text: string): Promise<object[]> {
     return null;
   }
 }
@@ -42,6 +47,38 @@ export class FakeDataSourceService extends DataSourceService {
         const entities: Array<object> = db[entityType].slice(skip, skip + count);
         resolve(entities);
       }, 1000);
+    });
+  }
+
+  public search(text: string): Promise<object[]> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const entities: Array<object> = this.doSearch(db['publications'], text);
+        this.setClassification(entities, 'publications');
+        resolve(entities);
+      }, 1000);
+    });
+  }
+
+  private doSearch(source: any[], text: string): object[] {
+    return source.filter(entity => {
+      // const searchExpression = `/${text}/gi`;
+      return this.isPropertyContainsText(entity, 'title', text)
+        || this.isPropertyContainsText(entity, 'header', text)
+        || this.isPropertyContainsText(entity, 'lead', text)
+        || this.isPropertyContainsText(entity, 'content', text);
+    });
+  }
+
+  private isPropertyContainsText(target: object, propertyName: string, searchText: string): boolean {
+    return target[propertyName]
+      && target[propertyName].search instanceof Function
+      && target[propertyName].search(searchText) > -1;
+  }
+
+  private setClassification(source: any[], classification: string) {
+    source.forEach(element => {
+      element.classification = classification;
     });
   }
 }
