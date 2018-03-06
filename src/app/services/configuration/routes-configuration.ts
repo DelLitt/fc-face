@@ -25,7 +25,7 @@ export const RoutesConfiguration: Routes = [
         data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[1]], useTitle: true }
     },
     {
-        path: 'search',
+        path: 'search/:text',
         component: SearchResultsComponent,
         data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[3]] }
     },
