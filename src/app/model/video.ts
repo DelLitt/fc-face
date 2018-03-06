@@ -12,4 +12,5 @@ export class Video implements Entity {
     public htmlCode: string;
     public hasVideo: boolean;
     public hasPhoto: boolean;
+    public classification: string;
 }

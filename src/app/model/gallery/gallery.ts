@@ -13,4 +13,5 @@ export class Gallery implements Entity {
     public items: GalleryItem[];
     public hasVideo: boolean;
     public hasPhoto: boolean;
+    public classification: string;
 }

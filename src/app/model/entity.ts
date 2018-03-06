@@ -7,4 +7,5 @@ export interface Entity {
     author: string;
     hasVideo: boolean;
     hasPhoto: boolean;
+    classification: string;
 }

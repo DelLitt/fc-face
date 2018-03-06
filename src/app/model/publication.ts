@@ -15,4 +15,5 @@ export class Publication implements Entity {
     public videoId: number;
     public hasVideo: boolean;
     public hasPhoto: boolean;
+    public classification: string;
 }
