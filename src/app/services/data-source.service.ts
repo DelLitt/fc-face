@@ -19,7 +19,7 @@ export class DataSourceService {
     return null;
   }
 
-  public search(text: string): Promise<object[]> {
+  public search(text: string, count: number, skip: number = 0): Promise<any> {
     return null;
   }
 }
@@ -50,24 +50,56 @@ export class FakeDataSourceService extends DataSourceService {
     });
   }
 
-  public search(text: string): Promise<object[]> {
+  public search(text: string, count: number, skip: number = 0): Promise<any> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const entities: Array<object> = this.doSearch(db['publications'], text);
-        this.setClassification(entities, 'publications');
-        resolve(entities);
+        const result = {
+          items: [],
+          totalCount: 0
+        };
+
+        const publicationsData: any = this.doSearch(db['publications'], text);
+        this.setClassification(publicationsData.items, 'publications');
+        const galleriesData: any = this.doSearch(db['galleries'], text);
+        this.setClassification(galleriesData.items, 'galleries');
+        const videosData: any = this.doSearch(db['videos'], text);
+        this.setClassification(videosData.items, 'videos');
+
+        const allItems = [];
+
+        publicationsData.items.forEach(element => {
+          allItems.push(element);
+        });
+        galleriesData.items.forEach(element => {
+          allItems.push(element);
+        });
+        videosData.items.forEach(element => {
+          allItems.push(element);
+        });
+
+        result.items = allItems.slice(skip, skip + count);
+        result.totalCount = publicationsData.totalCount
+          + galleriesData.totalCount
+          + videosData.totalCount;
+
+        resolve(result);
       }, 1000);
     });
   }
 
-  private doSearch(source: any[], text: string): object[] {
-    return source.filter(entity => {
+  private doSearch(source: any[], text: string): object {
+    const items = source.filter(entity => {
       // const searchExpression = `/${text}/gi`;
       return this.isPropertyContainsText(entity, 'title', text)
         || this.isPropertyContainsText(entity, 'header', text)
         || this.isPropertyContainsText(entity, 'lead', text)
         || this.isPropertyContainsText(entity, 'content', text);
     });
+
+    return {
+      items: items,
+      totalCount: items.length
+    };
   }
 
   private isPropertyContainsText(target: object, propertyName: string, searchText: string): boolean {
@@ -197,7 +229,7 @@ const publications = [
 const galleries = [
   {
     id: 201,
-    title: 'Фотогалерея номер 1',
+    title: 'Фотогалерея номер 1 пос',
     header: 'Первая галерея',
     img: '/assets/img/_tmp/img-slide-1.png',
     // tslint:disable-next-line:max-line-length
@@ -241,7 +273,7 @@ const videos = [
   },
   {
     id: 302,
-    title: 'Видео номер 2',
+    title: 'Видео пос номер 2',
     header: 'Второе видео',
     img: '/assets/img/_tmp/img-slide-2.png',
     // tslint:disable-next-line:max-line-length
