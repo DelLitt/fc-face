@@ -31,10 +31,10 @@ export class SearchResultsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.setSearchText();
+    this.startSearching();
   }
 
-  private setSearchText() {
+  private startSearching() {
     this.activatedRoute.params.subscribe(params => {
       this.searchText = params['text'];
       this.logger.logDebug(`'${(<any>this).constructor.name}' has recieved text for searching: '${this.searchText}'.`);
@@ -49,22 +49,30 @@ export class SearchResultsComponent implements OnInit {
       return;
     }
 
-    this.search(10, 20);
+    this.search();
   }
 
-  private search(count, skip: number = 0) {
+  private search() {
     this.logger.logDebug(`'${(<any>this).constructor.name}' has started searching for ${this.searchText}.`);
     this._loaded = false;
 
-    this.searchService.search(this.searchText)
+    this.searchService.search(this.searchText, this.pageSize, this.pageIndex * this.pageSize)
     .then(result => {
-      this.entities = result;
+      this.entities = result.items;
+      this.entitiesTotalCount = result.totalCount;
       this._loaded = true;
       this.logger.logDebug(`'${(<any>this).constructor.name}' has finished searching successfully.`);
     })
     .catch(reason => {
       this.router.navigate(['/not-found']);
     });
+  }
+
+  private paginationHandler($event) {
+    this.pageIndex = $event.pageIndex;
+    this.pageSize = $event.pageSize;
+    this.startSearching();
+    this.logger.logInfo(`'${(<any>this).constructor.name}' has processed pagination event ${$event.pageSize}.`);
   }
 
 }

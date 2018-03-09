@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { LogService } from './log.service';
 import { Entity } from '../model/entity';
 import { DataSourceService } from './data-source.service';
+import { EntitiesPage } from '../model/entities-page';
 
 
 const MinSearchTextLength = 3;
@@ -18,16 +19,18 @@ export class SearchService {
     return MinSearchTextLength;
   }
 
-  public search(text: string): Promise<Entity[]> {
+  public search(text: string, count: number, skip: number = 0): Promise<EntitiesPage> {
     return new Promise((resolve, reject) => {
       this.logger.logDebug(`'${(<any>this).constructor.name}' has started searching for: '${text}'.`);
 
-      this.dataSource.search(text)
+      this.dataSource.search(text, count, skip)
         .then(result => {
           if (result) {
-            const entities: Entity[] = this.convertResponseToEntities(result);
+            const entitiesPage = new EntitiesPage();
+            entitiesPage.items = this.convertResponseToEntities(result.items);
+            entitiesPage.totalCount = result.totalCount;
             this.logger.logDebug(`'${(<any>this).constructor.name}' has finished searching successfully.`);
-            resolve(entities);
+            resolve(entitiesPage);
           } else {
             const errorMsg = `'${(<any>this).constructor.name}' has no found any items for: '${text}'!`;
             this.logger.logError(errorMsg);

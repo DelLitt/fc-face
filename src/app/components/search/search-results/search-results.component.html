@@ -8,12 +8,12 @@
     <div *ngIf="_loaded">
       <app-publication-announcement *ngFor="let item of entities" [item]="item" [routePart]="item.classification"></app-publication-announcement>    
     </div>
-    <!-- <div class="justify-content-center" [class.d-none]="!_loaded" [class.d-flex]="_loaded">
+    <div class="justify-content-center" [class.d-none]="!_loaded" [class.d-flex]="_loaded">
         <mat-paginator 
-          [length]="publicationsTotalCount" 
+          [length]="entitiesTotalCount" 
           [pageSize]="pageSize" 
           [pageSizeOptions]="pageSizeOptions"
           (page)="paginationHandler($event)">
         </mat-paginator>
-      </div>   -->
+      </div>  
   </section>
