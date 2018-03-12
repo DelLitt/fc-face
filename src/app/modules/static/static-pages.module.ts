@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ContactsViewComponent } from '../../components/contacts/contacts-view/contacts-view.component';
-import { TranslateModule } from '@ngx-translate/core';
-import { ContactsItemComponent } from '../../components/contacts/contacts-item/contacts-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+
+import { ContactsViewComponent } from '../../components/contacts/contacts-view/contacts-view.component';
+import { ContactsItemComponent } from '../../components/contacts/contacts-item/contacts-item.component';
+import { StadiumRulesViewComponent } from '../../components/static/stadium-rules-view/stadium-rules-view.component';
+
 
 @NgModule({
   imports: [
@@ -14,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   declarations: [
     ContactsViewComponent,
-    ContactsItemComponent
+    ContactsItemComponent,
+    StadiumRulesViewComponent
   ],
   exports: [
     ContactsViewComponent
