@@ -10,6 +10,12 @@ export const SiteMapConfiguration: SiteMap = [
             { defaultName: 'Reserve team', i18nKey: 'RESERVE_TEAM', path: 'club/reserveteam', visible: true, clickable: true }
         ]
     },
-    { defaultName: 'Search', i18nKey: 'SEARCH', path: 'search', visible: false, clickable: false },
-    { defaultName: 'Contacts', i18nKey: 'CONTACTS', path: 'contacts', visible: true, clickable: true }
+    {
+        defaultName: 'Information', i18nKey: 'INFORMATION', path: 'info', visible: true, clickable: false,
+        subItems: [
+            { defaultName: 'Stadium rules', i18nKey: 'STADIUM_RULES', path: 'info/stadiumrules', visible: true, clickable: true }
+        ]
+    },
+    { defaultName: 'Contacts', i18nKey: 'CONTACTS', path: 'contacts', visible: true, clickable: true },
+    { defaultName: 'Search', i18nKey: 'SEARCH', path: 'search', visible: false, clickable: false }
 ];

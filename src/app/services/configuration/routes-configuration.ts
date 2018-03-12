@@ -8,6 +8,7 @@ import { HomeViewComponent } from '../../components/main/home-view/home-view.com
 import { PublicationsListComponent } from '../../components/publications/publications-list/publications-list.component';
 import { SiteMapConfiguration } from './site-map-configuration';
 import { SearchResultsComponent } from '../../components/search/search-results/search-results.component';
+import { StadiumRulesViewComponent } from '../../components/static/stadium-rules-view/stadium-rules-view.component';
 
 export const RoutesConfiguration: Routes = [
     {
@@ -25,13 +26,18 @@ export const RoutesConfiguration: Routes = [
         data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[1]], useTitle: true }
     },
     {
-        path: 'search/:text',
-        component: SearchResultsComponent,
+        path: 'info/stadiumrules',
+        component: StadiumRulesViewComponent,
         data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[3]] }
     },
     {
         path: 'contacts',
         component: ContactsViewComponent,
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[4]] }
+    },
+    {
+        path: 'search/:text',
+        component: SearchResultsComponent,
         data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[4]] }
     },
     { path: 'not-found', component: PageNotFoundComponent },
