@@ -10,6 +10,9 @@ import { SiteMapConfiguration } from './site-map-configuration';
 import { SearchResultsComponent } from '../../components/search/search-results/search-results.component';
 import { StadiumRulesViewComponent } from '../../components/static/stadium-rules-view/stadium-rules-view.component';
 import { YouthViewComponent } from '../../components/youth/youth-view/youth-view.component';
+import { YouthHomeComponent } from '../../components/youth/youth-home/youth-home.component';
+import { YouthManagementComponent } from '../../components/youth/youth-management/youth-management.component';
+import { YouthTeamsComponent } from '../../components/youth/youth-teams/youth-teams.component';
 
 export const RoutesConfiguration: Routes = [
     {
@@ -29,32 +32,37 @@ export const RoutesConfiguration: Routes = [
     {
         path: 'youth',
         component: YouthViewComponent,
-        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[1]] },
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[3]] },
         children: [
             {
-             path : 'one',
-             component: PublicationsListComponent
+             path : 'home',
+             component: YouthHomeComponent
             },
             {
-             path : 'two',
-             component: ContactsViewComponent
-            }
+             path : 'management',
+             component: YouthManagementComponent
+            },
+            {
+                path : 'teams',
+                component: YouthTeamsComponent
+            },
+            { path: '', redirectTo: 'home', pathMatch: 'full' },
          ]
     },
     {
         path: 'info/stadiumrules',
         component: StadiumRulesViewComponent,
-        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[3]] }
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[4]] }
     },
     {
         path: 'contacts',
         component: ContactsViewComponent,
-        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[4]] }
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[5]] }
     },
     {
         path: 'search/:text',
         component: SearchResultsComponent,
-        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[4]] }
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[6]] }
     },
     { path: 'not-found', component: PageNotFoundComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },

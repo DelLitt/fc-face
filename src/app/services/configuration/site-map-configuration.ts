@@ -11,6 +11,15 @@ export const SiteMapConfiguration: SiteMap = [
         ]
     },
     {
+        defaultName: 'Sports School', i18nKey: 'Y_S_S', path: 'youth', visible: true, clickable: true,
+        subItems: [
+            { defaultName: 'Information', i18nKey: 'INFORMATION', path: 'youth/home', visible: false, clickable: true },
+            // tslint:disable-next-line:max-line-length
+            { defaultName: 'Management and coaches', i18nKey: 'MANAGEMENT_AND_COACHES', path: 'youth/coaches', visible: false, clickable: true },
+            { defaultName: 'Youth teams', i18nKey: 'YOUTH_TEAMS', path: 'youth/teams', visible: false, clickable: true }
+        ]
+    },
+    {
         defaultName: 'Information', i18nKey: 'INFORMATION', path: 'info', visible: true, clickable: false,
         subItems: [
             { defaultName: 'Stadium rules', i18nKey: 'STADIUM_RULES', path: 'info/stadiumrules', visible: true, clickable: true }
