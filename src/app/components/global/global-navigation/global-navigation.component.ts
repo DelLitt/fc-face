@@ -48,7 +48,7 @@ export class GlobalNavigationComponent implements OnInit {
   }
 
   private hasSubItems(item: SiteMapItem) {
-    const condition: boolean = item.subItems instanceof Array && item.subItems.length > 0;
+    const condition: boolean = item.subItems instanceof Array && item.subItems.find(s => s.visible) instanceof Object;
     return  condition;
   }
 }
