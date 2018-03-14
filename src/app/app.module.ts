@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { MatSnackBarModule } from '@angular/material';
 import { AlertService } from './services/alert.service';
-import { YouthViewComponent } from './components/youth/youth-view/youth-view.component';
+import { YouthComponentsModule } from './modules/youth/youth-components.module';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -26,8 +26,7 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent,
-    YouthViewComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +44,7 @@ export function createTranslateLoader(http: HttpClient) {
     GlobalComponentsModule,
     MainComponentsModule,
     PublicationComponentsModule,
+    YouthComponentsModule,
     SearchComponentsModule,
     StaticPagesModule
   ],
