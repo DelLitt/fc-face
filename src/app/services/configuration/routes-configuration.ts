@@ -9,6 +9,7 @@ import { PublicationsListComponent } from '../../components/publications/publica
 import { SiteMapConfiguration } from './site-map-configuration';
 import { SearchResultsComponent } from '../../components/search/search-results/search-results.component';
 import { StadiumRulesViewComponent } from '../../components/static/stadium-rules-view/stadium-rules-view.component';
+import { YouthViewComponent } from '../../components/youth/youth-view/youth-view.component';
 
 export const RoutesConfiguration: Routes = [
     {
@@ -24,6 +25,21 @@ export const RoutesConfiguration: Routes = [
         path: 'publications/:id',
         component: PublicationViewComponent,
         data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[1]], useTitle: true }
+    },
+    {
+        path: 'youth',
+        component: YouthViewComponent,
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[1]] },
+        children: [
+            {
+             path : 'one',
+             component: PublicationsListComponent
+            },
+            {
+             path : 'two',
+             component: ContactsViewComponent
+            }
+         ]
     },
     {
         path: 'info/stadiumrules',
