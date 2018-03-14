@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogService } from '../../../services/log.service';
 
 @Component({
   selector: 'app-youth-view',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class YouthViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private logger: LogService
+  ) { }
 
   ngOnInit() {
+    this.logger.logDebug(`'${(<any>this).constructor.name}' component is being initialized.`);
   }
 
 }
