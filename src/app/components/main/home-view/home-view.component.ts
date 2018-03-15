@@ -6,7 +6,6 @@ import { Publication } from '../../../model/publication';
 import { Video } from '../../../model/video';
 import { Gallery } from '../../../model/gallery/gallery';
 import { LogService } from '../../../services/log.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-view',
@@ -25,8 +24,7 @@ export class HomeViewComponent implements OnInit {
     private publicationsRepository: PublicationsRepositoryService,
     private videosRepository: VideosRepositoryService,
     private galleriesRepository: GalleriesRepositoryService,
-    private logger: LogService,
-    private router: Router
+    private logger: LogService
   ) { }
 
   ngOnInit() {
@@ -39,7 +37,7 @@ export class HomeViewComponent implements OnInit {
   private loadPublications() {
     this.logger.logDebug(`'${(<any>this).constructor.name}' is trying to get publications.`);
 
-    this.publicationsRepository.getPublications(7)
+    this.publicationsRepository.getAllPublications(7)
       .then(
         result => {
           this.publications = result;
@@ -59,7 +57,7 @@ export class HomeViewComponent implements OnInit {
   private loadVideos() {
     this.logger.logDebug(`'${(<any>this).constructor.name}' is trying to get videos.`);
 
-    this.videosRepository.getVideos(4)
+    this.videosRepository.getAllVideos(3)
       .then(
         result => {
           this.videos = result;
@@ -77,7 +75,7 @@ export class HomeViewComponent implements OnInit {
   private loadGalleries() {
     this.logger.logDebug(`'${(<any>this).constructor.name}' is trying to get galleries.`);
 
-    this.galleriesRepository.getGalleries(4)
+    this.galleriesRepository.getAllGalleries(3)
       .then(
         result => {
           this.galleries = result;

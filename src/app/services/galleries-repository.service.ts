@@ -29,16 +29,32 @@ export class GalleriesRepositoryService {
     });
   }
 
-  public getGalleries(count: number, skip: number = 0): Promise<Gallery[]> {
+  public getAllGalleries(count: number, skip: number = 0): Promise<Gallery[]> {
+    const visibility = [
+      PublicationVisibility.main,
+      PublicationVisibility.news,
+      PublicationVisibility.reserve,
+      PublicationVisibility.youth
+    ];
+
+    return this.getGalleries(count, skip, visibility);
+  }
+
+  public getYouthGalleries(count: number, skip: number = 0): Promise<Gallery[]> {
+    const visibility = [
+      PublicationVisibility.youth
+    ];
+
+    return this.getGalleries(count, skip, visibility);
+  }
+
+  private getGalleries(
+    count: number,
+    skip: number,
+    visibility: PublicationVisibility[]
+  ): Promise<Gallery[]> {
     return new Promise((resolve, reject) => {
       this.logger.logDebug(`'${(<any>this).constructor.name}' started loading galleries.`);
-
-      const visibility = [
-        PublicationVisibility.main,
-        PublicationVisibility.news,
-        PublicationVisibility.reserve,
-        PublicationVisibility.youth
-      ];
 
       this.dataSource.getEntities(count, skip, 'galleries', visibility)
         .then(result => {

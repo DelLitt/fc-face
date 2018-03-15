@@ -28,39 +28,32 @@ export class PublicationsRepositoryService {
     });
   }
 
-  public getPublications(count: number, skip: number = 0): Promise<Publication[]> {
-    return new Promise((resolve, reject) => {
-      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading publications.`);
+  public getAllPublications(count: number, skip: number = 0): Promise<Publication[]> {
+    const visibility = [
+      PublicationVisibility.main,
+      PublicationVisibility.news,
+      PublicationVisibility.reserve,
+      PublicationVisibility.youth
+    ];
 
-      const visibility = [
-        PublicationVisibility.main,
-        PublicationVisibility.news,
-        PublicationVisibility.reserve,
-        PublicationVisibility.youth
-      ];
-
-      this.dataSource.getEntities(count, skip, 'publications', visibility)
-        .then(result => {
-          if (result) {
-            const publications: Publication[] = this.convertResponseToPublications(result);
-            this.logger.logInfo(`'${(<any>this).constructor.name}' loaded publications successfully.`);
-            resolve(publications);
-          } else {
-            const errorMsg = `'${(<any>this).constructor.name}' was unable to load publications!`;
-            this.logger.logError(errorMsg);
-            reject(new Error(errorMsg));
-          }
-        });
-    });
+    return this.getPublications(count, skip, visibility);
   }
 
   public getYouthPublications(count: number, skip: number = 0): Promise<Publication[]> {
-    return new Promise((resolve, reject) => {
-      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading youth publications.`);
+    const visibility = [
+      PublicationVisibility.youth
+    ];
 
-      const visibility = [
-        PublicationVisibility.youth
-      ];
+    return this.getPublications(count, skip, visibility);
+  }
+
+  private getPublications(
+    count: number,
+    skip: number,
+    visibility: PublicationVisibility[]
+  ): Promise<Publication[]> {
+    return new Promise((resolve, reject) => {
+      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading publications.`);
 
       this.dataSource.getEntities(count, skip, 'publications', visibility)
         .then(result => {

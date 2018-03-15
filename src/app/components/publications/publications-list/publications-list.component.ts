@@ -42,7 +42,7 @@ export class PublicationsListComponent implements OnInit {
     this.logger.logDebug(`'${(<any>this).constructor.name}' is trying to load the publications.`);
     this._loaded = false;
 
-    this.publicationsRepository.getPublications(count, skip)
+    this.publicationsRepository.getAllPublications(count, skip)
     .then(result => {
       this.publications = result;
       this._loaded = true;

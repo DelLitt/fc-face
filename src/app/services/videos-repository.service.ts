@@ -31,30 +31,46 @@ export class VideosRepositoryService {
     });
   }
 
-  public getVideos(count: number, skip: number = 0): Promise<Video[]> {
-    return new Promise((resolve, reject) => {
-      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading videos.`);
+  public getAllVideos(count: number, skip: number = 0): Promise<Video[]> {
+    const visibility = [
+      PublicationVisibility.main,
+      PublicationVisibility.news,
+      PublicationVisibility.reserve,
+      PublicationVisibility.youth
+    ];
 
-      const visibility = [
-        PublicationVisibility.main,
-        PublicationVisibility.news,
-        PublicationVisibility.reserve,
-        PublicationVisibility.youth
-      ];
+    return this.getVideos(count, skip, visibility);
+  }
 
-      this.dataSource.getEntities(count, skip, 'videos', visibility)
-        .then(result => {
-          if (result) {
-            const videos: Video[] = this.convertResponseToVideos(result);
-            this.logger.logInfo(`'${(<any>this).constructor.name}' loaded videos successfully.`);
-            resolve(videos);
-          } else {
-            const errorMsg = `'${(<any>this).constructor.name}' was unable to load videos!`;
-            this.logger.logError(errorMsg);
-            reject(new Error(errorMsg));
-          }
-        });
-    });
+  public getYouthVideos(count: number, skip: number = 0): Promise<Video[]> {
+    const visibility = [
+      PublicationVisibility.youth
+    ];
+
+    return this.getVideos(count, skip, visibility);
+  }
+
+  private getVideos(
+    count: number,
+    skip: number,
+    visibility: PublicationVisibility[]
+  ): Promise<Video[]> {
+      return new Promise((resolve, reject) => {
+        this.logger.logDebug(`'${(<any>this).constructor.name}' started loading videos.`);
+
+        this.dataSource.getEntities(count, skip, 'videos', visibility)
+          .then(result => {
+            if (result) {
+              const videos: Video[] = this.convertResponseToVideos(result);
+              this.logger.logInfo(`'${(<any>this).constructor.name}' loaded videos successfully.`);
+              resolve(videos);
+            } else {
+              const errorMsg = `'${(<any>this).constructor.name}' was unable to load videos!`;
+              this.logger.logError(errorMsg);
+              reject(new Error(errorMsg));
+            }
+          });
+      });
   }
 
   private convertResponseToVideos(response: Array<any>): Video[] {
