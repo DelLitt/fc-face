@@ -41,14 +41,18 @@ a, .btn-link {
     max-height: 120px;
 }
 
+.fc-title {
+    color: theme-color("secondary");
+    margin-bottom: 2rem;
+}
+
 .fc-page {
-    .fc-page-title, 
-    .fc-page-header {
-        color: theme-color("secondary");
+    .fc-page-title {
+        @extend .fc-title;
     }
 
-    .fc-page-title {
-        margin-bottom: 2rem;
+    .fc-page-header {
+        color: theme-color("secondary");
     }
 
     .fa {
