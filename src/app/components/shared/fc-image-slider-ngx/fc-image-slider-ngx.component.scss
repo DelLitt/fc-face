@@ -8,6 +8,12 @@
     .carusel-caption-extra {
         right: 0;
         bottom: 0;
+
+        &.text-tertiary  {
+            .fa {
+                color: theme-color("tertiary");
+            }
+        }
     }
 
     a {
