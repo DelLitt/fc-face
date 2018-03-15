@@ -331,6 +331,123 @@ const galleries = [
         imgSrc: '/assets/img/_tmp/img-slide-4.png'
       }
     ]
+  },
+  {
+    id: 201,
+    title: 'Фотогалерея номер 1 пос',
+    header: 'Первая галерея',
+    img: '/assets/img/_tmp/img-slide-1.png',
+    // tslint:disable-next-line:max-line-length
+    lead: 'Кстати, я начал ходить на тренерские курсы. Мне нравится, хотя предстоит научиться самому сложному: доносить свои знания до других. Хочу начать с юниоров. Но пока я игрок, так это в будущем.',
+    author: 'Пресс-служба СФК "Слуцк"',
+    displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
+    sortDate: new Date('Thu, 08 Jan 2017 15:31:12 GMT').toISOString(),
+    visibility: 2,
+    items: [
+      {
+        title: 'Фотография номер 1',
+        imgSrc: '/assets/img/_tmp/img-slide-1.png'
+      },
+      {
+        title: 'Фотография номер 2',
+        imgSrc: '/assets/img/_tmp/img-slide-2.png'
+      },
+      {
+        title: 'Фотография номер 3',
+        imgSrc: '/assets/img/_tmp/img-slide-3.png'
+      },
+      {
+        title: 'Фотография номер 4',
+        imgSrc: '/assets/img/_tmp/img-slide-4.png'
+      }
+    ]
+  },
+  {
+    id: 201,
+    title: 'Дети. Фотогалерея номер 1 пос',
+    header: 'Первая галерея',
+    img: '/assets/img/_tmp/img-slide-1.png',
+    // tslint:disable-next-line:max-line-length
+    lead: 'Кстати, я начал ходить на тренерские курсы. Мне нравится, хотя предстоит научиться самому сложному: доносить свои знания до других. Хочу начать с юниоров. Но пока я игрок, так это в будущем.',
+    author: 'Пресс-служба СФК "Слуцк"',
+    displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
+    sortDate: new Date('Thu, 08 Jan 2017 15:31:12 GMT').toISOString(),
+    visibility: 8,
+    items: [
+      {
+        title: 'Фотография номер 1',
+        imgSrc: '/assets/img/_tmp/img-slide-1.png'
+      },
+      {
+        title: 'Фотография номер 2',
+        imgSrc: '/assets/img/_tmp/img-slide-2.png'
+      },
+      {
+        title: 'Фотография номер 3',
+        imgSrc: '/assets/img/_tmp/img-slide-3.png'
+      },
+      {
+        title: 'Фотография номер 4',
+        imgSrc: '/assets/img/_tmp/img-slide-4.png'
+      }
+    ]
+  },
+  {
+    id: 202,
+    title: 'Фотогалерея номер 2 пос',
+    header: 'Первая галерея',
+    img: '/assets/img/_tmp/img-slide-1.png',
+    // tslint:disable-next-line:max-line-length
+    lead: 'Кстати, я начал ходить на тренерские курсы. Мне нравится, хотя предстоит научиться самому сложному: доносить свои знания до других. Хочу начать с юниоров. Но пока я игрок, так это в будущем.',
+    author: 'Пресс-служба СФК "Слуцк"',
+    displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
+    sortDate: new Date('Thu, 08 Jan 2017 15:31:12 GMT').toISOString(),
+    visibility: 2,
+    items: [
+      {
+        title: 'Фотография номер 2',
+        imgSrc: '/assets/img/_tmp/img-slide-2.png'
+      },
+      {
+        title: 'Фотография номер 3',
+        imgSrc: '/assets/img/_tmp/img-slide-3.png'
+      },
+      {
+        title: 'Фотография номер 4',
+        imgSrc: '/assets/img/_tmp/img-slide-4.png'
+      },
+      {
+        title: 'Фотография номер 1',
+        imgSrc: '/assets/img/_tmp/img-slide-4.png'
+      }
+    ]
+  }
+  ,
+  {
+    id: 203,
+    title: 'Фотогалерея номер 3',
+    header: 'Первая галерея',
+    img: '/assets/img/_tmp/img-slide-1.png',
+    // tslint:disable-next-line:max-line-length
+    lead: 'Кстати, я начал ходить на тренерские курсы. Мне нравится, хотя предстоит научиться самому сложному: доносить свои знания до других. Хочу начать с юниоров. Но пока я игрок, так это в будущем.',
+    author: 'Пресс-служба СФК "Слуцк"',
+    displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
+    sortDate: new Date('Thu, 08 Jan 2017 15:31:12 GMT').toISOString(),
+    visibility: 2,
+    items: [
+      {
+        title: 'Фотография номер 3',
+        imgSrc: '/assets/img/_tmp/img-slide-3.png'
+      },
+      {
+        title: 'Фотография номер 2',
+        imgSrc: '/assets/img/_tmp/img-slide-2.png'
+      },
+      {
+        title: 'Фотография номер 1',
+        imgSrc: '/assets/img/_tmp/img-slide-1.png'
+      }
+    ]
   }
 ];
 
@@ -363,15 +480,28 @@ const videos = [
   },
   {
     id: 303,
-    title: 'Видео номер 3',
+    title: 'Дети. Видео номер 3',
     header: 'Третье видео',
-    img: '/assets/img/_tmp/img-slide-1.png',
+    img: '/assets/img/_tmp/img-slide-3.png',
     // tslint:disable-next-line:max-line-length
     lead: 'Мне нравится, хотя предстоит научиться самому сложному: доносить свои знания до других. Хочу начать с юниоров. Но пока я игрок, так это в будущем. Кстати, я начал ходить на тренерские курсы.',
     author: 'Пресс-служба СФК "Слуцк"',
     displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
     sortDate: new Date('Thu, 08 Jan 2017 15:31:12 GMT').toISOString(),
-    visibility: 2,
+    visibility: 8,
+    htmlCode: '<iframe width="640" height="360" src="https://www.youtube.com/embed/ifiI4bXxXFA" allowfullscreen></iframe>'
+  },
+  {
+    id: 304,
+    title: 'Дети. Видео пос номер 2',
+    header: 'Второе видео',
+    img: '/assets/img/_tmp/img-slide-4.png',
+    // tslint:disable-next-line:max-line-length
+    lead: 'Мне нравится, хотя предстоит научиться самому сложному: доносить свои знания до других. Хочу начать с юниоров. Но пока я игрок, так это в будущем. Кстати, я начал ходить на тренерские курсы.',
+    author: 'Пресс-служба СФК "Слуцк"',
+    displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
+    sortDate: new Date('Thu, 08 Jan 2017 15:31:12 GMT').toISOString(),
+    visibility: 8,
     htmlCode: '<iframe width="640" height="360" src="https://www.youtube.com/embed/ifiI4bXxXFA" allowfullscreen></iframe>'
   }
 ];
