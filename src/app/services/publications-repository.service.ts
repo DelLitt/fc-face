@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { DataSourceService } from './data-source.service';
 import { Publication } from '../model/publication';
 import { LogService } from './log.service';
+import { PublicationVisibility } from '../model/publication-visibility';
 
 @Injectable()
 export class PublicationsRepositoryService {
@@ -31,7 +32,37 @@ export class PublicationsRepositoryService {
     return new Promise((resolve, reject) => {
       this.logger.logDebug(`'${(<any>this).constructor.name}' started loading publications.`);
 
-      this.dataSource.getEntities(count, skip, 'publications')
+      const visibility = [
+        PublicationVisibility.main,
+        PublicationVisibility.news,
+        PublicationVisibility.reserve,
+        PublicationVisibility.youth
+      ];
+
+      this.dataSource.getEntities(count, skip, 'publications', visibility)
+        .then(result => {
+          if (result) {
+            const publications: Publication[] = this.convertResponseToPublications(result);
+            this.logger.logInfo(`'${(<any>this).constructor.name}' loaded publications successfully.`);
+            resolve(publications);
+          } else {
+            const errorMsg = `'${(<any>this).constructor.name}' was unable to load publications!`;
+            this.logger.logError(errorMsg);
+            reject(new Error(errorMsg));
+          }
+        });
+    });
+  }
+
+  public getYouthPublications(count: number, skip: number = 0): Promise<Publication[]> {
+    return new Promise((resolve, reject) => {
+      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading youth publications.`);
+
+      const visibility = [
+        PublicationVisibility.youth
+      ];
+
+      this.dataSource.getEntities(count, skip, 'publications', visibility)
         .then(result => {
           if (result) {
             const publications: Publication[] = this.convertResponseToPublications(result);
@@ -47,8 +78,17 @@ export class PublicationsRepositoryService {
   }
 
   public getPublicationsTotalCount(): Promise<number> {
+    this.logger.logDebug(`'${(<any>this).constructor.name}' has started calculation total number of publications.`);
+
     return new Promise((resolve, reject) => {
-      this.dataSource.getEntitiesCount('publications')
+      const visibility = [
+        PublicationVisibility.main,
+        PublicationVisibility.news,
+        PublicationVisibility.reserve,
+        PublicationVisibility.youth
+      ];
+
+      this.dataSource.getEntitiesCount('publications', visibility)
       .then(result => {
         if (result) {
           this.logger.logInfo(`'${(<any>this).constructor.name}' loaded publications total count (${result}) successfully.`);

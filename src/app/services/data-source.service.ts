@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Publication } from '../model/publication';
 import { Entity } from '../model/entity';
+import { PublicationVisibility } from '../model/publication-visibility';
 
 @Injectable()
 export class DataSourceService {
@@ -11,11 +12,19 @@ export class DataSourceService {
     return null;
   }
 
-  public getEntitiesCount(entityType: string): Promise<number> {
+  public getEntities(
+    count: number,
+    skip: number,
+    entityType: string,
+    visibility: PublicationVisibility[]
+  ): Promise<object[]> {
     return null;
   }
 
-  public getEntities(count: number, skip: number, entityType: string): Promise<object[]> {
+  public getEntitiesCount(
+    entityType: string,
+    visibility: PublicationVisibility[]
+  ): Promise<number> {
     return null;
   }
 
@@ -35,18 +44,18 @@ export class FakeDataSourceService extends DataSourceService {
     });
   }
 
-  public getEntitiesCount(entityType: string): Promise<number> {
+  public getEntities(count: number, skip: number, entityType: string, visibility: PublicationVisibility[]): Promise<object[]> {
     return new Promise((resolve, reject) => {
-      resolve(db[entityType].length);
+      setTimeout(() => {
+        const entities: Array<object> = db[entityType].filter(e => visibility.includes(e.visibility)).slice(skip, skip + count);
+        resolve(entities);
+      }, 1000);
     });
   }
 
-  public getEntities(count: number, skip: number, entityType: string): Promise<object[]> {
+  public getEntitiesCount(entityType: string, visibility: PublicationVisibility[]): Promise<number> {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const entities: Array<object> = db[entityType].slice(skip, skip + count);
-        resolve(entities);
-      }, 1000);
+      resolve(db[entityType].filter(e => visibility.includes(e.visibility)).length);
     });
   }
 
@@ -128,6 +137,7 @@ const publications = [
     author: 'Пресс-служба СФК "Слуцк"',
     displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
     sortDate: new Date('Thu, 08 Jan 2017 13:34:12 GMT').toISOString(),
+    visibility: 2,
     // tslint:disable-next-line:max-line-length
     lead: 'Бывший капитан "Интера" Джузеппе Бергоми посоветовал "Ювентусу" "играть как "Интер", чтобы добиться успеха в предстоящем матче против "Наполи.',
     content: `Метод find() возвращает значение первого найденного в массиве элемента, которое удовлетворяет условию переданному в callback функции.  В противном случае возвращается undefined.
@@ -143,6 +153,7 @@ const publications = [
     author: 'Пресс-служба СФК "Слуцк"',
     displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
     sortDate: new Date('Thu, 08 Jan 2017 13:34:12 GMT').toISOString(),
+    visibility: 2,
     // tslint:disable-next-line:max-line-length
     lead: 'Экономия приведена из расчета за три года использования зарезервированного экземпляра D4_v2 в регионе "Западная часть США 2" и подписки Software Assurance (уровень A) для лицензии на Windows Server Standard (четыре 2-ядерные лицензии). Актуальные цены могут изменяться в зависимости от региона, типа экземпляра, использования или от платы за лицензию Windows Server конкретного пользователя. Цены указаны по состоянию на ноябрь 2017 г.',
     // tslint:disable-next-line:max-line-length
@@ -152,7 +163,7 @@ const publications = [
   },
   {
     id: 3,
-    title: 'В этом году я видел много матчей "Тоттенхэма"',
+    title: 'Дети. В этом году я видел много матчей "Тоттенхэма"',
     header: 'Они очень сильны, в команде сильная оборона и очень хорошая полузащита',
     galleryId: 203,
     videoId: 0,
@@ -161,6 +172,7 @@ const publications = [
     author: 'Пресс-служба СФК "Слуцк"',
     displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
     sortDate: new Date('Thu, 08 Jan 2017 13:34:12 GMT').toISOString(),
+    visibility: 8,
     // tslint:disable-next-line:max-line-length
     lead: 'В этом году я видел много матчей "Тоттенхэма", в том числе против "Ливерпуля" и "Арсенала", - рассказывает Хедира. - Они очень сильны, в команде сильная оборона и очень хорошая полузащита, а впереди выступает нападение мирового класса под предводительством действительно классного тренера. Команда молодая, может быть для нас это даже хорошо. Нам нужно будет быть супер-сконцентрированными, потому что, как по мне, мы говорим об одной из сильнейших команд Европы и Англии.',
     // tslint:disable-next-line:max-line-length
@@ -172,12 +184,13 @@ const publications = [
     id: 4,
     title: 'Мне нравится, хотя предстоит научиться самому сложному: доносить свои знания до других',
     header: 'Хочу начать с юниоров',
-    hasGallery: 204,
+    galleryId: 201,
     videoId: 304,
     img: '/assets/img/_tmp/img-slide-4.png',
     author: 'Пресс-служба СФК "Слуцк"',
     displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
     sortDate: new Date('Thu, 08 Jan 2017 13:34:12 GMT').toISOString(),
+    visibility: 2,
     lead: 'Кстати, я начал ходить на тренерские курсы. Мне нравится, хотя предстоит научиться самому сложному: доносить свои знания до других. Хочу начать с юниоров. Но пока я игрок, так это в будущем. Подумаю об этом в середине следующего года. ',
     // tslint:disable-next-line:max-line-length
     content: `Президент "Кальяри" Томмазо Гвилини сомневается, что Николо Барелла может стать игроком "Ювентуса", в случае его продажи из текущего клуба. Напомним, что итальянская пресса неоднократно сообщала об интересе "Старой синьоры" к молодому полузащитнику, однако договориться о переходе игрока в январское трансферное окно так и не удалось. 
@@ -188,14 +201,15 @@ const publications = [
   },
   {
     id: 5,
-    title: 'Мне нравится, хотя предстоит научиться самому сложному: доносить свои знания до других',
+    title: 'Дети. Мне нравится, хотя предстоит научиться самому сложному: доносить свои знания до других',
     header: 'Хочу начать с юниоров',
-    hasGallery: 205,
+    galleryId: 205,
     videoId: 305,
     img: '',
     author: 'Пресс-служба СФК "Слуцк"',
     displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
     sortDate: new Date('Thu, 08 Jan 2017 13:34:12 GMT').toISOString(),
+    visibility: 8,
     lead: 'Кстати, я начал ходить на тренерские курсы. Мне нравится, хотя предстоит научиться самому сложному: доносить свои знания до других. Хочу начать с юниоров. Но пока я игрок, так это в будущем. Подумаю об этом в середине следующего года. ',
     // tslint:disable-next-line:max-line-length
     content: `Президент "Кальяри" Томмазо Гвилини сомневается, что Николо Барелла может стать игроком "Ювентуса", в случае его продажи из текущего клуба. Напомним, что итальянская пресса неоднократно сообщала об интересе "Старой синьоры" к молодому полузащитнику, однако договориться о переходе игрока в январское трансферное окно так и не удалось. 
@@ -206,15 +220,76 @@ const publications = [
   },
   {
     id: 6,
-    title: 'С днем рождения, Роберто!	поделиться:  ',
+    title: 'Дети. С днем рождения, Роберто!	поделиться:  ',
     header: 'Клуб принял решение наказать штрафом игрока',
-    galleryId: 206,
-    videoId: 0,
     showImageInContent: true,
     img: '/assets/img/_tmp/img-slide-4.png',
     author: 'Пресс-служба СФК "Слуцк"',
     displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
     sortDate: new Date('Thu, 08 Jan 2017 13:34:12 GMT').toISOString(),
+    visibility: 8,
+    // tslint:disable-next-line:max-line-length
+    lead: 'После того, как футболисты "Ювентуса" вышли вперёд благодаря забитому мячу Якуповича, Леандро Фернандес вместе с остальными футболистами подбежал к трибунам и продемонстрировал в адрес фанатов "Торино" средний палец.',
+    // tslint:disable-next-line:max-line-length
+    content: `"Будет тяжёлая гонка за Скудетто до самого конца, но я уверен, что мы можем выиграть титул, - говорит защитник в интервью для La Stampa. - Люди относятся ко всему так, как будто это что-то само собой разумеющееся. "Наполи" сейчас показывает самый красивый футбол, но мы сильнее и увереннее. Мы доказали это через нашу победу на "Сан Паоло".
+    
+    Я не вникаю в споры вокруг "Ювентуса". Спустя шесть лет нашего успеха, многие надеются, что титул достанется кому-нибудь другому. Такое было с "Лионом" во Франции, когда они выиграли семь чемпионских титулов подряд, но правда в том, что остальные команды были на шаг позади, как и сейчас все позади "Юве".
+    
+    Стал ли для "Ювентуса" проблемой уход Бонуччи? Вы правда думаете, что руководители отпустят кого-то столь талантливого, если это создаст проблем для команды? Нужно время, чтобы перестроиться, но, после этого, нам удалось найти баланс в своей игре.`
+  },
+  {
+    id: 7,
+    title: 'Дети. Это публикация номер 7',
+    header: 'Под номером 7',
+    videoId: 301,
+    showImageInContent: true,
+    img: '/assets/img/_tmp/img-slide-2.png',
+    author: 'Пресс-служба СФК "Слуцк"',
+    displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
+    sortDate: new Date('Thu, 08 Jan 2017 13:34:12 GMT').toISOString(),
+    visibility: 8,
+    // tslint:disable-next-line:max-line-length
+    lead: 'После того, как футболисты "Ювентуса" вышли вперёд благодаря забитому мячу Якуповича, Леандро Фернандес вместе с остальными футболистами подбежал к трибунам и продемонстрировал в адрес фанатов "Торино" средний палец.',
+    // tslint:disable-next-line:max-line-length
+    content: `"Будет тяжёлая гонка за Скудетто до самого конца, но я уверен, что мы можем выиграть титул, - говорит защитник в интервью для La Stampa. - Люди относятся ко всему так, как будто это что-то само собой разумеющееся. "Наполи" сейчас показывает самый красивый футбол, но мы сильнее и увереннее. Мы доказали это через нашу победу на "Сан Паоло".
+    
+    Я не вникаю в споры вокруг "Ювентуса". Спустя шесть лет нашего успеха, многие надеются, что титул достанется кому-нибудь другому. Такое было с "Лионом" во Франции, когда они выиграли семь чемпионских титулов подряд, но правда в том, что остальные команды были на шаг позади, как и сейчас все позади "Юве".
+    
+    Стал ли для "Ювентуса" проблемой уход Бонуччи? Вы правда думаете, что руководители отпустят кого-то столь талантливого, если это создаст проблем для команды? Нужно время, чтобы перестроиться, но, после этого, нам удалось найти баланс в своей игре.`
+  },
+  {
+    id: 8,
+    title: 'Это публикация номер 8',
+    header: 'Под номером 8',
+    galleryId: 201,
+    videoId: 303,
+    showImageInContent: true,
+    img: '/assets/img/_tmp/img-slide-3.png',
+    author: 'Пресс-служба СФК "Слуцк"',
+    displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
+    sortDate: new Date('Thu, 08 Jan 2017 13:34:12 GMT').toISOString(),
+    visibility: 2,
+    // tslint:disable-next-line:max-line-length
+    lead: 'После того, как футболисты "Ювентуса" вышли вперёд благодаря забитому мячу Якуповича, Леандро Фернандес вместе с остальными футболистами подбежал к трибунам и продемонстрировал в адрес фанатов "Торино" средний палец.',
+    // tslint:disable-next-line:max-line-length
+    content: `"Будет тяжёлая гонка за Скудетто до самого конца, но я уверен, что мы можем выиграть титул, - говорит защитник в интервью для La Stampa. - Люди относятся ко всему так, как будто это что-то само собой разумеющееся. "Наполи" сейчас показывает самый красивый футбол, но мы сильнее и увереннее. Мы доказали это через нашу победу на "Сан Паоло".
+    
+    Я не вникаю в споры вокруг "Ювентуса". Спустя шесть лет нашего успеха, многие надеются, что титул достанется кому-нибудь другому. Такое было с "Лионом" во Франции, когда они выиграли семь чемпионских титулов подряд, но правда в том, что остальные команды были на шаг позади, как и сейчас все позади "Юве".
+    
+    Стал ли для "Ювентуса" проблемой уход Бонуччи? Вы правда думаете, что руководители отпустят кого-то столь талантливого, если это создаст проблем для команды? Нужно время, чтобы перестроиться, но, после этого, нам удалось найти баланс в своей игре.`
+  },
+  {
+    id: 9,
+    title: 'Это публикация номер 9',
+    header: 'Под номером 8',
+    galleryId: 201,
+    videoId: 301,
+    showImageInContent: true,
+    img: '/assets/img/_tmp/img-slide-1.png',
+    author: 'Пресс-служба СФК "Слуцк"',
+    displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
+    sortDate: new Date('Thu, 08 Jan 2017 13:34:12 GMT').toISOString(),
+    visibility: 8,
     // tslint:disable-next-line:max-line-length
     lead: 'После того, как футболисты "Ювентуса" вышли вперёд благодаря забитому мячу Якуповича, Леандро Фернандес вместе с остальными футболистами подбежал к трибунам и продемонстрировал в адрес фанатов "Торино" средний палец.',
     // tslint:disable-next-line:max-line-length
@@ -237,6 +312,7 @@ const galleries = [
     author: 'Пресс-служба СФК "Слуцк"',
     displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
     sortDate: new Date('Thu, 08 Jan 2017 15:31:12 GMT').toISOString(),
+    visibility: 2,
     items: [
       {
         title: 'Фотография номер 1',
@@ -269,6 +345,7 @@ const videos = [
     author: 'Пресс-служба СФК "Слуцк"',
     displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
     sortDate: new Date('Thu, 08 Jan 2017 15:31:12 GMT').toISOString(),
+    visibility: 2,
     htmlCode: '<iframe width="640" height="360" src="https://www.youtube.com/embed/ifiI4bXxXFA" allowfullscreen></iframe>'
   },
   {
@@ -281,6 +358,7 @@ const videos = [
     author: 'Пресс-служба СФК "Слуцк"',
     displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
     sortDate: new Date('Thu, 08 Jan 2017 15:31:12 GMT').toISOString(),
+    visibility: 2,
     htmlCode: '<iframe width="640" height="360" src="https://www.youtube.com/embed/ifiI4bXxXFA" allowfullscreen></iframe>'
   },
   {
@@ -293,6 +371,7 @@ const videos = [
     author: 'Пресс-служба СФК "Слуцк"',
     displayDate: new Date('Thu, 08 Jan 2017 15:34:12 GMT').toISOString(),
     sortDate: new Date('Thu, 08 Jan 2017 15:31:12 GMT').toISOString(),
+    visibility: 2,
     htmlCode: '<iframe width="640" height="360" src="https://www.youtube.com/embed/ifiI4bXxXFA" allowfullscreen></iframe>'
   }
 ];

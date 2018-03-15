@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { DataSourceService } from './data-source.service';
 import { LogService } from './log.service';
 import { Video } from '../model/video';
+import { PublicationVisibility } from '../model/publication-visibility';
 
 @Injectable()
 export class VideosRepositoryService {
@@ -34,7 +35,14 @@ export class VideosRepositoryService {
     return new Promise((resolve, reject) => {
       this.logger.logDebug(`'${(<any>this).constructor.name}' started loading videos.`);
 
-      this.dataSource.getEntities(count, skip, 'videos')
+      const visibility = [
+        PublicationVisibility.main,
+        PublicationVisibility.news,
+        PublicationVisibility.reserve,
+        PublicationVisibility.youth
+      ];
+
+      this.dataSource.getEntities(count, skip, 'videos', visibility)
         .then(result => {
           if (result) {
             const videos: Video[] = this.convertResponseToVideos(result);

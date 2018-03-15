@@ -3,6 +3,7 @@ import { DataSourceService } from './data-source.service';
 import { LogService } from './log.service';
 import { Gallery } from '../model/gallery/gallery';
 import { GalleryItem } from '../model/gallery/gallery-item';
+import { PublicationVisibility } from '../model/publication-visibility';
 
 @Injectable()
 export class GalleriesRepositoryService {
@@ -32,7 +33,14 @@ export class GalleriesRepositoryService {
     return new Promise((resolve, reject) => {
       this.logger.logDebug(`'${(<any>this).constructor.name}' started loading galleries.`);
 
-      this.dataSource.getEntities(count, skip, 'galleries')
+      const visibility = [
+        PublicationVisibility.main,
+        PublicationVisibility.news,
+        PublicationVisibility.reserve,
+        PublicationVisibility.youth
+      ];
+
+      this.dataSource.getEntities(count, skip, 'galleries', visibility)
         .then(result => {
           if (result) {
             const galleries: Gallery[] = this.convertResponseToGalleries(result);
