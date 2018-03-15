@@ -25,6 +25,7 @@ import { MediaAddComponent } from '../../components/shared/media-add/media-add.c
 import { PreviewPublicationComponent } from '../../components/shared/preview-publication/preview-publication.component';
 import { PreviewContentPanelComponent } from '../../components/shared/preview-content-panel/preview-content-panel.component';
 import { PublicationAnnouncementComponent } from '../../components/shared/publication-announcement/publication-announcement.component';
+import { MainSliderComponent } from '../../components/shared/main-slider/main-slider.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { PublicationAnnouncementComponent } from '../../components/shared/public
     MediaAddComponent,
     PreviewPublicationComponent,
     PreviewContentPanelComponent,
-    PublicationAnnouncementComponent
+    PublicationAnnouncementComponent,
+    MainSliderComponent
   ],
   providers: [
     TextUtilityService,
@@ -66,7 +68,8 @@ import { PublicationAnnouncementComponent } from '../../components/shared/public
     MediaAddComponent,
     PreviewPublicationComponent,
     PreviewContentPanelComponent,
-    PublicationAnnouncementComponent
+    PublicationAnnouncementComponent,
+    MainSliderComponent
   ]
 })
 export class SharedComponentsModule { }
