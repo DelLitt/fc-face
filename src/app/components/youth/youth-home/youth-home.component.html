@@ -1,7 +1,49 @@
-<section class="cover">
+<!-- <section class="cover">
     <div class="cover-var-b">
         <div class="cover-container align-items-center" [class.d-flex]="_actualPublicationsLoaded">
             <app-main-slider [publications]="actualPublications"></app-main-slider>
+        </div>
+    </div>
+</section> -->
+<section class="cover">
+    <div class="cover-var-b">
+        <div class="cover-container">
+            <div class="display-2 d-inline-block pb-3 pt-2 text-uppercase">
+                <i class="fa fa-newspaper-o inline-divider"></i>
+                <span>&nbsp;{{ 'NEWS' | translate }}</span>
+            </div>
+            <app-preview-content-panel 
+                [routePart]="'/publications'"
+                [items]="publications">
+            </app-preview-content-panel>
+        </div>
+    </div>
+</section>
+<section class="cover">
+    <div class="cover-var-a">
+        <div class="cover-container">
+            <div class="display-2 d-inline-block pb-3 pt-2 text-uppercase">
+                <i class="fa fa-video-camera inline-divider"></i>
+                <span>&nbsp;{{ 'VIDEO' | translate }}</span>
+            </div>
+            <app-preview-content-panel 
+                [routePart]="'/videos'" 
+                [items]="videos">
+            </app-preview-content-panel>
+        </div>
+    </div>
+</section>
+<section class="cover">
+    <div class="cover-var-b">
+        <div class="cover-container">
+            <div class="display-2 d-inline-block pb-3 pt-2 text-uppercase">
+                <i class="fa fa-camera inline-divider"></i>
+                <span>&nbsp;{{ 'PHOTO' | translate }}</span>
+            </div>
+            <app-preview-content-panel 
+                [routePart]="'/galleries'" 
+                [items]="galleries">
+            </app-preview-content-panel>
         </div>
     </div>
 </section>
