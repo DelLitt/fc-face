@@ -8,13 +8,15 @@ import { YouthNavigationComponent } from '../../components/youth/youth-navigatio
 import { YouthHomeComponent } from '../../components/youth/youth-home/youth-home.component';
 import { YouthManagementComponent } from '../../components/youth/youth-management/youth-management.component';
 import { YouthTeamsComponent } from '../../components/youth/youth-teams/youth-teams.component';
+import { SharedComponentsModule } from '../shared/shared-components.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
     TranslateModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedComponentsModule
   ],
   declarations: [
     YouthViewComponent,
