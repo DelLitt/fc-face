@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Publication } from '../model/publication';
 import { Entity } from '../model/entity';
 import { PublicationVisibility } from '../model/publication-visibility';
+import { PersonRoleGroup } from '../model/person-role-group';
+import { _fakeEmployees } from './_fake/fake-employee-storage';
 
 @Injectable()
 export class DataSourceService {
@@ -25,6 +27,10 @@ export class DataSourceService {
     entityType: string,
     visibility: PublicationVisibility[]
   ): Promise<number> {
+    return null;
+  }
+
+  public getPersons(count: number, skip: number, personRoleGroup: PersonRoleGroup): Promise<object[]> {
     return null;
   }
 
@@ -56,6 +62,15 @@ export class FakeDataSourceService extends DataSourceService {
   public getEntitiesCount(entityType: string, visibility: PublicationVisibility[]): Promise<number> {
     return new Promise((resolve, reject) => {
       resolve(db[entityType].filter(e => visibility.includes(e.visibility)).length);
+    });
+  }
+
+  public getPersons(count: number, skip: number, personRoleGroup: PersonRoleGroup): Promise<object[]> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const persons: Array<object> = _fakeEmployees.slice(skip, skip + count);
+        resolve(persons);
+      }, 1000);
     });
   }
 
