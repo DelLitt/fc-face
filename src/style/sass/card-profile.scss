@@ -1,0 +1,89 @@
+@import './variables';
+@import 'node_modules/bootstrap/scss/functions';
+
+$card-bg: $tertiary;
+$dribbble-color: #ea4b89;
+$twitter-color: #68aade;
+$facebook-color: #3b5999;
+
+.card-profile {
+  width: 340px;
+  margin: 50px auto;
+  background-color: $white;
+  border-radius: 0;
+  border: 0;
+  box-shadow: 1em 1em 2em rgba(0,0,0,.2);
+  
+  .card-img-top {
+    border-radius: 0;
+  }
+
+  .card-img-profile {
+    max-width: 100%;
+    border-radius: 50%;
+    margin-top: -95px;
+    margin-bottom: 35px;
+    border: 5px solid $card-bg;
+  }
+
+  .card-title {
+    margin-bottom: 20x;
+
+    small {
+      display: block;
+      font-size: .6em;
+      margin-top: .2em;
+    }
+  }
+  
+  .card-links {
+    margin-bottom: 25px;
+
+    a {
+        .badge {
+            background-color: theme-color("primary");
+            color: $white;
+
+            &:focus,
+            &:hover {
+                background-color: theme-color("tertiary");
+            }
+        }
+    }
+
+    // .fa {
+    //   margin: 0 1em;
+    //   font-size: 1.6em;
+      
+    //   &:focus,
+    //   &:hover {
+    //     text-decoration: none;
+    //   }
+      
+    //   &.fa-dribbble {
+    //     color: $dribbble-color;
+    //     font-weight: bold;
+        
+    //     &:hover {
+    //       color: darken($dribbble-color, 10%);
+    //     }
+    //   }
+
+    //   &.fa-twitter {
+    //     color: $twitter-color;
+
+    //     &:hover {
+    //       color: darken($twitter-color, 10%);
+    //     }
+    //   }
+      
+    //   &.fa-facebook {
+    //     color: $facebook-color;
+
+    //     &:hover {
+    //       color: darken($facebook-color, 10%);
+    //     }
+    //   }
+    // }
+  }
+}

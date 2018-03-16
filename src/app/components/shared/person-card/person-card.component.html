@@ -1,0 +1,18 @@
+<div class="card card-profile text-center">
+    <img alt="" class="card-img-top" src="/assets/img/_tmp/youth-bg-01.png">
+    <div class="card-block">
+      <img alt="" class="card-img-profile" [src]="image">
+      <h4 class="card-title">{{person.nameFirst + " " + person.nameLast}}<small>{{ role | translate }}</small></h4>
+        <div *ngIf="teams" class="card-links">
+          <span>{{ 'TEAMS' | translate }}:</span>
+            <a *ngFor="let link of teams" [href]="team.href">
+              <span class="badge badge-pill">{{ (link.i18nKey | translate) !== link.i18nKey ? (link.i18nKey | translate) : link.title }}</span>
+            </a>
+        </div>
+      <!-- <div class='card-links'>
+        <a class='fa fa-dribbble' href='#'></a>
+        <a class='fa fa-twitter' href='#'></a>
+        <a class='fa fa-facebook' href='#'></a>
+      </div> -->
+    </div>
+  </div>
