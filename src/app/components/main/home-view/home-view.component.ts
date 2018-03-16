@@ -37,7 +37,7 @@ export class HomeViewComponent implements OnInit {
   private loadPublications() {
     this.logger.logDebug(`'${(<any>this).constructor.name}' is trying to get publications.`);
 
-    this.publicationsRepository.getAllPublications(7)
+    this.publicationsRepository.getAllPublications(6)
       .then(
         result => {
           this.publications = result;
