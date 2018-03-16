@@ -13,6 +13,7 @@ import { YouthViewComponent } from '../../components/youth/youth-view/youth-view
 import { YouthHomeComponent } from '../../components/youth/youth-home/youth-home.component';
 import { YouthManagementComponent } from '../../components/youth/youth-management/youth-management.component';
 import { YouthTeamsComponent } from '../../components/youth/youth-teams/youth-teams.component';
+import { YouthAboutComponent } from '../../components/youth/youth-about/youth-about.component';
 
 export const RoutesConfiguration: Routes = [
     {
@@ -45,6 +46,10 @@ export const RoutesConfiguration: Routes = [
             {
                 path : 'teams',
                 component: YouthTeamsComponent
+            },
+            {
+                path : 'about',
+                component: YouthAboutComponent
             },
             { path: '', redirectTo: 'home', pathMatch: 'full' },
          ]

@@ -1,17 +1,24 @@
-<ul class="nav nav-pills nav-fill">
+<div class="alert alert-info">
+  <ul class="nav nav-pills nav-fill">
     <li class="nav-item">
       <a class="nav-link"
         [routerLink]="'home'"
-        [routerLinkActive]="'active'">{{ 'INFORMATION' | translate }}</a>
-    </li>
+        [routerLinkActive]="'active'">{{ 'HOME_PAGE' | translate }}</a>
+    </li> 
     <li class="nav-item">
       <a class="nav-link"
         [routerLink]="'management'"
-        [routerLinkActive]="'active'">{{ 'COACHING_STAFF' | translate }}</a>
+        [routerLinkActive]="'active'">{{ 'MANAGEMENT_AND_COACHES' | translate }}</a>
     </li>
     <li class="nav-item">
       <a class="nav-link"
         [routerLink]="'teams'"
         [routerLinkActive]="'active'">{{ 'YOUTH_TEAMS' | translate }}</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link"
+        [routerLink]="'about'"
+        [routerLinkActive]="'active'">{{ 'INFORMATION' | translate }}</a>
+    </li>    
   </ul>
+</div>

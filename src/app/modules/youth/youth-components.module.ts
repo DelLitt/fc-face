@@ -9,6 +9,7 @@ import { YouthHomeComponent } from '../../components/youth/youth-home/youth-home
 import { YouthManagementComponent } from '../../components/youth/youth-management/youth-management.component';
 import { YouthTeamsComponent } from '../../components/youth/youth-teams/youth-teams.component';
 import { SharedComponentsModule } from '../shared/shared-components.module';
+import { YouthAboutComponent } from '../../components/youth/youth-about/youth-about.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SharedComponentsModule } from '../shared/shared-components.module';
     YouthNavigationComponent,
     YouthHomeComponent,
     YouthManagementComponent,
-    YouthTeamsComponent
+    YouthTeamsComponent,
+    YouthAboutComponent
   ],
   exports: [
     YouthViewComponent
