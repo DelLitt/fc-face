@@ -10,6 +10,7 @@ import { YouthManagementComponent } from '../../components/youth/youth-managemen
 import { YouthTeamsComponent } from '../../components/youth/youth-teams/youth-teams.component';
 import { SharedComponentsModule } from '../shared/shared-components.module';
 import { YouthAboutComponent } from '../../components/youth/youth-about/youth-about.component';
+import { PersonsRepositoryService } from '../../services/persons-repository.service';
 
 
 @NgModule({
@@ -26,6 +27,9 @@ import { YouthAboutComponent } from '../../components/youth/youth-about/youth-ab
     YouthManagementComponent,
     YouthTeamsComponent,
     YouthAboutComponent
+  ],
+  providers: [
+    PersonsRepositoryService
   ],
   exports: [
     YouthViewComponent

@@ -26,6 +26,7 @@ import { PreviewPublicationComponent } from '../../components/shared/preview-pub
 import { PreviewContentPanelComponent } from '../../components/shared/preview-content-panel/preview-content-panel.component';
 import { PublicationAnnouncementComponent } from '../../components/shared/publication-announcement/publication-announcement.component';
 import { MainSliderComponent } from '../../components/shared/main-slider/main-slider.component';
+import { PersonCardComponent } from '../../components/shared/person-card/person-card.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { MainSliderComponent } from '../../components/shared/main-slider/main-sl
     PreviewPublicationComponent,
     PreviewContentPanelComponent,
     PublicationAnnouncementComponent,
-    MainSliderComponent
+    MainSliderComponent,
+    PersonCardComponent
   ],
   providers: [
     TextUtilityService,
@@ -69,7 +71,8 @@ import { MainSliderComponent } from '../../components/shared/main-slider/main-sl
     PreviewPublicationComponent,
     PreviewContentPanelComponent,
     PublicationAnnouncementComponent,
-    MainSliderComponent
+    MainSliderComponent,
+    PersonCardComponent
   ]
 })
 export class SharedComponentsModule { }
