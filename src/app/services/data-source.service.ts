@@ -4,6 +4,7 @@ import { Entity } from '../model/entity';
 import { PublicationVisibility } from '../model/publication-visibility';
 import { PersonRoleGroup } from '../model/person-role-group';
 import { _fakeEmployees } from './_fake/fake-employee-storage';
+import { _fakeYouthTeams } from './_fake/fake-youth-team-storage';
 
 @Injectable()
 export class DataSourceService {
@@ -31,6 +32,10 @@ export class DataSourceService {
   }
 
   public getPersons(count: number, skip: number, personRoleGroup: PersonRoleGroup): Promise<object[]> {
+    return null;
+  }
+
+  public getCoachTeams(coachIds: number[]): Promise<object[]> {
     return null;
   }
 
@@ -70,6 +75,16 @@ export class FakeDataSourceService extends DataSourceService {
       setTimeout(() => {
         const persons: Array<object> = _fakeEmployees.slice(skip, skip + count);
         resolve(persons);
+      }, 1000);
+    });
+  }
+
+  public getCoachTeams(coachIds: number[]): Promise<object[]> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const teams: Array<object> =
+          _fakeYouthTeams.filter(t => coachIds.includes(t.coach));
+        resolve(teams);
       }, 1000);
     });
   }
