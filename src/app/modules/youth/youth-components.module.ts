@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from '../../modules/app-routing/app-routing.module';
+import { MatProgressSpinnerModule } from '@angular/material';
+
+import { PersonsRepositoryService } from '../../services/persons-repository.service';
+import { TeamsRepositoryService } from '../../services/teams-repository.service';
 
 import { YouthViewComponent } from '../../components/youth/youth-view/youth-view.component';
 import { YouthNavigationComponent } from '../../components/youth/youth-navigation/youth-navigation.component';
@@ -10,7 +14,7 @@ import { YouthManagementComponent } from '../../components/youth/youth-managemen
 import { YouthTeamsComponent } from '../../components/youth/youth-teams/youth-teams.component';
 import { SharedComponentsModule } from '../shared/shared-components.module';
 import { YouthAboutComponent } from '../../components/youth/youth-about/youth-about.component';
-import { PersonsRepositoryService } from '../../services/persons-repository.service';
+
 
 
 @NgModule({
@@ -18,7 +22,8 @@ import { PersonsRepositoryService } from '../../services/persons-repository.serv
     CommonModule,
     TranslateModule,
     AppRoutingModule,
-    SharedComponentsModule
+    SharedComponentsModule,
+    MatProgressSpinnerModule
   ],
   declarations: [
     YouthViewComponent,
@@ -29,7 +34,8 @@ import { PersonsRepositoryService } from '../../services/persons-repository.serv
     YouthAboutComponent
   ],
   providers: [
-    PersonsRepositoryService
+    PersonsRepositoryService,
+    TeamsRepositoryService
   ],
   exports: [
     YouthViewComponent
