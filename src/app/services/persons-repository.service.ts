@@ -42,6 +42,11 @@ export class PersonsRepositoryService {
       person.img = element.img;
       person.nameFirst = element.nameFirst;
       person.nameLast = element.nameLast;
+      person.role = {
+        id: element.role.id,
+        title: element.role.title,
+        i18nKey: element.role.i18nKey
+      };
 
       persons.push(person);
     });
