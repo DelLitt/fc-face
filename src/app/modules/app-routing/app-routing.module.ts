@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { CanActivateYouthTeam } from '../../model/app/can-activate-youth-team';
 
 import { PageNotFoundComponent } from '../../components/page-not-found/page-not-found.component';
 import { HomeViewComponent } from '../../components/main/home-view/home-view.component';
@@ -14,6 +15,9 @@ import { RoutesConfiguration } from '../../services/configuration/routes-configu
     RouterModule.forRoot(RoutesConfiguration)
   ],
   declarations: [],
+  providers: [
+    CanActivateYouthTeam
+  ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule { }
