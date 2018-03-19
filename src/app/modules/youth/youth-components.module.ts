@@ -14,8 +14,8 @@ import { YouthManagementComponent } from '../../components/youth/youth-managemen
 import { YouthTeamsComponent } from '../../components/youth/youth-teams/youth-teams.component';
 import { SharedComponentsModule } from '../shared/shared-components.module';
 import { YouthAboutComponent } from '../../components/youth/youth-about/youth-about.component';
-import { YouthTeamNavigationComponent } from '../../components/youth/youth-team-navigation/youth-team-navigation.component';
-import { YouthTeamComponent } from '../../components/youth/youth-team/youth-team.component';
+import { YouthTeamNavigationComponent } from '../../components/youth/teams/youth-team-navigation/youth-team-navigation.component';
+import { YouthTeamComponent } from '../../components/youth/teams/youth-team/youth-team.component';
 
 
 
