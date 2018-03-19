@@ -1,3 +1,4 @@
+
 <div class="alert alert-info">
   <ul class="nav nav-pills nav-fill">
     <li class="nav-item">
@@ -12,13 +13,20 @@
     </li>
     <li class="nav-item">
       <a class="nav-link"
-        [routerLink]="'teams'"
-        [routerLinkActive]="'active'">{{ 'YOUTH_TEAMS' | translate }}</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link"
         [routerLink]="'about'"
         [routerLinkActive]="'active'">{{ 'INFORMATION' | translate }}</a>
-    </li>    
+    </li>        
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle"
+        [class.active]="isTeamsActive"
+         data-toggle="dropdown"
+         role="button" 
+         aria-haspopup="true" 
+         aria-expanded="false">{{ 'YOUTH_TEAMS' | translate }}</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" [routerLink]="'teams/u11'">{{ 'U11' | translate }}</a>
+        <a class="dropdown-item" [routerLink]="'teams/u12'">{{ 'U12' | translate }}</a>
+      </div>
+    </li>
   </ul>
 </div>
