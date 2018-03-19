@@ -16,6 +16,8 @@ import { YouthManagementComponent } from '../../components/youth/youth-managemen
 import { YouthTeamsComponent } from '../../components/youth/youth-teams/youth-teams.component';
 import { YouthAboutComponent } from '../../components/youth/youth-about/youth-about.component';
 import { YouthTeamComponent } from '../../components/youth/teams/youth-team/youth-team.component';
+import { YouthTeamAboutComponent } from '../../components/youth/teams/youth-team-about/youth-team-about.component';
+import { YouthTeamGamesComponent } from '../../components/youth/teams/youth-team-games/youth-team-games.component';
 
 export const RoutesConfiguration: Routes = [
     {
@@ -51,16 +53,21 @@ export const RoutesConfiguration: Routes = [
                 canActivate: [CanActivateYouthTeam],
                 children: [
                     {
-                     path : 'home',
-                     component: YouthTeamComponent
-                    }
+                     path : 'about',
+                     component: YouthTeamAboutComponent
+                    },
+                    {
+                        path : 'games',
+                        component: YouthTeamGamesComponent
+                       },
+                    { path: '', redirectTo: 'about', pathMatch: 'full' }
                 ]
             },
             {
                 path : 'about',
                 component: YouthAboutComponent
             },
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: '', redirectTo: 'home', pathMatch: 'full' }
          ]
     },
     {
