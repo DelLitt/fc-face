@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { SiteMap } from '../../model/site-map';
+import { CanActivateYouthTeam } from '../../model/app/can-activate-youth-team';
 
 import { PageNotFoundComponent } from '../../components/page-not-found/page-not-found.component';
 import { ContactsViewComponent } from '../../components/contacts/contacts-view/contacts-view.component';
@@ -14,7 +15,7 @@ import { YouthHomeComponent } from '../../components/youth/youth-home/youth-home
 import { YouthManagementComponent } from '../../components/youth/youth-management/youth-management.component';
 import { YouthTeamsComponent } from '../../components/youth/youth-teams/youth-teams.component';
 import { YouthAboutComponent } from '../../components/youth/youth-about/youth-about.component';
-import { YouthTeamComponent } from '../../components/youth/youth-team/youth-team.component';
+import { YouthTeamComponent } from '../../components/youth/teams/youth-team/youth-team.component';
 
 export const RoutesConfiguration: Routes = [
     {
@@ -45,8 +46,9 @@ export const RoutesConfiguration: Routes = [
              component: YouthManagementComponent
             },
             {
-                path : 'teams',
+                path : 'teams/:key',
                 component: YouthTeamsComponent,
+                canActivate: [CanActivateYouthTeam],
                 children: [
                     {
                      path : 'home',
