@@ -8,7 +8,7 @@ import { PublicationsRepositoryService } from '../../services/publications-repos
 import { PublicationViewComponent } from '../../components/publications/publication-view/publication-view.component';
 import { PublicationsListComponent } from '../../components/publications/publications-list/publications-list.component';
 import { PublicationDetailsComponent } from '../../components/publications/publication-details/publication-details.component';
-import { FcMatPaginatorIntl } from '../../model/fc-paginator-intl';
+import { FcMatPaginatorIntl } from '../../model/app/fc-paginator-intl';
 
 @NgModule({
   imports: [
