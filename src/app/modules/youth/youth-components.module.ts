@@ -16,6 +16,8 @@ import { SharedComponentsModule } from '../shared/shared-components.module';
 import { YouthAboutComponent } from '../../components/youth/youth-about/youth-about.component';
 import { YouthTeamNavigationComponent } from '../../components/youth/teams/youth-team-navigation/youth-team-navigation.component';
 import { YouthTeamComponent } from '../../components/youth/teams/youth-team/youth-team.component';
+import { YouthTeamAboutComponent } from '../../components/youth/teams/youth-team-about/youth-team-about.component';
+import { YouthTeamGamesComponent } from '../../components/youth/teams/youth-team-games/youth-team-games.component';
 
 
 
@@ -35,7 +37,9 @@ import { YouthTeamComponent } from '../../components/youth/teams/youth-team/yout
     YouthTeamsComponent,
     YouthAboutComponent,
     YouthTeamNavigationComponent,
-    YouthTeamComponent
+    YouthTeamComponent,
+    YouthTeamAboutComponent,
+    YouthTeamGamesComponent
   ],
   providers: [
     PersonsRepositoryService,

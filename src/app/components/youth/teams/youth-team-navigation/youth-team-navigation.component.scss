@@ -1,0 +1,5 @@
+@import './src/style/sass/_variables.scss';
+
+.active {
+    color: theme-color("info");
+}
