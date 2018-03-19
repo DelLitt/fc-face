@@ -14,6 +14,7 @@ import { YouthHomeComponent } from '../../components/youth/youth-home/youth-home
 import { YouthManagementComponent } from '../../components/youth/youth-management/youth-management.component';
 import { YouthTeamsComponent } from '../../components/youth/youth-teams/youth-teams.component';
 import { YouthAboutComponent } from '../../components/youth/youth-about/youth-about.component';
+import { YouthTeamComponent } from '../../components/youth/youth-team/youth-team.component';
 
 export const RoutesConfiguration: Routes = [
     {
@@ -45,7 +46,13 @@ export const RoutesConfiguration: Routes = [
             },
             {
                 path : 'teams',
-                component: YouthTeamsComponent
+                component: YouthTeamsComponent,
+                children: [
+                    {
+                     path : 'home',
+                     component: YouthTeamComponent
+                    }
+                ]
             },
             {
                 path : 'about',
