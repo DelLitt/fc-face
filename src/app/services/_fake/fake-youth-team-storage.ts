@@ -15,18 +15,18 @@ export const _fakeYouthTeams = [
     coach: 101
   },
   {
-    id: 104,
+    id: 2093,
     name: 'Слуцк-2006',
     coach: 101
   },
   {
-    id: 105,
+    id: 2091,
     name: 'Слуцк-2007',
     coach: 102
   }
   ,
   {
-    id: 106,
+    id: 2090,
     name: 'Слуцк-2008',
     coach: 104
   }
