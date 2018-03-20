@@ -7,7 +7,8 @@ import {
         MatFormFieldModule,
         MatInputModule,
         MatPaginatorModule,
-        MatSortModule
+        MatSortModule,
+        MatSelectModule
 } from '@angular/material';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 import { AppRoutingModule } from '../../modules/app-routing/app-routing.module';
@@ -37,6 +38,8 @@ import { MainSliderComponent } from '../../components/shared/main-slider/main-sl
 import { PersonCardComponent } from '../../components/shared/person-card/person-card.component';
 import { StandingsComponent } from '../../components/shared/standings/standings.component';
 import { StandingsRepositoryService } from '../../services/standings-repository.service';
+import { TourneysRepositoryService } from '../../services/tourneys-repository.service';
+import { TourneysSelectComponent } from '../../components/shared/tourneys-select/tourneys-select.component';
 
 
 @NgModule({
@@ -49,6 +52,7 @@ import { StandingsRepositoryService } from '../../services/standings-repository.
     MatPaginatorModule,
     MatInputModule,
     MatSortModule,
+    MatSelectModule,
     TranslateModule,
     AppRoutingModule,
     ShareButtonsModule.forRoot(),
@@ -67,7 +71,8 @@ import { StandingsRepositoryService } from '../../services/standings-repository.
     PublicationAnnouncementComponent,
     MainSliderComponent,
     PersonCardComponent,
-    StandingsComponent
+    StandingsComponent,
+    TourneysSelectComponent
   ],
   providers: [
     TextUtilityService,
@@ -76,7 +81,8 @@ import { StandingsRepositoryService } from '../../services/standings-repository.
     StringCacheUtilityService,
     GalleriesRepositoryService,
     VideosRepositoryService,
-    StandingsRepositoryService
+    StandingsRepositoryService,
+    TourneysRepositoryService
   ],
   exports: [
     FcImageSliderComponent,
@@ -90,7 +96,8 @@ import { StandingsRepositoryService } from '../../services/standings-repository.
     PublicationAnnouncementComponent,
     MainSliderComponent,
     PersonCardComponent,
-    StandingsComponent
+    StandingsComponent,
+    TourneysSelectComponent
   ]
 })
 export class SharedComponentsModule { }
