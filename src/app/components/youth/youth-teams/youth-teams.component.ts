@@ -35,6 +35,7 @@ export class YouthTeamsComponent implements OnInit {
   }
 
   private loadTeam() {
+    this._loaded = false;
     this._teamId = this.siteMapService.getCurrentYouthTeamId(this.activatedRoute.snapshot);
 
     this.teamsRepository.getTeam(this._teamId)
