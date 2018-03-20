@@ -1,4 +1,4 @@
-<div >
+<div class="border-right">
     <ul class="nav flex-column">
       <li class="nav-item">
         <a class="nav-link"
@@ -8,7 +8,12 @@
       <li class="nav-item">
         <a class="nav-link"
           [class.active]="youthTeamPageActivation.games"
-          [routerLink]="'games'">{{ 'MANAGEMENT_AND_COACHES' | translate }}</a>
-      </li>   
+          [routerLink]="'games'">{{ 'GAMES' | translate }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"
+          [class.active]="youthTeamPageActivation.results"
+          [routerLink]="'results'">{{ 'RESULTS' | translate }}</a>
+      </li>        
     </ul>
   </div>

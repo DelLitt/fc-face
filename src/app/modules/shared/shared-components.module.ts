@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatProgressSpinnerModule, MatExpansionModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatExpansionModule, MatTableModule } from '@angular/material';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 import { AppRoutingModule } from '../../modules/app-routing/app-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
@@ -27,6 +27,7 @@ import { PreviewContentPanelComponent } from '../../components/shared/preview-co
 import { PublicationAnnouncementComponent } from '../../components/shared/publication-announcement/publication-announcement.component';
 import { MainSliderComponent } from '../../components/shared/main-slider/main-slider.component';
 import { PersonCardComponent } from '../../components/shared/person-card/person-card.component';
+import { StandingsComponent } from '../../components/shared/standings/standings.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { PersonCardComponent } from '../../components/shared/person-card/person-
     CommonModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
+    MatTableModule,
     TranslateModule,
     AppRoutingModule,
     ShareButtonsModule.forRoot(),
@@ -51,7 +53,8 @@ import { PersonCardComponent } from '../../components/shared/person-card/person-
     PreviewContentPanelComponent,
     PublicationAnnouncementComponent,
     MainSliderComponent,
-    PersonCardComponent
+    PersonCardComponent,
+    StandingsComponent
   ],
   providers: [
     TextUtilityService,
@@ -72,7 +75,8 @@ import { PersonCardComponent } from '../../components/shared/person-card/person-
     PreviewContentPanelComponent,
     PublicationAnnouncementComponent,
     MainSliderComponent,
-    PersonCardComponent
+    PersonCardComponent,
+    StandingsComponent
   ]
 })
 export class SharedComponentsModule { }

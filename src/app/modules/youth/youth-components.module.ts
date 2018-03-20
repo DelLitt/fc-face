@@ -18,6 +18,7 @@ import { YouthTeamNavigationComponent } from '../../components/youth/teams/youth
 import { YouthTeamComponent } from '../../components/youth/teams/youth-team/youth-team.component';
 import { YouthTeamAboutComponent } from '../../components/youth/teams/youth-team-about/youth-team-about.component';
 import { YouthTeamGamesComponent } from '../../components/youth/teams/youth-team-games/youth-team-games.component';
+import { YouthTeamResultsComponent } from '../../components/youth/teams/youth-team-results/youth-team-results.component';
 
 
 
@@ -39,7 +40,8 @@ import { YouthTeamGamesComponent } from '../../components/youth/teams/youth-team
     YouthTeamNavigationComponent,
     YouthTeamComponent,
     YouthTeamAboutComponent,
-    YouthTeamGamesComponent
+    YouthTeamGamesComponent,
+    YouthTeamResultsComponent
   ],
   providers: [
     PersonsRepositoryService,

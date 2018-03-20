@@ -18,6 +18,7 @@ import { YouthAboutComponent } from '../../components/youth/youth-about/youth-ab
 import { YouthTeamComponent } from '../../components/youth/teams/youth-team/youth-team.component';
 import { YouthTeamAboutComponent } from '../../components/youth/teams/youth-team-about/youth-team-about.component';
 import { YouthTeamGamesComponent } from '../../components/youth/teams/youth-team-games/youth-team-games.component';
+import { YouthTeamResultsComponent } from '../../components/youth/teams/youth-team-results/youth-team-results.component';
 
 export const RoutesConfiguration: Routes = [
     {
@@ -53,13 +54,17 @@ export const RoutesConfiguration: Routes = [
                 canActivate: [CanActivateYouthTeam],
                 children: [
                     {
-                     path : 'about',
-                     component: YouthTeamAboutComponent
+                        path: 'about',
+                        component: YouthTeamAboutComponent
                     },
                     {
-                        path : 'games',
+                        path: 'games',
                         component: YouthTeamGamesComponent
-                       },
+                    },
+                    {
+                        path: 'results',
+                        component: YouthTeamResultsComponent
+                    },
                     { path: '', redirectTo: 'about', pathMatch: 'full' }
                 ]
             },
