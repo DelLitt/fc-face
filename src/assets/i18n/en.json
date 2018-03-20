@@ -72,6 +72,7 @@
     "GAMES": "Games",
     "RESULTS": "Results",
     "FILTER": "Filter",
+    "TOURNEY": "Tourney",
     "GAMES_SH": "G",
     "WINS_SH": "W",
     "DRAWS_SH": "D",
@@ -79,5 +80,11 @@
     "GOALS_SH": "G",
     "GOALS_FOR_SH": "GF",
     "GOALS_AGAINST_SH2": "GA",
-    "POINTS_SH": "P"
+    "POINTS_SH": "P",
+    "TRN_FULL_premierleague2017": "Belarusbank - Belarus Football Championship season 2017 among Premier League teams",
+    "TRN_SHORT_premierleague2017": "Premier League",
+    "TRN_FULL_youth2002u16": "Youth Championship U-16 among the Premier League teams in the group A. 2017/2018",
+    "TRN_SHORT_youth2002u16": "U-16. Group А",    
+    "TRN_FULL_youth2003u15": "Youth Championship U-15 among the Premier League teams in the group A. 2017/2018",
+    "TRN_SHORT_youth2003u15": "U-15. Group А"    
 }

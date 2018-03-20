@@ -72,6 +72,7 @@
     "GAMES": "Гульні",
     "RESULTS": "Вынікі",
     "FILTER": "Фільтр",
+    "TOURNEY": "Турнір",
     "GAMES_SH": "Г",
     "WINS_SH": "В",
     "DRAWS_SH": "Н",
@@ -79,5 +80,11 @@
     "GOALS_SH": "Г",
     "GOALS_FOR_SH": "МЗ",
     "GOALS_AGAINST_SH2": "МП",
-    "POINTS_SH": "А"
+    "POINTS_SH": "А",
+    "TRN_FULL_premierleague2017": "Беларусбанк – Чэмпiянат Беларусi па футболе сезону 2017 года сярод каманд вышэйшай лiгi",
+    "TRN_SHORT_premierleague2017": "Вышэйшая лiга",    
+    "TRN_FULL_youth2002u16": "Юнацкае першынство U-16 сярод каманд вышэйшай лігі ў групе А. 2017/2018",
+    "TRN_SHORT_youth2002u16": "U-16. Групп А",    
+    "TRN_FULL_youth2003u15": "Юнацкае першынство U-15 сярод каманд вышэйшай лігі ў групе А. 2017/2018",
+    "TRN_SHORT_youth2003u15": "U-15. Група А"    
 }
