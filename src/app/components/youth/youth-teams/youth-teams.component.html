@@ -1,16 +1,13 @@
-<div *ngIf="!_loaded" class="row">
-    <div class="col-12 d-flex justify-content-center">
+<h4 class="fc-title">
+    <span class="text-secondary" style="font-weight: 400;">{{ youthTeamI18nKey | translate }}&nbsp;|</span>&nbsp;<span>{{team.name}}</span></h4>
+<div class="row">
+    <div class="col-sm-3">
+        <app-youth-team-navigation></app-youth-team-navigation>
+    </div>
+    <div *ngIf="!_loaded" class="col-sm-9 d-flex justify-content-center">
         <mat-spinner></mat-spinner>
     </div>
-</div>
-<div *ngIf="_loaded">
-    <h4 class="fc-title">{{team.name}}</h4>
-    <div class="row">
-        <div class="col-sm-4">
-            <app-youth-team-navigation></app-youth-team-navigation>
-        </div>
-        <div class="col-sm-8">
-            <router-outlet></router-outlet>
-        </div>
+    <div *ngIf="_loaded" class="col-sm-9">
+        <router-outlet></router-outlet>
     </div>
 </div>

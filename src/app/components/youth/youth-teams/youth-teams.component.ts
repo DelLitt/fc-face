@@ -49,4 +49,8 @@ export class YouthTeamsComponent implements OnInit {
     });
   }
 
+  private get youthTeamI18nKey(): string {
+    return (this.activatedRoute.snapshot.params['key'] || '').toUpperCase();
+  }
+
 }
