@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router, Routes, NavigationEnd, ActivatedRouteSnapshot } from '@angular/router';
 import { SiteMap } from '../model/site-map';
 import { SiteMapConfiguration } from './configuration/site-map-configuration';
@@ -14,6 +14,8 @@ export class SiteMapService {
   private _breadcrumbTitle: string;
   private _breadcrumbChain: SiteMap;
   private _youthTeamPageActivation: YouthTeamPageActivation;
+
+  @Output() navigated: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private router: Router,
@@ -53,7 +55,7 @@ export class SiteMapService {
   }
 
   public getCurrentYouthTeamId(activatedRouteSnapshot: ActivatedRouteSnapshot): number {
-    const youthTeamKey = activatedRouteSnapshot.params['key'] || '';
+    const youthTeamKey = (activatedRouteSnapshot.params['key'] || '').toUpperCase();
     if (!YoutTeamsMappingTable.has(youthTeamKey)) { return null; }
 
     return YoutTeamsMappingTable.get(youthTeamKey);
@@ -66,6 +68,7 @@ export class SiteMapService {
       this.logger.logDebug(`'${(<any>this).constructor.name}'. Finished navigation to '${(event as NavigationEnd).url}'`);
       this.buildBreadCrumb(this.activatedRoute);
       this.setActiveYouthTeamPage(event);
+      this.navigated.emit(event);
     });
   }
 
