@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from '../../modules/app-routing/app-routing.module';
-import { MatProgressSpinnerModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatSelectModule } from '@angular/material';
 
 import { PersonsRepositoryService } from '../../services/persons-repository.service';
 import { TeamsRepositoryService } from '../../services/teams-repository.service';
@@ -28,7 +28,8 @@ import { YouthTeamResultsComponent } from '../../components/youth/teams/youth-te
     TranslateModule,
     AppRoutingModule,
     SharedComponentsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSelectModule
   ],
   declarations: [
     YouthViewComponent,

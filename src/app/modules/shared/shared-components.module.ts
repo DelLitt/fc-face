@@ -1,6 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatProgressSpinnerModule, MatExpansionModule, MatTableModule } from '@angular/material';
+import {
+        MatProgressSpinnerModule,
+        MatExpansionModule,
+        MatTableModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatPaginatorModule,
+        MatSortModule
+} from '@angular/material';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 import { AppRoutingModule } from '../../modules/app-routing/app-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
@@ -28,6 +36,7 @@ import { PublicationAnnouncementComponent } from '../../components/shared/public
 import { MainSliderComponent } from '../../components/shared/main-slider/main-slider.component';
 import { PersonCardComponent } from '../../components/shared/person-card/person-card.component';
 import { StandingsComponent } from '../../components/shared/standings/standings.component';
+import { StandingsRepositoryService } from '../../services/standings-repository.service';
 
 
 @NgModule({
@@ -36,6 +45,10 @@ import { StandingsComponent } from '../../components/shared/standings/standings.
     MatProgressSpinnerModule,
     MatExpansionModule,
     MatTableModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatSortModule,
     TranslateModule,
     AppRoutingModule,
     ShareButtonsModule.forRoot(),
@@ -62,7 +75,8 @@ import { StandingsComponent } from '../../components/shared/standings/standings.
     UrlUtilityService,
     StringCacheUtilityService,
     GalleriesRepositoryService,
-    VideosRepositoryService
+    VideosRepositoryService,
+    StandingsRepositoryService
   ],
   exports: [
     FcImageSliderComponent,
