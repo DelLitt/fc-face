@@ -67,7 +67,17 @@
     "TEAM_U10": "Команда U-10",
     "TEAM_U9": "Команда U-9",
     "TEAMS": "Команды",
+    "TEAM": "Команда",
     "COACH_DEF": "Тренер",
     "GAMES": "Игры",
-    "RESULTS": "Результаты"
+    "RESULTS": "Результаты",
+    "FILTER": "Фильтр",
+    "GAMES_SH": "И",
+    "WINS_SH": "В",
+    "DRAWS_SH": "Н",
+    "LOSES_SH": "П",
+    "GOALS_SH": "М",
+    "GOALS_FOR_SH": "МЗ",
+    "GOALS_AGAINST_SH2": "МП",
+    "POINTS_SH": "О"
 }

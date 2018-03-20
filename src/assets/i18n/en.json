@@ -67,7 +67,17 @@
     "TEAM_U10": "Team U-10",
     "TEAM_U9": "Team U-9",
     "TEAMS": "Teams",
+    "TEAM": "Team",
     "COACH_DEF": "Coach",
     "GAMES": "Games",
-    "RESULTS": "Results"
+    "RESULTS": "Results",
+    "FILTER": "Filter",
+    "GAMES_SH": "G",
+    "WINS_SH": "W",
+    "DRAWS_SH": "D",
+    "LOSES_SH": "L",
+    "GOALS_SH": "G",
+    "GOALS_FOR_SH": "GF",
+    "GOALS_AGAINST_SH2": "GA",
+    "POINTS_SH": "P"
 }
