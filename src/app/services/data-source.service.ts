@@ -35,6 +35,10 @@ export class DataSourceService {
     return null;
   }
 
+  public getTeam(id: number): Promise<object> {
+    return null;
+  }
+
   public getCoachTeams(coachIds: number[]): Promise<object[]> {
     return null;
   }
@@ -75,6 +79,15 @@ export class FakeDataSourceService extends DataSourceService {
       setTimeout(() => {
         const persons: Array<object> = _fakeEmployees.slice(skip, skip + count);
         resolve(persons);
+      }, 1000);
+    });
+  }
+
+  public getTeam(id: number): Promise<object> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const team: object = _fakeYouthTeams.find(t => t.id === id);
+        resolve(team);
       }, 1000);
     });
   }
