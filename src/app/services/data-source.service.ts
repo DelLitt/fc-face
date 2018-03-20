@@ -6,6 +6,7 @@ import { PersonRoleGroup } from '../model/person-role-group';
 import { _fakeEmployees } from './_fake/fake-employee-storage';
 import { _fakeYouthTeams } from './_fake/fake-youth-team-storage';
 import { _fakeStandings } from './_fake/fake-standing-storage';
+import { _fakeTourneys } from './_fake/fake-tourneys-storage';
 
 @Injectable()
 export class DataSourceService {
@@ -45,6 +46,10 @@ export class DataSourceService {
   }
 
   public getStandings(tourneyId: number): Promise<object[]> {
+    return null;
+  }
+
+  public getTourneys(teamId: number): Promise<object[]> {
     return null;
   }
 
@@ -113,6 +118,16 @@ export class FakeDataSourceService extends DataSourceService {
         const standings: Array<object> =
           _fakeStandings.filter(s => s.tourneyId === tourneyId);
         resolve(standings);
+      }, 1000);
+    });
+  }
+
+  public getTourneys(teamId: number): Promise<object[]> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const tourneys: Array<object> =
+          _fakeTourneys.filter(s => s.teams.includes(teamId));
+        resolve(tourneys);
       }, 1000);
     });
   }
