@@ -5,6 +5,7 @@ import { PublicationVisibility } from '../model/publication-visibility';
 import { PersonRoleGroup } from '../model/person-role-group';
 import { _fakeEmployees } from './_fake/fake-employee-storage';
 import { _fakeYouthTeams } from './_fake/fake-youth-team-storage';
+import { _fakeStandings } from './_fake/fake-standing-storage';
 
 @Injectable()
 export class DataSourceService {
@@ -40,6 +41,10 @@ export class DataSourceService {
   }
 
   public getCoachTeams(coachIds: number[]): Promise<object[]> {
+    return null;
+  }
+
+  public getStandings(tourneyId: number): Promise<object[]> {
     return null;
   }
 
@@ -98,6 +103,16 @@ export class FakeDataSourceService extends DataSourceService {
         const teams: Array<object> =
           _fakeYouthTeams.filter(t => coachIds.includes(t.coach));
         resolve(teams);
+      }, 1000);
+    });
+  }
+
+  public getStandings(tourneyId: number): Promise<object[]> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const standings: Array<object> =
+          _fakeStandings.filter(s => s.tourneyId === tourneyId);
+        resolve(standings);
       }, 1000);
     });
   }
