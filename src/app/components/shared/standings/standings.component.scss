@@ -1,0 +1,19 @@
+.fc-standing {
+    display: inherit;
+}
+
+.fc-standing-table {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+  
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 800px;
+}
