@@ -13,8 +13,8 @@ import { Team } from '../../../model/team';
 export class YouthTeamsComponent implements OnInit {
 
   private _loaded: boolean;
-  private team: Team = new Team();
   private _teamId: number;
+  private team: Team = new Team();
 
   constructor(
     private teamsRepository: TeamsRepositoryService,
@@ -25,13 +25,12 @@ export class YouthTeamsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.logger.logWarning(
-      `'${(<any>this).constructor.name}'. ${this.siteMapService.getCurrentYouthTeamId(this.activatedRoute.snapshot)}'`);
-      this.loadTeam();
+    this.logger.logDebug(`'${(<any>this).constructor.name}' component is being initialized.`);
+    this.loadTeam();
 
-      this.siteMapService.navigated.subscribe((event) => {
-        this.loadTeam();
-      });
+    this.siteMapService.navigated.subscribe((event) => {
+      this.loadTeam();
+    });
   }
 
   private loadTeam() {

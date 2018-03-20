@@ -16,6 +16,7 @@ export class StandingsComponent implements OnInit {
   private displayedColumns = ['position', 'teamName', 'games', 'wins', 'draws', 'loses', 'goals', 'points'];
   private dataSource: MatTableDataSource<Standing>;
   private standings: Standing[];
+  private _tourneyId: number;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -25,7 +26,12 @@ export class StandingsComponent implements OnInit {
   @Input() usePagination: boolean;
   @Input() pageSizeOptions: Array<number> = [5, 10, DefPageSize, 50, 100];
   @Input() pageSize: number = DefPageSize;
-  @Input() tourneyId: number;
+
+  @Input() set tourneyId(value: number) {
+    this.logger.logDebug(`'${(<any>this).constructor.name}' has revieved tourney id ${value}.`);
+    this._tourneyId = value;
+    this.loadStandings();
+  }
 
   constructor(
     private standingsRepository: StandingsRepositoryService,
@@ -40,8 +46,9 @@ export class StandingsComponent implements OnInit {
   private loadStandings() {
     this.logger.logDebug(`'${(<any>this).constructor.name}' is trying to load the standings.`);
     this._loaded = false;
+    this.standings = [];
 
-    this.standingsRepository.getStandings(this.tourneyId)
+    this.standingsRepository.getStandings(this._tourneyId)
     .then(result => {
       this.standings = result;
       this.dataSource = new MatTableDataSource(this.standings);
@@ -50,9 +57,6 @@ export class StandingsComponent implements OnInit {
       this._loaded = true;
       this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the standings (count: ${this.standings.length}) successfully.`);
     });
-    // .catch(reason => {
-    //   this.router.navigate(['/not-found']);
-    // });
   }
 
   private applyFilter(filterValue: string) {
