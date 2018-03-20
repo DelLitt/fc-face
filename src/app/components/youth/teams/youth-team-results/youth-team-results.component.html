@@ -1,1 +1,16 @@
-<app-standings></app-standings>
+<mat-form-field>
+  <mat-select placeholder="Tourney" (selectionChange)="tourneyChanged($event);">
+    <mat-option *ngFor="let tourney of [{value: 15, viewValue: 'x15'}, {value: 16, viewValue: 'x16'}]" [value]="tourney.value">
+      {{ tourney.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<app-standings 
+  [header]="'RESULTS' | translate"
+  [showFilter]="true"
+  [usePagination]="true"
+  [pageSizeOptions]="[10, 25, 55]"
+  [pageSize]="16"
+  [tourneyId]="15">
+</app-standings>

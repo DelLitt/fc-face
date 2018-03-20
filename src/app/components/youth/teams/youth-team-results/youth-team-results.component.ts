@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogService } from '../../../../services/log.service';
 
 @Component({
   selector: 'app-youth-team-results',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class YouthTeamResultsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private logger: LogService
+  ) { }
 
   ngOnInit() {
+    this.logger.logDebug(`'${(<any>this).constructor.name}' component is being initialized.`);
+  }
+
+  private tourneyChanged(event) {
+    this.logger.logDebug(`'${(<any>this).constructor.name}' event is ${event}.`);
   }
 
 }
