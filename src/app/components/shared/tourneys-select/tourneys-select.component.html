@@ -3,7 +3,7 @@
     [placeholder]="'TOURNEY' | translate"
     (selectionChange)="changeSelectedTourney($event);">
     <mat-option *ngFor="let tourney of _tourneys" [value]="tourney.id">
-      {{ (('TRN_SHORT_' + tourney.i18nKey | translate) !== ('TRN_SHORT_' + tourney.i18nKey)) ? ('TRN_SHORT_' + tourney.i18nKey | translate) : tourney.name }}
+      {{ (('TRN_FULL_' + tourney.i18nKey | translate) !== ('TRN_FULL_' + tourney.i18nKey)) ? ('TRN_FULL_' + tourney.i18nKey | translate) : tourney.name }}
     </mat-option>
   </mat-select>
 </mat-form-field>
