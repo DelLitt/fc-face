@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
-import { Game } from '../../../model/game';
+// import { Game } from '../../../model/game';
 
 @Component({
   selector: 'app-tourney-games',
@@ -8,7 +8,7 @@ import { Game } from '../../../model/game';
   styleUrls: ['./tourney-games.component.scss']
 })
 export class TourneyGamesComponent implements OnInit {
-  private dataSource: MatTableDataSource<Game>;
+  // private dataSource: MatTableDataSource<Game>;
   @Input() public header: string;
   @Input() public showFilter: boolean;
 
