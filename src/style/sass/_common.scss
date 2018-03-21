@@ -14,6 +14,16 @@ a, .btn-link {
     cursor: pointer;
 }
 
+// MATERIAL select start
+.mat-select-panel {
+    max-width: inherit !important;
+}
+
+.mat-form-field-infix {
+    width: inherit !important;
+}
+// MATERIAL select end
+
 .tertiary-links {
     a {
         color: theme-color("tertiary");
