@@ -10,11 +10,22 @@ import { Tourney } from '../../../model/tourney';
 })
 export class TourneysSelectComponent implements OnInit {
   private _loaded: boolean;
-  private tourneys: Tourney[];
-  private selected: number;
+  private _selectedTourneyId = 0;
+  private _selectedTourney: Tourney;
+  private _tourneys: Tourney[];
 
   @Input() teamId: number;
-  @Output() tourneyChanged: EventEmitter<any> = new EventEmitter();
+  @Output() selectedTourneyIdChange = new EventEmitter();
+  @Output() tourneyChange: EventEmitter<any> = new EventEmitter();
+
+  public get selectedTourneyId(): number {
+    return this._selectedTourneyId;
+  }
+
+  @Input() public set selectedTourneyId(value: number) {
+    this._selectedTourneyId = value;
+    this.raiseTourneyChangedEvent();
+  }
 
   constructor(
     private tourneysRepository: TourneysRepositoryService,
@@ -26,21 +37,43 @@ export class TourneysSelectComponent implements OnInit {
     this.loadTourneys();
   }
 
+  public get selectedTourney(): Tourney {
+    this.setSelectedTourney();
+    return this._selectedTourney;
+  }
+
   private loadTourneys() {
     this._loaded = false;
     this.tourneysRepository.getTourneys(this.teamId)
     .then(result => {
-      this.tourneys = result;
-      this.selected = this.tourneys[0].id;
-      this.riseTourneyChanged({ value: this.selected });
+      this._tourneys = result;
+
+      if (!this.selectedTourneyId && this._tourneys instanceof Array && this._tourneys.length > 0) {
+        this.selectedTourneyId = this._tourneys[0].id;
+      }
+
       this._loaded = true;
-      this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the tourneys of team (id:${this.teamId}) successfully.`);
+      this.logger.logInfo(`'${(<any>this).constructor.name}' has loaded the tourneys of team (id:${this.teamId}) successfully.`);
     });
   }
 
-  private riseTourneyChanged(event) {
-    this.logger.logDebug(`'${(<any>this).constructor.name}' has changed tourney to ${event.value}.`);
-    this.tourneyChanged.emit(event.value);
+  private setSelectedTourney() {
+    if (!(this._tourneys instanceof Array)) { return; }
+
+    if (!(this._selectedTourney instanceof Tourney) || this._selectedTourney.id === this.selectedTourneyId) {
+      this._selectedTourney = this._tourneys.find(t => t.id === this.selectedTourneyId);
+    }
+  }
+
+  private changeSelectedTourney($event) {
+    this.selectedTourneyId = $event.value;
+  }
+
+  private raiseTourneyChangedEvent() {
+    this.selectedTourneyIdChange.emit(this._selectedTourneyId);
+    if (this.selectedTourney instanceof Tourney) {
+      this.tourneyChange.emit(this.selectedTourney);
+    }
   }
 
 }
