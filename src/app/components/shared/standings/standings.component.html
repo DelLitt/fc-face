@@ -12,43 +12,43 @@
     <mat-table [dataSource]="dataSource" matSort>
   
       <ng-container matColumnDef="position">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.position}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2 col-sm-1">#</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-2 col-sm-1">{{row.position}}</mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="teamName">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'TEAM' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.teamName}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-4 col-sm-5 col-md-4">{{ 'TEAM' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-4 col-sm-5 col-md-4">{{row.teamName}}</mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="games">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'GAMES_SH' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.games}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2 col-sm-1">{{ 'GAMES_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-2 col-sm-1">{{row.games}}</mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="wins">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'WINS_SH' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.wins}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2 col-sm-1">{{ 'WINS_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-2 col-sm-1">{{row.wins}}</mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="draws">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'DRAWS_SH' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.draws}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="d-none d-sm-block col-sm-1">{{ 'DRAWS_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="d-none d-sm-block col-sm-1">{{row.draws}}</mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="loses">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'LOSES_SH' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.loses}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="d-none d-sm-block col-sm-1">{{ 'LOSES_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="d-none d-sm-block col-sm-1">{{row.loses}}</mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="goals">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'GOALS_SH' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.goalsFor}}-{{row.goalsAgainst}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="d-none d-md-block col-md-1">{{ 'GOALS_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="d-none d-md-block col-md-1">{{row.goalsFor}}-{{row.goalsAgainst}}</mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="points">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'POINTS_SH' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.points}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2 col-sm-1">{{ 'POINTS_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-2 col-sm-1">{{row.points}}</mat-cell>
       </ng-container>
   
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
