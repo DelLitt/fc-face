@@ -1,10 +1,2 @@
-<app-tourneys-select [teamId]="teamId" (tourneyChanged)="tourneyChanged($event)"></app-tourneys-select>
-
-<app-standings 
-  [header]="'RESULTS' | translate"
-  [showFilter]="true"
-  [usePagination]="true"
-  [pageSizeOptions]="[10, 25, 55]"
-  [pageSize]="25"
-  [tourneyId]="tourneyId">
-</app-standings>
+<app-tourneys-select [teamId]="_teamId" (tourneyChange)="tourneyChanged($event)" [(selectedTourneyId)]="tourneyId"></app-tourneys-select>
+<app-standings  [tourneyId]="tourneyId"></app-standings>
