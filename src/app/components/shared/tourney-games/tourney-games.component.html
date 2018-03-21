@@ -1,0 +1,6 @@
+<div *ngIf="!_loaded" class="fc-tourney-games">
+  <h5 *ngIf="showHeader" class="text-info">{{header}}</h5>
+  <mat-form-field *ngIf="showFilter">
+    <input matInput (keyup)="applyFilter($event.target.value)" [placeholder]="'FILTER' | translate">
+  </mat-form-field>
+</div>
