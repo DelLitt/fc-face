@@ -5,6 +5,7 @@ import { Team } from '../model/team';
 
 @Injectable()
 export class TeamsRepositoryService {
+  private _team: Team = new Team();
 
   constructor(
     private dataSource: DataSourceService,
@@ -13,14 +14,16 @@ export class TeamsRepositoryService {
 
   public getTeam(id: number): Promise<Team> {
     return new Promise((resolve, reject) => {
+      if (this._team.id === id) { return this._team; }
+
       this.logger.logDebug(`'${(<any>this).constructor.name}' started loading the team (id:${id}).`);
 
       this.dataSource.getTeam(id)
         .then(result => {
           if (result) {
-            const team: Team = this.convertResponseToTeam(result);
+            this._team = this.convertResponseToTeam(result);
             this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the team (id:${id}) successfully.`);
-            resolve(team);
+            resolve( this._team);
           } else {
             const errorMsg = `'${(<any>this).constructor.name}' not found team (id:${id})!`;
             this.logger.logError(errorMsg);
