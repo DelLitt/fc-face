@@ -60,9 +60,7 @@ export class StandingsComponent implements OnInit {
   }
 
   private applyFilter(filterValue: string) {
-    filterValue = filterValue.trim();
-    filterValue = filterValue.toLowerCase();
-    this.dataSource.filter = filterValue;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   private get showHeader(): boolean {
