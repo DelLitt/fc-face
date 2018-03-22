@@ -14,11 +14,11 @@ export class DataSourceService {
 
   constructor() { }
 
-  public getEntity(id: number, entityType: string): Promise<object> {
+  public getPublicationEntity(id: number, entityType: string): Promise<object> {
     return null;
   }
 
-  public getEntities(
+  public getPublicationEntities(
     count: number,
     skip: number,
     entityType: string,
@@ -61,7 +61,7 @@ export class DataSourceService {
 
 export class FakeDataSourceService extends DataSourceService {
 
-  public getEntity(id: number, entityType: string): Promise<object> {
+  public getPublicationEntity(id: number, entityType: string): Promise<object> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const entity: object = _fakePublicationsStorage[entityType].find(p => p.id === id);
@@ -70,7 +70,7 @@ export class FakeDataSourceService extends DataSourceService {
     });
   }
 
-  public getEntities(count: number, skip: number, entityType: string, visibility: PublicationVisibility[]): Promise<object[]> {
+  public getPublicationEntities(count: number, skip: number, entityType: string, visibility: PublicationVisibility[]): Promise<object[]> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const entities: Array<object> =

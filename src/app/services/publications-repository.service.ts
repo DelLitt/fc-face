@@ -13,7 +13,7 @@ export class PublicationsRepositoryService {
     return new Promise((resolve, reject) => {
       this.logger.logDebug(`'${(<any>this).constructor.name}' started loading the publication (id:${id}).`);
 
-      this.dataSource.getEntity(id, 'publications')
+      this.dataSource.getPublicationEntity(id, 'publications')
         .then(result => {
           if (result) {
             const publication: Publication = this.convertResponseToPublication(result);
@@ -55,7 +55,7 @@ export class PublicationsRepositoryService {
     return new Promise((resolve, reject) => {
       this.logger.logDebug(`'${(<any>this).constructor.name}' started loading publications.`);
 
-      this.dataSource.getEntities(count, skip, 'publications', visibility)
+      this.dataSource.getPublicationEntities(count, skip, 'publications', visibility)
         .then(result => {
           if (result) {
             const publications: Publication[] = this.convertResponseToPublications(result);

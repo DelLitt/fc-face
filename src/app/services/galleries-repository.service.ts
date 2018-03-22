@@ -14,7 +14,7 @@ export class GalleriesRepositoryService {
     return new Promise((resolve, reject) => {
       this.logger.logDebug(`'${(<any>this).constructor.name}' started loading the gallery (id:${id}).`);
 
-      this.dataSource.getEntity(id, 'galleries')
+      this.dataSource.getPublicationEntity(id, 'galleries')
         .then(result => {
           if (result) {
             this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the gallery (id:${id}) successfully.`);
@@ -56,7 +56,7 @@ export class GalleriesRepositoryService {
     return new Promise((resolve, reject) => {
       this.logger.logDebug(`'${(<any>this).constructor.name}' started loading galleries.`);
 
-      this.dataSource.getEntities(count, skip, 'galleries', visibility)
+      this.dataSource.getPublicationEntities(count, skip, 'galleries', visibility)
         .then(result => {
           if (result) {
             const galleries: Gallery[] = this.convertResponseToGalleries(result);

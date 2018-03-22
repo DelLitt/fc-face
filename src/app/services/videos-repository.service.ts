@@ -16,7 +16,7 @@ export class VideosRepositoryService {
     return new Promise((resolve, reject) => {
       this.logger.logDebug(`'${(<any>this).constructor.name}' started loading the video (id:${id}).`);
 
-      this.dataSource.getEntity(id, 'videos')
+      this.dataSource.getPublicationEntity(id, 'videos')
         .then(result => {
           if (result) {
             this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the video (id:${id}) successfully.`);
@@ -58,7 +58,7 @@ export class VideosRepositoryService {
       return new Promise((resolve, reject) => {
         this.logger.logDebug(`'${(<any>this).constructor.name}' started loading videos.`);
 
-        this.dataSource.getEntities(count, skip, 'videos', visibility)
+        this.dataSource.getPublicationEntities(count, skip, 'videos', visibility)
           .then(result => {
             if (result) {
               const videos: Video[] = this.convertResponseToVideos(result);
