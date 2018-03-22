@@ -1,4 +1,5 @@
 import { Team } from '../team';
+import { Round } from '../rounds/round';
 
 export class Game {
     public id: number;
@@ -11,4 +12,5 @@ export class Game {
     public scoreAddAway: number;
     public penaltiesHome: number;
     public penaltiesAway: number;
+    public round: Round;
 }
