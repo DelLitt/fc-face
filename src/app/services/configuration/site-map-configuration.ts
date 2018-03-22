@@ -1,4 +1,4 @@
-import { SiteMap } from '../../model/site-map';
+import { SiteMap } from '../../model/app/site-map';
 
 export const SiteMapConfiguration: SiteMap = [
     { defaultName: 'Home', i18nKey: 'HOME_PAGE', path: 'home', visible: true, clickable: true },

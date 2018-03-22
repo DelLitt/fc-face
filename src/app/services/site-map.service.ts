@@ -1,6 +1,6 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router, Routes, NavigationEnd, ActivatedRouteSnapshot } from '@angular/router';
-import { SiteMap } from '../model/site-map';
+import { SiteMap } from '../model/app/site-map';
 import { SiteMapConfiguration } from './configuration/site-map-configuration';
 import { LogService } from './log.service';
 import { YoutTeamsMappingTable } from '../model/app/youth-teams-mapping-table';

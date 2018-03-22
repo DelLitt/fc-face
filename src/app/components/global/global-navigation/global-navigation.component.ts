@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { SiteMap, SiteMapItem } from '../../../model/site-map';
+import { SiteMap, SiteMapItem } from '../../../model/app/site-map';
 import { SiteMapService } from '../../../services/site-map.service';
 import { LogService } from '../../../services/log.service';
 

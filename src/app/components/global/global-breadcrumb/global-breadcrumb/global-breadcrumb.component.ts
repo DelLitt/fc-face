@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { SiteMapItem, SiteMap } from '../../../../model/site-map';
+import { SiteMapItem, SiteMap } from '../../../../model/app/site-map';
 import { SiteMapService } from '../../../../services/site-map.service';
 import { LogService } from '../../../../services/log.service';
 

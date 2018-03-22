@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { SiteMap } from '../../model/site-map';
+import { SiteMap } from '../../model/app/site-map';
 import { CanActivateYouthTeam } from '../../model/app/can-activate-youth-team';
 
 import { PageNotFoundComponent } from '../../components/page-not-found/page-not-found.component';
