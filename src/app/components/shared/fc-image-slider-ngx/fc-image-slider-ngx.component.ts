@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
-import { Publication } from '../../../model/publication';
+import { Publication } from '../../../model/publications/publication';
 import { LogService } from '../../../services/log.service';
 import { Router } from '@angular/router';
 import { ImageUtilityService } from '../../../services/utilities/image-utility.service';

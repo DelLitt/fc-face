@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { PublicationsRepositoryService } from '../../../services/publications-repository.service';
 import { VideosRepositoryService } from '../../../services/videos-repository.service';
 import { GalleriesRepositoryService } from '../../../services/galleries-repository.service';
-import { Publication } from '../../../model/publication';
-import { Video } from '../../../model/video';
-import { Gallery } from '../../../model/gallery/gallery';
+import { Publication } from '../../../model/publications/publication';
+import { Video } from '../../../model/publications/video';
+import { Gallery } from '../../../model/publications/gallery';
 import { LogService } from '../../../services/log.service';
 
 @Component({

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { DataSourceService } from './data-source.service';
-import { Publication } from '../model/publication';
+import { Publication } from '../model/publications/publication';
 import { LogService } from './log.service';
-import { PublicationVisibility } from '../model/publication-visibility';
+import { PublicationVisibility } from '../model/publications/publication-visibility';
 
 @Injectable()
 export class PublicationsRepositoryService {

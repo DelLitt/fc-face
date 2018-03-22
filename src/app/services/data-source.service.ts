@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Publication } from '../model/publication';
-import { PublicationEntity } from '../model/publication-entity';
-import { PublicationVisibility } from '../model/publication-visibility';
+import { Publication } from '../model/publications/publication';
+import { PublicationEntity } from '../model/publications/publication-entity';
+import { PublicationVisibility } from '../model/publications/publication-visibility';
 import { PersonRoleGroup } from '../model/person-role-group';
 import { _fakeEmployees } from './_fake/fake-employee-storage';
 import { _fakeYouthTeams } from './_fake/fake-youth-team-storage';

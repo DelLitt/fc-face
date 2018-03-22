@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LogService } from '../../../services/log.service';
 import { PublicationsRepositoryService } from '../../../services/publications-repository.service';
-import { Publication } from '../../../model/publication';
+import { Publication } from '../../../model/publications/publication';
 import { GalleriesRepositoryService } from '../../../services/galleries-repository.service';
-import { Gallery } from '../../../model/gallery/gallery';
-import { GalleryItem } from '../../../model/gallery/gallery-item';
+import { Gallery } from '../../../model/publications/gallery';
+import { GalleryItem } from '../../../model/publications/gallery-item';
 import { Router } from '@angular/router';
 import { SiteMapService } from '../../../services/site-map.service';
 

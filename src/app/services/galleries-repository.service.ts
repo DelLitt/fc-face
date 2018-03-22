@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { DataSourceService } from './data-source.service';
 import { LogService } from './log.service';
-import { Gallery } from '../model/gallery/gallery';
-import { GalleryItem } from '../model/gallery/gallery-item';
-import { PublicationVisibility } from '../model/publication-visibility';
+import { Gallery } from '../model/publications/gallery';
+import { GalleryItem } from '../model/publications/gallery-item';
+import { PublicationVisibility } from '../model/publications/publication-visibility';
 
 @Injectable()
 export class GalleriesRepositoryService {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LogService } from '../../../services/log.service';
-import { PublicationEntity } from '../../../model/publication-entity';
+import { PublicationEntity } from '../../../model/publications/publication-entity';
 import { SearchService } from '../../../services/search.service';
 import { AlertService } from '../../../services/alert.service';
 

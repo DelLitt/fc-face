@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { DataSourceService } from './data-source.service';
 import { LogService } from './log.service';
-import { Video } from '../model/video';
-import { PublicationVisibility } from '../model/publication-visibility';
+import { Video } from '../model/publications/video';
+import { PublicationVisibility } from '../model/publications/publication-visibility';
 
 @Injectable()
 export class VideosRepositoryService {

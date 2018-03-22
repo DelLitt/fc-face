@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { LogService } from './log.service';
-import { PublicationEntity } from '../model/publication-entity';
+import { PublicationEntity } from '../model/publications/publication-entity';
 import { DataSourceService } from './data-source.service';
-import { EntitiesPage } from '../model/entities-page';
+import { EntitiesPage } from '../model/publications/entities-page';
 
 
 const MinSearchTextLength = 3;

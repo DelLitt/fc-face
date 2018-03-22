@@ -1,5 +1,5 @@
 import { GalleryItem } from './gallery-item';
-import { PublicationEntity } from '../publication-entity';
+import { PublicationEntity } from './publication-entity';
 
 export class Gallery implements PublicationEntity {
     public id: number;

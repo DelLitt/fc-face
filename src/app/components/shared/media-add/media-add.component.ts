@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LogService } from '../../../services/log.service';
 import { GalleriesRepositoryService } from '../../../services/galleries-repository.service';
-import { Gallery } from '../../../model/gallery/gallery';
+import { Gallery } from '../../../model/publications/gallery';
 import { VideosRepositoryService } from '../../../services/videos-repository.service';
-import { Video } from '../../../model/video';
+import { Video } from '../../../model/publications/video';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SafeHtml } from '@angular/platform-browser/src/security/dom_sanitization_service';
 

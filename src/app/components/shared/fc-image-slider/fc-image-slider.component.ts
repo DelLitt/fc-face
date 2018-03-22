@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Publication } from '../../../model/publication';
+import { Publication } from '../../../model/publications/publication';
 import { LogService } from '../../../services/log.service';
 
 @Component({

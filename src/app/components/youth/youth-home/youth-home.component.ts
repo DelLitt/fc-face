@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicationsRepositoryService } from '../../../services/publications-repository.service';
 import { LogService } from '../../../services/log.service';
-import { Publication } from '../../../model/publication';
+import { Publication } from '../../../model/publications/publication';
 import { VideosRepositoryService } from '../../../services/videos-repository.service';
 import { GalleriesRepositoryService } from '../../../services/galleries-repository.service';
-import { Video } from '../../../model/video';
-import { Gallery } from '../../../model/gallery/gallery';
+import { Video } from '../../../model/publications/video';
+import { Gallery } from '../../../model/publications/gallery';
 
 @Component({
   selector: 'app-youth-home',

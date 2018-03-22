@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicationsRepositoryService } from '../../../services/publications-repository.service';
 import { LogService } from '../../../services/log.service';
-import { Publication } from '../../../model/publication';
+import { Publication } from '../../../model/publications/publication';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material';
 

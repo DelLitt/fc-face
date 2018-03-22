@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { LogService } from '../../../services/log.service';
-import { PublicationEntity } from '../../../model/publication-entity';
+import { PublicationEntity } from '../../../model/publications/publication-entity';
 import { TextUtilityService } from '../../../services/utilities/text-utility.service';
 import { ImageUtilityService } from '../../../services/utilities/image-utility.service';
 
