@@ -1,7 +1,7 @@
 import { GalleryItem } from './gallery-item';
-import { Entity } from '../entity';
+import { PublicationEntity } from '../publication-entity';
 
-export class Gallery implements Entity {
+export class Gallery implements PublicationEntity {
     public id: number;
     public title: string;
     public header: string;

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { LogService } from '../../../services/log.service';
-import { Entity } from '../../../model/entity';
+import { PublicationEntity } from '../../../model/publication-entity';
 import { TextUtilityService } from '../../../services/utilities/text-utility.service';
 import { ImageUtilityService } from '../../../services/utilities/image-utility.service';
 
@@ -12,7 +12,7 @@ import { ImageUtilityService } from '../../../services/utilities/image-utility.s
 })
 export class PreviewPublicationComponent implements OnInit {
 
-  @Input() public item: Entity;
+  @Input() public item: PublicationEntity;
   @Input() public routePart: string;
 
   constructor(

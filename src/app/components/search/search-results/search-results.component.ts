@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LogService } from '../../../services/log.service';
-import { Entity } from '../../../model/entity';
+import { PublicationEntity } from '../../../model/publication-entity';
 import { SearchService } from '../../../services/search.service';
 import { AlertService } from '../../../services/alert.service';
 
@@ -20,7 +20,7 @@ export class SearchResultsComponent implements OnInit {
   private pageSize: number = DefPageSize;
   private pageSizeOptions: number[] = [DefPageSize, 25, 50, 100];
   private entitiesTotalCount = 0;
-  private entities: Entity[];
+  private entities: PublicationEntity[];
 
   constructor(
     private alertService: AlertService,

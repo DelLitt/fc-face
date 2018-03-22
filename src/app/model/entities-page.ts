@@ -1,6 +1,6 @@
-import { Entity } from './entity';
+import { PublicationEntity } from './publication-entity';
 
 export class EntitiesPage {
     totalCount: number;
-    items: Entity[];
+    items: PublicationEntity[];
 }

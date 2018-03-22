@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LogService } from './log.service';
-import { Entity } from '../model/entity';
+import { PublicationEntity } from '../model/publication-entity';
 import { DataSourceService } from './data-source.service';
 import { EntitiesPage } from '../model/entities-page';
 
@@ -40,13 +40,13 @@ export class SearchService {
     });
   }
 
-  private convertResponseToEntities(response: Array<any>): Entity[] {
+  private convertResponseToEntities(response: Array<any>): PublicationEntity[] {
     const data: Array<any> = response || [];
-    if (data.length === 0) { return new Array<Entity>(); }
+    if (data.length === 0) { return new Array<PublicationEntity>(); }
 
-    const entities: Entity[] = new Array<Entity>();
+    const entities: PublicationEntity[] = new Array<PublicationEntity>();
     data.forEach(element => {
-      const entity = new Object() as Entity;
+      const entity = new Object() as PublicationEntity;
       entity.id = element.id;
       entity.title = element.title;
       entity.img = element.img;

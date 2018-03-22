@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Publication } from '../model/publication';
-import { Entity } from '../model/entity';
+import { PublicationEntity } from '../model/publication-entity';
 import { PublicationVisibility } from '../model/publication-visibility';
 import { PersonRoleGroup } from '../model/person-role-group';
 import { _fakeEmployees } from './_fake/fake-employee-storage';

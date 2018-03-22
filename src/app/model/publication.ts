@@ -1,6 +1,6 @@
-import { Entity } from './entity';
+import { PublicationEntity } from './publication-entity';
 
-export class Publication implements Entity {
+export class Publication implements PublicationEntity {
     public id: number;
     public title: string;
     public header: string;

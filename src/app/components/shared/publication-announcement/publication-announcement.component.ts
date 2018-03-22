@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Entity } from '../../../model/entity';
+import { PublicationEntity } from '../../../model/publication-entity';
 import { LogService } from '../../../services/log.service';
 import { TextUtilityService } from '../../../services/utilities/text-utility.service';
 import { ImageUtilityService } from '../../../services/utilities/image-utility.service';
@@ -11,7 +11,7 @@ import { ImageUtilityService } from '../../../services/utilities/image-utility.s
 })
 export class PublicationAnnouncementComponent implements OnInit {
 
-  @Input() public item: Entity;
+  @Input() public item: PublicationEntity;
   @Input() public routePart: string;
 
   constructor(

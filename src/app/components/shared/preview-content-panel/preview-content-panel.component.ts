@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Entity } from '../../../model/entity';
+import { PublicationEntity } from '../../../model/publication-entity';
 import { LogService } from '../../../services/log.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { LogService } from '../../../services/log.service';
 export class PreviewContentPanelComponent implements OnInit {
 
   private _loaded = false;
-  private _items: Entity[] = new Array<Entity>();
+  private _items: PublicationEntity[] = new Array<PublicationEntity>();
 
   @Input() public routePart: string;
 
@@ -21,13 +21,13 @@ export class PreviewContentPanelComponent implements OnInit {
   ngOnInit() {
   }
 
-  public get items(): Entity[] {
+  public get items(): PublicationEntity[] {
     return this._items;
   }
 
-  @Input() public set items(value: Entity[]) {
+  @Input() public set items(value: PublicationEntity[]) {
     this._loaded = value ? true : false;
-    this._items = value || new Array<Entity>();
+    this._items = value || new Array<PublicationEntity>();
     this.logger.logInfo(`'${(<any>this).constructor.name}' received items. Count: ${this._items.length}.`);
   }
 
