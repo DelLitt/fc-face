@@ -1,4 +1,4 @@
-import { FcLabel } from './fc-label';
+import { FcLabel } from './app/fc-label';
 import { Team } from './team';
 
 export class Person {

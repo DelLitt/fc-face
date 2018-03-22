@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FcLink } from '../../../model/fc-link';
+import { FcLink } from '../../../model/app/fc-link';
 import { Person } from '../../../model/person';
 import { LogService } from '../../../services/log.service';
 import { ImageUtilityService } from '../../../services/utilities/image-utility.service';
