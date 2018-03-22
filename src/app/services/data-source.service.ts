@@ -43,7 +43,7 @@ export class DataSourceService {
     return null;
   }
 
-  public getTourneys(teamId: number): Promise<object[]> {
+  public getTeamTourneys(teamId: number): Promise<object[]> {
     return null;
   }
 

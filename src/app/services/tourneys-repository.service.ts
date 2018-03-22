@@ -12,11 +12,11 @@ export class TourneysRepositoryService {
   ) { }
 
 
-  public getTourneys(teamId: number): Promise<Tourney[]> {
+  public getTeamTourneys(teamId: number): Promise<Tourney[]> {
     return new Promise((resolve, reject) => {
       this.logger.logDebug(`'${(<any>this).constructor.name}' started loading tourneys.`);
 
-      this.dataSource.getTourneys(teamId)
+      this.dataSource.getTeamTourneys(teamId)
         .then(result => {
           if (result) {
             const tourneys: Tourney[] = this.convertResponseToTourneys(result);

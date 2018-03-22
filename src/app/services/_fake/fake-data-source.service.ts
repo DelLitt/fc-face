@@ -74,7 +74,7 @@ export class FakeDataSourceService extends DataSourceService {
       });
     }
 
-    public getTourneys(teamId: number): Promise<object[]> {
+    public getTeamTourneys(teamId: number): Promise<object[]> {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           const tourneys: Array<object> =

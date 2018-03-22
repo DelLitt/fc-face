@@ -44,7 +44,7 @@ export class TourneysSelectComponent implements OnInit {
 
   private loadTourneys() {
     this._loaded = false;
-    this.tourneysRepository.getTourneys(this.teamId)
+    this.tourneysRepository.getTeamTourneys(this.teamId)
     .then(result => {
       this._tourneys = result;
 
