@@ -14,7 +14,7 @@ export class TeamsRepositoryService {
 
   public getTeam(id: number): Promise<Team> {
     return new Promise((resolve, reject) => {
-      if (this._team.id === id) { return this._team; }
+      if (this._team.id === id) { resolve( this._team); }
 
       this.logger.logDebug(`'${(<any>this).constructor.name}' started loading the team (id:${id}).`);
 
