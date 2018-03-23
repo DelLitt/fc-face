@@ -12,5 +12,6 @@ export class Game {
     public scoreAddAway: number;
     public penaltiesHome: number;
     public penaltiesAway: number;
+    public played: boolean;
     public round: Round;
 }
