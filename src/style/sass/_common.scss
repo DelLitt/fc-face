@@ -22,6 +22,14 @@ a, .btn-link {
 .mat-form-field-infix {
     width: inherit !important;
 }
+
+.text-center {
+    .mat-sort-header-container {
+        -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+        justify-content: center !important;
+    }
+}
 // MATERIAL select end
 
 .tertiary-links {
