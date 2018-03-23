@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,12 +12,25 @@ import { MainComponentsModule } from './modules/main/main-components.module';
 import { PublicationComponentsModule } from '././modules/publications/publication-components.module';
 import { StaticPagesModule } from '././modules/static/static-pages.module';
 import { SearchComponentsModule } from './modules/search/search-components.module';
+import { YouthComponentsModule } from './modules/youth/youth-components.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { MatSnackBarModule } from '@angular/material';
 import { AlertService } from './services/alert.service';
-import { YouthComponentsModule } from './modules/youth/youth-components.module';
+import { I18NService } from './services/i18-n.service';
+
+import localeEn from '@angular/common/locales/en';
+import localeRu from '@angular/common/locales/ru';
+import localeBe from '@angular/common/locales/be';
+
+
+(function registerLocales() {
+  // the second parameter is optional
+  registerLocaleData(localeEn, 'en');
+  registerLocaleData(localeRu, 'ru');
+  registerLocaleData(localeBe, 'be');
+})();
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -49,7 +63,8 @@ export function createTranslateLoader(http: HttpClient) {
     StaticPagesModule
   ],
   providers: [
-    AlertService
+    AlertService,
+    I18NService
   ],
   bootstrap: [AppComponent]
 })
