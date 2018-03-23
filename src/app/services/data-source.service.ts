@@ -47,6 +47,11 @@ export class DataSourceService {
     return null;
   }
 
+  public getScheduler(tourneyIds: number[]): Promise<object[]> {
+    return null;
+  }
+
+
   public search(text: string, count: number, skip: number = 0): Promise<any> {
     return null;
   }
