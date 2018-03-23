@@ -7,6 +7,7 @@ import { _fakeYouthTeams } from './fake-youth-team-storage';
 import { _fakeStandings } from './fake-standing-storage';
 import { _fakeTourneys } from './fake-tourneys-storage';
 import { Injectable } from '@angular/core';
+import { _fakeRoundsSolid } from './fake-round-solid-items';
 
 @Injectable()
 export class FakeDataSourceService extends DataSourceService {
@@ -50,7 +51,7 @@ export class FakeDataSourceService extends DataSourceService {
         setTimeout(() => {
           const team: object = _fakeYouthTeams.find(t => t.id === id);
           resolve(team);
-        }, 1000);
+        }, 100);
       });
     }
 
@@ -81,6 +82,14 @@ export class FakeDataSourceService extends DataSourceService {
             _fakeTourneys.filter(s => s.teams.includes(teamId));
           resolve(tourneys);
         }, 1000);
+      });
+    }
+
+    public getScheduler(tourneyIds: number[]): Promise<object[]> {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(_fakeRoundsSolid);
+        }, 100);
       });
     }
 
