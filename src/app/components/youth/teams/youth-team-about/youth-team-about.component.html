@@ -1,2 +1,10 @@
-<h4 class="fc-header">{{ 'INFORMATION' | translate }}</h4>
-<div class="fc-article fc-article-info" [innerHTML]="description"></div>
+<div *ngIf="!_loaded" class="row">
+  <div class="col-12 d-flex justify-content-center">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+<div *ngIf="_loaded">
+  <h4 class="fc-header">{{ 'INFORMATION' | translate }}</h4>
+  <img [src]="getImage(image, 820, 462)" style="max-width: 820px;" [title]="_team.name" [alt]="_team.name">
+  <div class="fc-article fc-article-info" [innerHTML]="description"></div>
+</div>
