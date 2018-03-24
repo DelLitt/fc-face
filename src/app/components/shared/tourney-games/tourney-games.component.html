@@ -9,7 +9,7 @@
   </mat-form-field> -->
 
   <div class="row" *ngFor="let roundSolid of _scheduler">
-      <div class="col-12 text-secondary p-2 pt-1" style="font-weight: 500;">
+      <div class="col-12 text-primary p-2 pt-1" style="font-weight: 500;">
         <span>{{ roundSolid.round.name }}&nbsp;{{ roundSolid.round.i18nKey | translate }}. </span> 
         <span>{{ (('TRN_FULL_' + roundSolid.round.tourney.i18nKey | translate) !== ('TRN_FULL_' + roundSolid.round.tourney.i18nKey)) ? ('TRN_FULL_' + roundSolid.round.tourney.i18nKey | translate) : roundSolid.round.tourney.name }}</span>
       </div>
@@ -18,12 +18,12 @@
             <div class="col-12">
               <div class="badge badge-tertiary text-white mt-1">{{ gamesDay.date | date:'fullDate':'':localeKey }}</div>
             </div>
-            <div class="col-12 mb-2">
+            <div class="col-12 mb-2 text-gray">
               <div class="row pl-md-3" *ngFor="let game of gamesDay.games">
                 <div class="col-1">{{ game.date | date:'HH:mm' }}</div>
                 <div class="col-8 pl-4 pl-md-2">{{ game.home.name }} - {{ game.away.name }}</div>
                 <div class="col-3">
-                  <div class="row" [class.text-muted]="!game.played">
+                  <div class="row" [class.text-info]="!game.played">
                     <div class="col-12 col-sm-auto float-sm-left p-0 pl-1 pr-1">{{ getScore(game) }}</div>
                     <div *ngIf="hasScoreAdd(game);" class="col-12 col-sm-auto float-sm-left p-0 pl-1">
                       <small>{{ 'EX_TIME_SH' | translate }}.&nbsp;{{ game.scoreAddHome }}:{{ game.scoreAddAway }}</small>
