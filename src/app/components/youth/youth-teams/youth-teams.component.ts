@@ -3,7 +3,7 @@ import { TeamsRepositoryService } from '../../../services/teams-repository.servi
 import { SiteMapService } from '../../../services/site-map.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LogService } from '../../../services/log.service';
-import { Team } from '../../../model/team';
+import { Team } from '../../../model/teams/team';
 
 @Component({
   selector: 'app-youth-teams',

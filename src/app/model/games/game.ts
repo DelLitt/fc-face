@@ -1,4 +1,4 @@
-import { Team } from '../team';
+import { Team } from '../teams/team';
 import { Round } from '../rounds/round';
 
 export class Game {

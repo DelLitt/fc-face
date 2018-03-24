@@ -1,4 +1,5 @@
-import { SharedEntity } from './shared-entity';
+import { SharedEntity } from '../shared-entity';
+import { TeamStaticModel } from './team-static-model';
 
 
 export class Team implements SharedEntity {
@@ -10,5 +11,6 @@ export class Team implements SharedEntity {
     public img: string;
 
     // Unique
+    public staticModel: TeamStaticModel;
     public coachId: number;
 }

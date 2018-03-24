@@ -1,5 +1,5 @@
 import { FcLabel } from './app/fc-label';
-import { Team } from './team';
+import { Team } from './teams/team';
 import { SharedEntity } from './shared-entity';
 
 export class Person implements SharedEntity {

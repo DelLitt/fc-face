@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LogService } from '../../../services/log.service';
 import { SiteMapService } from '../../../services/site-map.service';
 import { TeamsRepositoryService } from '../../../services/teams-repository.service';
-import { Team } from '../../../model/team';
+import { Team } from '../../../model/teams/team';
 import { Tourney } from '../../../model/tourney';
 
 

@@ -3,7 +3,7 @@ import { PersonsRepositoryService } from '../../../services/persons-repository.s
 import { LogService } from '../../../services/log.service';
 import { Person } from '../../../model/person';
 import { TeamsRepositoryService } from '../../../services/teams-repository.service';
-import { Team } from '../../../model/team';
+import { Team } from '../../../model/teams/team';
 
 @Component({
   selector: 'app-youth-management',

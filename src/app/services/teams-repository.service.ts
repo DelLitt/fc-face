@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataSourceService } from './data-source.service';
 import { LogService } from './log.service';
-import { Team } from '../model/team';
+import { Team } from '../model/teams/team';
 
 @Injectable()
 export class TeamsRepositoryService {

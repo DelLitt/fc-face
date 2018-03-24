@@ -6,7 +6,7 @@ import { RoundSolid } from '../model/rounds/round-solid';
 import { Round } from '../model/rounds/round';
 import { GamesDay } from '../model/games/games-day';
 import { Game } from '../model/games/game';
-import { Team } from '../model/team';
+import { Team } from '../model/teams/team';
 
 @Injectable()
 export class TourneysRepositoryService {
