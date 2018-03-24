@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { DataSourceService } from './data-source.service';
 import { LogService } from './log.service';
 import { Team } from '../model/teams/team';
+import { TeamStaticModel } from '../model/teams/team-static-model';
+import { TeamStaticPerson } from '../model/teams/team-static-person';
 
 @Injectable()
 export class TeamsRepositoryService {
@@ -75,9 +77,61 @@ export class TeamsRepositoryService {
     const team = new Team();
     team.id = response.id;
     team.name = response.name;
+    team.i18nKey = response.i18nKey;
+    team.img = response.img;
+    team.href = response.href;
     team.coachId = response.coachId;
+    team.staticModel = this.convertResponseToTeamStaticModel(response.staticModel);
 
     return team;
+  }
+
+  private convertResponseToTeamStaticModel(response: any): TeamStaticModel {
+    if (!response) { return null; }
+
+    const staticModel = new TeamStaticModel();
+    staticModel.img = response.img;
+    staticModel.description = response.description;
+    staticModel.coaches = this.convertResponseToTeamStaticPersonsTransform(response.coaches);
+    staticModel.players = this.convertResponseToTeamStaticPersonsDirect(response.players);
+
+    return staticModel;
+  }
+
+  private convertResponseToTeamStaticPersonsDirect(response: Array<any>): TeamStaticPerson[] {
+    const data: Array<any> = response || [];
+    if (data.length === 0) { return new Array<TeamStaticPerson>(); }
+
+    const teamStaticPersons: TeamStaticPerson[] = new Array<TeamStaticPerson>();
+    data.forEach(element => {
+      const teamStaticPerson = new TeamStaticPerson();
+      teamStaticPerson.id = element.id;
+      teamStaticPerson.name = element.name;
+      teamStaticPerson.i18nKey = element.i18nKey;
+      teamStaticPerson.img = element.img;
+      teamStaticPerson.href = element.href;
+
+      teamStaticPersons.push(teamStaticPerson);
+    });
+
+    return teamStaticPersons;
+  }
+
+  private convertResponseToTeamStaticPersonsTransform(response: Array<any>): TeamStaticPerson[] {
+    const data: Array<any> = response || [];
+    if (data.length === 0) { return new Array<TeamStaticPerson>(); }
+
+    const teamStaticPersons: TeamStaticPerson[] = new Array<TeamStaticPerson>();
+    data.forEach(element => {
+      const teamStaticPerson = new TeamStaticPerson();
+      teamStaticPerson.id = element.id;
+      teamStaticPerson.img = element.img;
+      teamStaticPerson.name = element.nameFirst + ' ' + element.nameLast;
+
+      teamStaticPersons.push(teamStaticPerson);
+    });
+
+    return teamStaticPersons;
   }
 
 }
