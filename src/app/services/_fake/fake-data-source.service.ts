@@ -51,7 +51,7 @@ export class FakeDataSourceService extends DataSourceService {
         setTimeout(() => {
           const team: object = _fakeYouthTeams.find(t => t.id === id);
           resolve(team);
-        }, 100);
+        }, 1000);
       });
     }
 
