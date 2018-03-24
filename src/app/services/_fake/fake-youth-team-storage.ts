@@ -1,3 +1,7 @@
+import { _fakeStaticPlayers } from './fake-players-storage';
+import { _fakeTextDescription_1 } from './fake-text-storage';
+import { _fakeEmployees } from './fake-employee-storage';
+
 export const _fakeYouthTeams = [
   {
     id: 101,
@@ -17,7 +21,22 @@ export const _fakeYouthTeams = [
   {
     id: 2093,
     name: 'Слуцк-2006',
-    coach: 101
+    coach: 101,
+    staticModel: {
+      img: '',
+      description: _fakeTextDescription_1,
+      players: [
+        _fakeStaticPlayers[0],
+        _fakeStaticPlayers[1],
+        _fakeStaticPlayers[2],
+        _fakeStaticPlayers[3],
+        _fakeStaticPlayers[4]
+      ]
+    },
+    coaches: [
+      _fakeEmployees[0],
+      _fakeEmployees[1]
+    ]
   },
   {
     id: 2091,
