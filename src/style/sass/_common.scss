@@ -64,6 +64,13 @@ a, .btn-link {
     margin-bottom: 2rem;
 }
 
+.fc-header {
+    color: theme-color("primary-muted");
+    border-bottom: 1px solid theme-color("primary-muted");
+    padding: 0.1rem 0.5rem 0.5rem 0.4rem;
+    margin-bottom: 1rem;
+}
+
 .fc-page {
     .fc-page-title {
         @extend .fc-title;

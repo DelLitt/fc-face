@@ -45,6 +45,7 @@ $danger:        $red;
 $light:         $blue-var-c;
 $dark:          $gray-800;
 $primary-muted: transparentize($primary, 0.55);
+$gray:          $gray-700;
 
 
 // Body
@@ -65,7 +66,8 @@ $theme-colors: map-merge((
     "danger":     $danger,
     "light":      $light,
     "dark":       $dark,
-    "primary-muted": $primary-muted
+    "primary-muted": $primary-muted,
+    "gray": $gray
   ), $theme-colors);
 
 
