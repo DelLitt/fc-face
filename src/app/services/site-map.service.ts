@@ -78,10 +78,13 @@ export class SiteMapService {
   }
 
   private setActiveYouthTeamPage(event) {
+    this._youthTeamPageActivation.setActive('about');
+
     if (event.url.startsWith('/youth/teams/')) {
-      if (event.url.endsWith('/about')) {
-        this._youthTeamPageActivation.setActive('about');
-      } else if (event.url.endsWith('/games')) {
+      // if (event.url.endsWith('/about')) {
+      //   this._youthTeamPageActivation.setActive('about');
+      // } else
+      if (event.url.endsWith('/games')) {
         this._youthTeamPageActivation.setActive('games');
       } else if (event.url.endsWith('/results')) {
         this._youthTeamPageActivation.setActive('results');
