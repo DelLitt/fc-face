@@ -16,7 +16,7 @@
   <div class="fc-data">     
     <img *ngIf="publication.showImageInContent" class="embed-responsive pull-left" [src]="publication.img" [alt]="publication.title">
     <div *ngIf="publication.description" class="fc-lead">{{publication.description}}</div>
-    <div *ngIf="publication.content" class="fc-content">{{publication.content}}</div>
+    <div *ngIf="publication.content" class="fc-content" [innerHTML]="publication.content"></div>
     <div *ngIf="publication.galleryId > 0 || publication.videoId > 0" class="fc-add">
         <app-media-add  [galleryId]="publication.galleryId" [videoId]="publication.videoId"></app-media-add>  
       </div>    
