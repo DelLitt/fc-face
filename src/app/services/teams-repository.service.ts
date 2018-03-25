@@ -4,12 +4,14 @@ import { LogService } from './log.service';
 import { Team } from '../model/teams/team';
 import { TeamStaticModel } from '../model/teams/team-static-model';
 import { TeamStaticPerson } from '../model/teams/team-static-person';
+import { ConfigurationService } from './configuration/configuration.service';
 
 @Injectable()
 export class TeamsRepositoryService {
   private _team: Team = new Team();
 
   constructor(
+    private configuration: ConfigurationService,
     private dataSource: DataSourceService,
     private logger: LogService
   ) { }
@@ -39,7 +41,7 @@ export class TeamsRepositoryService {
     return new Promise((resolve, reject) => {
       this.logger.logDebug(`'${(<any>this).constructor.name}' started loading coach teams.`);
 
-      this.dataSource.getCoachTeams(coachIds)
+      this.dataSource.getTeams(coachIds)
         .then(result => {
           if (result) {
             const teams: Team[] = this.convertResponseToTeams(result);
@@ -50,6 +52,28 @@ export class TeamsRepositoryService {
             this.logger.logError(errorMsg);
             reject(new Error(errorMsg));
           }
+        });
+    });
+  }
+
+  public getActiveTeams(): Promise<Team[]> {
+    return new Promise((resolve, reject) => {
+      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading active teams.`);
+
+      this.configuration.activeTeamsIds
+        .then(config => {
+          this.dataSource.getTeams(config)
+          .then(result => {
+            if (result) {
+              const teams: Team[] = this.convertResponseToTeams(result);
+              this.logger.logInfo(`'${(<any>this).constructor.name}' loaded coach teams successfully.`);
+              resolve(teams);
+            } else {
+              const errorMsg = `'${(<any>this).constructor.name}' was unable to load coach teams!`;
+              this.logger.logError(errorMsg);
+              reject(new Error(errorMsg));
+            }
+          });
         });
     });
   }
