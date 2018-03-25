@@ -24,6 +24,8 @@ import { I18NService } from './services/i18-n.service';
 import localeEn from '@angular/common/locales/en';
 import localeRu from '@angular/common/locales/ru';
 import localeBe from '@angular/common/locales/be';
+import { ConfigurationService } from './services/configuration/configuration.service';
+import { CilentConfigurationService } from './services/configuration/cilent-configuration-service.service';
 
 
 (function registerLocales() {
@@ -66,7 +68,8 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   providers: [
     AlertService,
-    I18NService
+    I18NService,
+    { provide: ConfigurationService, useClass: CilentConfigurationService }
   ],
   bootstrap: [AppComponent]
 })
