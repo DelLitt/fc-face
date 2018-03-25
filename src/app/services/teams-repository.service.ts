@@ -110,6 +110,7 @@ export class TeamsRepositoryService {
       teamStaticPerson.i18nKey = element.i18nKey;
       teamStaticPerson.img = element.img;
       teamStaticPerson.href = element.href;
+      teamStaticPerson.personNumber = element.personNumber;
 
       teamStaticPersons.push(teamStaticPerson);
     });
