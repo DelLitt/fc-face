@@ -3,8 +3,8 @@ import { ActivatedRoute, Router, Routes, NavigationEnd, ActivatedRouteSnapshot }
 import { SiteMap } from '../model/app/site-map';
 import { SiteMapConfiguration } from './configuration/site-map-configuration';
 import { LogService } from './log.service';
-import { YoutTeamsMappingTable } from '../model/app/youth-teams-mapping-table';
 import { YouthTeamPageActivation } from '../model/app/youth-team-page-activation';
+import { ConfigurationService } from './configuration/configuration.service';
 
 
 @Injectable()
@@ -18,6 +18,7 @@ export class SiteMapService {
   @Output() navigated: EventEmitter<any> = new EventEmitter();
 
   constructor(
+    private configuration: ConfigurationService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private logger: LogService
@@ -54,11 +55,15 @@ export class SiteMapService {
     return this._youthTeamPageActivation;
   }
 
-  public getCurrentYouthTeamId(activatedRouteSnapshot: ActivatedRouteSnapshot): number {
-    const youthTeamKey = (activatedRouteSnapshot.params['key'] || '').toUpperCase();
-    if (!YoutTeamsMappingTable.has(youthTeamKey)) { return null; }
+  public getCurrentYouthTeamId(activatedRouteSnapshot: ActivatedRouteSnapshot): Promise<number> {
+    return new Promise<number>((resolve, reject) => {
+      const youthTeamKey = (activatedRouteSnapshot.params['key'] || '').toUpperCase();
+      this.configuration.youthTeamsMap.then(result => {
+      if (!result.has(youthTeamKey)) { resolve(null); }
 
-    return YoutTeamsMappingTable.get(youthTeamKey);
+        return resolve(result.get(youthTeamKey));
+      });
+    });
   }
 
   private listenNavigation() {
