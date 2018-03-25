@@ -94,5 +94,7 @@
 	"TOUR": "tour",
 	"FINALS": "finals",
 	"SQUAD": "Squad",
-	"ABOUT_TEAM": "About team"
+	"ABOUT_TEAM": "About team",
+	"MATCHES": "Matches",
+  	"STANDINGS": "Standings"
 }
