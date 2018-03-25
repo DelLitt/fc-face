@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ConfigurationService } from './configuration.service';
 
-const MainTeamId = 3;
-const ReserveTeamId = 2072;
+const MainTeamId = 2091;
+const ReserveTeamId = 2093;
 const YoutTeamsMappingTable = new Map<string, number>([
   ['U11', 2093],
   ['U12', 2091],
@@ -26,6 +26,12 @@ export class CilentConfigurationService extends ConfigurationService {
   public get reserveTeamId():  Promise<number> {
     return new Promise((resolve, reject) => {
       setTimeout(() => { resolve(ReserveTeamId); }, 500);
+    });
+  }
+
+  public get activeTeamsIds(): Promise<number[]> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => { resolve([MainTeamId, ReserveTeamId]); }, 500);
     });
   }
 

@@ -16,6 +16,10 @@ export class ConfigurationService {
     return null;
   }
 
+  public get activeTeamsIds(): Promise<number[]> {
+    return null;
+  }
+
   public get youthTeamsMap(): Promise<Map<string, number>> {
     return null;
   }
