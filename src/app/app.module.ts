@@ -13,6 +13,7 @@ import { PublicationComponentsModule } from '././modules/publications/publicatio
 import { StaticPagesModule } from '././modules/static/static-pages.module';
 import { SearchComponentsModule } from './modules/search/search-components.module';
 import { YouthComponentsModule } from './modules/youth/youth-components.module';
+import { ResultsModule } from './modules/results/results.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -60,7 +61,8 @@ export function createTranslateLoader(http: HttpClient) {
     PublicationComponentsModule,
     YouthComponentsModule,
     SearchComponentsModule,
-    StaticPagesModule
+    StaticPagesModule,
+    ResultsModule
   ],
   providers: [
     AlertService,

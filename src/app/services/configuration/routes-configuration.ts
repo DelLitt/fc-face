@@ -19,6 +19,7 @@ import { YouthTeamComponent } from '../../components/youth/teams/youth-team/yout
 import { YouthTeamAboutComponent } from '../../components/youth/teams/youth-team-about/youth-team-about.component';
 import { YouthTeamGamesComponent } from '../../components/youth/teams/youth-team-games/youth-team-games.component';
 import { YouthTeamResultsComponent } from '../../components/youth/teams/youth-team-results/youth-team-results.component';
+import { MatchesComponent } from '../../components/results/matches/matches.component';
 
 export const RoutesConfiguration: Routes = [
     {
@@ -36,9 +37,14 @@ export const RoutesConfiguration: Routes = [
         data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[1]], useTitle: true }
     },
     {
+        path: 'results/matches',
+        component: MatchesComponent,
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[3]] }
+    },
+    {
         path: 'youth',
         component: YouthViewComponent,
-        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[3]] },
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[4]] },
         children: [
             {
              path : 'home',
@@ -78,17 +84,17 @@ export const RoutesConfiguration: Routes = [
     {
         path: 'info/stadiumrules',
         component: StadiumRulesViewComponent,
-        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[4]] }
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[5]] }
     },
     {
         path: 'contacts',
         component: ContactsViewComponent,
-        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[5]] }
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[6]] }
     },
     {
         path: 'search/:text',
         component: SearchResultsComponent,
-        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[6]] }
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[7]] }
     },
     { path: 'not-found', component: PageNotFoundComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
