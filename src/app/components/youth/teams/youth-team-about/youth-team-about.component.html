@@ -5,6 +5,22 @@
 </div>
 <div *ngIf="_loaded">
   <h4 class="fc-header">{{ 'INFORMATION' | translate }}</h4>
-  <img [src]="getImage(image, 820, 462)" style="max-width: 820px;" [title]="_team.name" [alt]="_team.name">
-  <div class="fc-article fc-article-info" [innerHTML]="description"></div>
+  <div class="fc-article fc-article-info">
+    <div class="text-primary alert alert-gray bg-white" role="alert">
+      <img *ngIf="image" [src]="getImage(image, 820, 462)" style="max-width: 820px;" [title]="_team.name" [alt]="_team.name">      
+      <h5>{{ 'SQUAD' | translate }}</h5>
+      <p>{{ players }}</p>
+      <p *ngIf="coaches"><b>{{ coachesVariant | translate }}:</b> {{ coaches }}</p>
+    </div>
+    <mat-expansion-panel *ngIf="description" expanded="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h6 class="text-secondary">{{ 'ABOUT_TEAM' | translate }}</h6>
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div [innerHTML]="description"></div>      
+    </mat-expansion-panel>
+  </div>
 </div>

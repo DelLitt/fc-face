@@ -14,8 +14,11 @@ import { ImageUtilityService } from '../../../../services/utilities/image-utilit
   styleUrls: ['./youth-team-about.component.scss']
 })
 export class YouthTeamAboutComponent extends YouthTeamView implements OnInit {
-  private _description: string = null;
   private _image: string = null;
+  private _players: string = null;
+  private _coaches: string = null;
+  private _coachesTitleKey: string = null;
+  private _description: string = null;
 
   constructor(
     private imageUtility: ImageUtilityService,
@@ -34,29 +37,68 @@ export class YouthTeamAboutComponent extends YouthTeamView implements OnInit {
     );
   }
 
+  private getImage(src: string, width: number, height: number): string {
+    if (!src) { return ''; }
+    return this.imageUtility.addFileVariantSize(src, width, height);
+  }
+
+  private get players(): string {
+    if (!this._players
+      && this.hasStaticModel
+      && this._team.staticModel.players instanceof Array) {
+      this._players =
+        this._team.staticModel.players
+          .map(p => p.personNumber + '. ' + p.name)
+          .join(', ');
+    }
+
+    return this._players;
+  }
+
+  private get coaches(): string {
+    if (!this._coaches
+      && this.hasStaticModel
+      && this._team.staticModel.coaches instanceof Array) {
+      this._coaches =
+        this._team.staticModel.coaches
+          .map(p => p.name)
+          .join(', ');
+    }
+
+    return this._coaches;
+  }
+
+  private get coachesVariant(): string {
+    if (!this._coachesTitleKey
+      && this.hasStaticModel
+      && this._team.staticModel.coaches instanceof Array) {
+      this._coachesTitleKey =
+        this._team.staticModel.coaches.length > 1
+        ? 'COACHES'
+        : 'COACH_DEF';
+    }
+
+    return this._coachesTitleKey;
+  }
+
   private get description(): string {
-    if (!this._description) {
-      if (this._team instanceof Team && this._team.staticModel instanceof TeamStaticModel) {
-          this._description = this._team.staticModel.description;
-        }
+    if (!this._description && this.hasStaticModel) {
+      this._description = this._team.staticModel.description;
     }
 
     return this._description;
   }
 
   private get image(): string {
-    if (!this._description) {
-      if (this._team instanceof Team && this._team.staticModel instanceof TeamStaticModel) {
-          this._image = this._team.staticModel.img;
-        }
+    if (!this._image && this.hasStaticModel && this._team.staticModel.img.length > 0) {
+      this._image = this._team.staticModel.img;
     }
 
     return this._image;
   }
 
-  private getImage(src: string, width: number, height: number): string {
-    if (!src) { return ''; }
-    return this.imageUtility.addFileVariantSize(src, width, height);
+  private get hasStaticModel(): boolean {
+    return this._team instanceof Team && this._team.staticModel instanceof TeamStaticModel;
   }
 
 }
