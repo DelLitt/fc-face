@@ -11,6 +11,13 @@ export const SiteMapConfiguration: SiteMap = [
         ]
     },
     {
+        defaultName: 'Results', i18nKey: 'RESULTS', path: 'results', visible: true, clickable: false,
+        subItems: [
+            { defaultName: 'Matches', i18nKey: 'MATCHES', path: 'results/matches', visible: true, clickable: true },
+            { defaultName: 'Standings', i18nKey: 'STANDINGS', path: 'results/standings', visible: true, clickable: true }
+        ]
+    },
+    {
         defaultName: 'Sports School', i18nKey: 'Y_S_S', path: 'youth', visible: true, clickable: true,
         subItems: [
             { defaultName: 'Home', i18nKey: 'HOME_PAGE', path: 'youth/home', visible: false, clickable: true },
