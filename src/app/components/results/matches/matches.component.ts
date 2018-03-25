@@ -1,44 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LogService } from '../../../services/log.service';
 import { ConfigurationService } from '../../../services/configuration/configuration.service';
 import { TourneysRepositoryService } from '../../../services/tourneys-repository.service';
 import { Tourney } from '../../../model/tourney';
+import { ResultsView } from '../results-view';
 
 @Component({
   selector: 'app-matches',
   templateUrl: './matches.component.html',
   styleUrls: ['./matches.component.scss']
 })
-export class MatchesComponent implements OnInit {
-  private _loaded: boolean;
-  private _teamIds = new Array<number>();
+export class MatchesComponent extends ResultsView {
   private _selectedTeamId = 0;
   private _tourneys: Tourney[];
-  private _tourneyIds: number[] = new Array<number>();
+  private _tourneyIds: number[];
 
   constructor(
     private tourneysRepository: TourneysRepositoryService,
-    private configuration: ConfigurationService,
-    private logger: LogService
-  ) { }
-
-  ngOnInit() {
-    this.logger.logDebug(`'${(<any>this).constructor.name}' component is being initialized.`);
+    protected configuration: ConfigurationService,
+    protected logger: LogService
+  ) {
+    super(
+      configuration,
+      logger
+    );
   }
 
-  private loadTeamIds() {
-    this.configuration.activeTeamsIds
-    .then(result => {
-      this._teamIds = result instanceof Array ? result : Array<number>();
-    });
-  }
-
-  private set slectedTeamId(value: number) {
+  @Input() public set selectedTeamId(value: number) {
     this._selectedTeamId = value;
     this.init();
   }
 
-  private get slectedTeamId(): number {
+  public get selectedTeamId(): number {
     return this._selectedTeamId;
   }
 
