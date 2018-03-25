@@ -24,8 +24,8 @@
          aria-haspopup="true" 
          aria-expanded="false">{{ 'YOUTH_TEAMS' | translate }}</a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" [routerLink]="'teams/u11'">{{ 'U11' | translate }}</a>
-        <a class="dropdown-item" [routerLink]="'teams/u12'">{{ 'U12' | translate }}</a>
+        <a class="dropdown-item" *ngFor="let item of teamsMenuItems;" [routerLink]="'teams/' + item">{{ item | translate }}</a>
+        <!-- <a class="dropdown-item" [routerLink]="'teams/u12'">{{ 'U12' | translate }}</a> -->
       </div>
     </li>
   </ul>

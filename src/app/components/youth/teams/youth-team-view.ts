@@ -25,18 +25,28 @@ export class YouthTeamView  implements OnInit {
 
   ngOnInit() {
     this.logger.logDebug(`'${(<any>this).constructor.name}' component is being initialized.`);
-    this.loadTeam();
+    this.loadConfiguration();
+  }
+
+  private loadConfiguration() {
+    this._loaded = false;
+    this.siteMapService.getCurrentYouthTeamId(this.activatedRoute.parent.snapshot)
+    .then(result => {
+      this._teamId = result;
+      this.loadTeam();
+    })
+    .catch(reason => {
+      this.router.navigate(['/not-found']);
+    });
   }
 
   private loadTeam() {
-    this._loaded = false;
-    this._teamId = this.siteMapService.getCurrentYouthTeamId(this.activatedRoute.parent.snapshot);
-
     this.teamsRepository.getTeam(this._teamId)
     .then(result => {
       this._team = result;
       this._loaded = true;
       this.logger.logInfo(`'${(<any>this).constructor.name}' has loaded the team (id:${this._teamId}) successfully.`);
+      this.configurationLoaded();
     })
     .catch(reason => {
       this.router.navigate(['/not-found']);
@@ -49,6 +59,9 @@ export class YouthTeamView  implements OnInit {
 
   @Input() public set tourneyId(value: number) {
     this._tourneyId = value;
+  }
+
+  protected configurationLoaded() {
   }
 
   private tourneyChanged(selectedTourney: Tourney) {

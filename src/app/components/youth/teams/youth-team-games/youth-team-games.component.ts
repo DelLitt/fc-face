@@ -35,8 +35,7 @@ export class YouthTeamGamesComponent extends YouthTeamView implements OnInit {
     );
   }
 
-  ngOnInit() {
-    super.ngOnInit();
+  protected configurationLoaded() {
     this.loadTourneys();
   }
 
