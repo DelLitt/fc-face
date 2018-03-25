@@ -55,6 +55,16 @@ export class FakeDataSourceService extends DataSourceService {
       });
     }
 
+    public getTeams(teamsIds: number[]): Promise<object[]> {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const teams: Array<object> =
+            _fakeYouthTeams.filter(t => teamsIds.includes(t.id));
+          resolve(teams);
+        }, 1000);
+      });
+    }
+
     public getCoachTeams(coachIds: number[]): Promise<object[]> {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
