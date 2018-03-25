@@ -67,4 +67,8 @@
         color: theme-color("secondary");
         font-weight: 300;
     }
+
+    .mat-expansion-panel-content {
+        font: inherit;
+    }
 }
