@@ -41,6 +41,7 @@ import { StandingsRepositoryService } from '../../services/standings-repository.
 import { TourneysRepositoryService } from '../../services/tourneys-repository.service';
 import { TourneysSelectComponent } from '../../components/shared/tourneys-select/tourneys-select.component';
 import { TourneyGamesComponent } from '../../components/shared/tourney-games/tourney-games.component';
+import { TeamsSelectComponent } from '../../components/shared/teams-select/teams-select.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { TourneyGamesComponent } from '../../components/shared/tourney-games/tou
     PersonCardComponent,
     StandingsComponent,
     TourneysSelectComponent,
-    TourneyGamesComponent
+    TourneyGamesComponent,
+    TeamsSelectComponent
   ],
   providers: [
     TextUtilityService,
@@ -100,7 +102,8 @@ import { TourneyGamesComponent } from '../../components/shared/tourney-games/tou
     PersonCardComponent,
     StandingsComponent,
     TourneysSelectComponent,
-    TourneyGamesComponent
+    TourneyGamesComponent,
+    TeamsSelectComponent
   ]
 })
 export class SharedComponentsModule { }
