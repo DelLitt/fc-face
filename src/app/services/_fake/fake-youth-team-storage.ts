@@ -50,7 +50,7 @@ export const _fakeYouthTeams = [
     name: 'Слуцк-2007',
     coach: 102,
     staticModel: {
-      img: '/assets/img/_tmp/img-slide-2.png',
+      img: '',
       description: _fakeTextDescription_1,
       players: [
         _fakeStaticPlayers[3],
