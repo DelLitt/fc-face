@@ -35,6 +35,10 @@ export class DataSourceService {
     return null;
   }
 
+  public getTeams(teamsIds: number[]): Promise<object[]> {
+    return null;
+  }
+
   public getCoachTeams(coachIds: number[]): Promise<object[]> {
     return null;
   }
