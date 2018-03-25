@@ -13,10 +13,15 @@ export class TourneysSelectComponent implements OnInit {
   private _selectedTourneyId = 0;
   private _selectedTourney: Tourney;
   private _tourneys: Tourney[];
+  private _teamId: number;
 
-  @Input() teamId: number;
   @Output() selectedTourneyIdChange = new EventEmitter();
   @Output() tourneyChange: EventEmitter<any> = new EventEmitter();
+
+  @Input() public set teamId(value: number) {
+    this._teamId = value;
+    this.init();
+  }
 
   public get selectedTourneyId(): number {
     return this._selectedTourneyId;
@@ -33,8 +38,6 @@ export class TourneysSelectComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.logger.logDebug(`'${(<any>this).constructor.name}' component is being initialized.`);
-    this.loadTourneys();
   }
 
   public get selectedTourney(): Tourney {
@@ -42,9 +45,14 @@ export class TourneysSelectComponent implements OnInit {
     return this._selectedTourney;
   }
 
+  private init() {
+    this.logger.logDebug(`'${(<any>this).constructor.name}' component is being initialized.`);
+    this.loadTourneys();
+  }
+
   private loadTourneys() {
     this._loaded = false;
-    this.tourneysRepository.getTeamTourneys(this.teamId)
+    this.tourneysRepository.getTeamTourneys(this._teamId)
     .then(result => {
       this._tourneys = result;
 
@@ -53,7 +61,8 @@ export class TourneysSelectComponent implements OnInit {
       }
 
       this._loaded = true;
-      this.logger.logInfo(`'${(<any>this).constructor.name}' has loaded the tourneys of team (id:${this.teamId}) successfully.`);
+      // tslint:disable-next-line:max-line-length
+      this.logger.logInfo(`'${(<any>this).constructor.name}' has loaded tourneys (${this._tourneys.length}) of team (id:${this._teamId}) successfully.`);
     });
   }
 
