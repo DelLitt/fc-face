@@ -1,0 +1,73 @@
+<div *ngIf="!_loaded" class="d-flex justify-content-center">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="_loaded" class="fc-standing">
+  <h5 *ngIf="showHeader" class="text-info">{{header}}</h5>
+  <mat-form-field *ngIf="showFilter">
+    <input matInput (keyup)="applyFilter($event.target.value)" [placeholder]="'FILTER' | translate">
+  </mat-form-field>
+
+  <div class="fc-standing-table">
+    <mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="personNumber">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">#</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-1">{{row.personNumber}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-3">{{ 'PLAYER' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-3">{{row.name}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="age">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2">{{ 'AGE' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-2">{{row.age}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="games">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">{{ 'GAMES_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-1">{{row.games}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="substitutes">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">{{ 'SUBS_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-1">{{row.substitutes}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="goals">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">{{ 'GOALS_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-1">{{row.goals}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="assists">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">{{ 'ASSISTS_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-1">{{row.assists}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="yellows">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">{{ 'YELLOWS_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-1">{{row.yellows}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="reds">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">{{ 'REDS_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-1">{{row.reds}}</mat-cell>
+      </ng-container>    
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator *ngIf="usePagination" [pageSizeOptions]="pageSizeOptions" [pageSize]="pageSize"></mat-paginator>
+  </div>
+  <div class="alert alert-secondary text-right mt-3">
+    <small><span>{{ 'GAMES_SH' | translate }} - {{ 'GAMES_PLAYED' | translate }}</span></small>, 
+    <small><span>{{ 'SUBS_SH' | translate }} - {{ 'FROM_THE_BENCH' | translate }}</span></small>, 
+    <small><span>{{ 'GOALS_SH' | translate }} - {{ 'GOALS_COUNT' | translate }}</span></small>, 
+    <small><span>{{ 'ASSISTS_SH' | translate }} - {{ 'ASSISTS_COUNT' | translate }}</span></small>, 
+    <small><span>{{ 'YELLOWS_SH' | translate }} - {{ 'YELLOWS_COUNT' | translate }}</span></small>, 
+    <small><span>{{ 'REDS_SH' | translate }} - {{ 'REDS_COUNT' | translate }}</span></small>
+  </div>
+</div>
