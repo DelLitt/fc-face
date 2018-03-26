@@ -49,7 +49,7 @@ export const RoutesConfiguration: Routes = [
         data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[3]] }
     },
     {
-        path: 'results/players-stats',
+        path: 'results/playersstats',
         component: PlayersStatisticsViewComponent,
         data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[3]] }
     },
