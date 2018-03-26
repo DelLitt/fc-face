@@ -24,6 +24,7 @@ import { MatchesViewComponent } from '../../components/results/matches-view/matc
 import { PlayersStatisticsViewComponent } from '../../components/results/players-statistics-view/players-statistics-view.component';
 import { DirectionViewComponent } from '../../components/club/direction-view/direction-view.component';
 import { CoachesViewComponent } from '../../components/club/coaches-view/coaches-view.component';
+import { MedicsViewComponent } from '../../components/club/medics-view/medics-view.component';
 
 export const RoutesConfiguration: Routes = [
     {
@@ -48,6 +49,11 @@ export const RoutesConfiguration: Routes = [
     {
         path: 'club/coaches',
         component: CoachesViewComponent,
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[2]] }
+    },
+    {
+        path: 'club/medics',
+        component: MedicsViewComponent,
         data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[2]] }
     },
     {
