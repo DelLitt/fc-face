@@ -4,6 +4,7 @@ import { DirectionViewComponent } from '../../components/club/direction-view/dir
 import { SharedComponentsModule } from '../shared/shared-components.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatProgressSpinnerModule } from '@angular/material';
+import { CoachesViewComponent } from '../../components/club/coaches-view/coaches-view.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { MatProgressSpinnerModule } from '@angular/material';
     TranslateModule,
   ],
   declarations: [
-    DirectionViewComponent
+    DirectionViewComponent,
+    CoachesViewComponent
   ]
 })
 export class ClubComponentsModule { }

@@ -23,6 +23,7 @@ import { StandingsViewComponent } from '../../components/results/standings-view/
 import { MatchesViewComponent } from '../../components/results/matches-view/matches-view.component';
 import { PlayersStatisticsViewComponent } from '../../components/results/players-statistics-view/players-statistics-view.component';
 import { DirectionViewComponent } from '../../components/club/direction-view/direction-view.component';
+import { CoachesViewComponent } from '../../components/club/coaches-view/coaches-view.component';
 
 export const RoutesConfiguration: Routes = [
     {
@@ -42,6 +43,11 @@ export const RoutesConfiguration: Routes = [
     {
         path: 'club/direction',
         component: DirectionViewComponent,
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[2]] }
+    },
+    {
+        path: 'club/coaches',
+        component: CoachesViewComponent,
         data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[2]] }
     },
     {

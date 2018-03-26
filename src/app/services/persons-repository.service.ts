@@ -33,16 +33,35 @@ export class PersonsRepositoryService {
 
   public getDirection(count: number, skip: number): Promise<Person[]> {
     return new Promise((resolve, reject) => {
-      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading youth management.`);
+      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading direction.`);
 
       this.dataSource.getPersons(count, skip, PersonRoleGroup.direction)
         .then(result => {
           if (result) {
             const persons: Person[] = this.convertResponseToPersons(result);
-            this.logger.logInfo(`'${(<any>this).constructor.name}' loaded youth management successfully.`);
+            this.logger.logInfo(`'${(<any>this).constructor.name}' loaded direction successfully.`);
             resolve(persons);
           } else {
-            const errorMsg = `'${(<any>this).constructor.name}' was unable to load  youth management!`;
+            const errorMsg = `'${(<any>this).constructor.name}' was unable to load direction!`;
+            this.logger.logError(errorMsg);
+            reject(new Error(errorMsg));
+          }
+        });
+    });
+  }
+
+  public getCoaches(count: number, skip: number): Promise<Person[]> {
+    return new Promise((resolve, reject) => {
+      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading coaches.`);
+
+      this.dataSource.getPersons(count, skip, PersonRoleGroup.coaches)
+        .then(result => {
+          if (result) {
+            const persons: Person[] = this.convertResponseToPersons(result);
+            this.logger.logInfo(`'${(<any>this).constructor.name}' loaded coaches successfully.`);
+            resolve(persons);
+          } else {
+            const errorMsg = `'${(<any>this).constructor.name}' was unable to load coaches!`;
             this.logger.logError(errorMsg);
             reject(new Error(errorMsg));
           }
