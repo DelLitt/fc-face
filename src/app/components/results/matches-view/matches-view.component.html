@@ -1,0 +1,5 @@
+<section class="container">
+  <h2 class="fc-title">{{ 'MATCHES' | translate }}</h2>
+  <app-teams-select [teamIds]="_teamIds" [(selectedTeamId)]="selectedTeamId"></app-teams-select>
+  <app-tourney-games [tourneyIds]="_tourneyIds"></app-tourney-games>
+</section>
