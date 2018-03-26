@@ -23,11 +23,11 @@
           [attr.data-toggle]="'dropdown'">
           {{ (item.i18nKey | translate) !== item.i18nKey ? (item.i18nKey | translate) : item.defaultName }}
         </a>
-
         <div *ngIf="hasSubItems(item)" class="dropdown-menu">
           <a *ngFor="let subItem of item.subItems"
             class="dropdown-item"
             [class.disabled]="subItem.disabled"
+            [class.border-top]="subItem.underSeparator"
             [routerLink]="subItem.disabled ? null : subItem.path"
             [routerLinkActive]="'active'">{{ (subItem.i18nKey | translate) !== subItem.i18nKey ? (subItem.i18nKey | translate) : subItem.defaultName }}
           </a>
