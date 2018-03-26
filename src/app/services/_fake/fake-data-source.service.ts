@@ -8,6 +8,7 @@ import { _fakeStandings } from './fake-standing-storage';
 import { _fakeTourneys } from './fake-tourneys-storage';
 import { Injectable } from '@angular/core';
 import { _fakeRoundsSolid } from './fake-round-solid-items';
+import { _fakePlayersStatistics } from './fake-players-statistics';
 
 @Injectable()
 export class FakeDataSourceService extends DataSourceService {
@@ -100,6 +101,16 @@ export class FakeDataSourceService extends DataSourceService {
         setTimeout(() => {
           resolve(_fakeRoundsSolid);
         }, 100);
+      });
+    }
+
+    public getPlayersStatistics(teamId: number, tourneyIds: number[]): Promise<object[]> {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const players: Array<object> =
+          _fakePlayersStatistics.filter(s => s.teamId === teamId && tourneyIds.includes(s.tourneyId));
+          resolve(players);
+        }, 1000);
       });
     }
 
