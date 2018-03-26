@@ -1,5 +1,5 @@
 <section class="container">
-  <h4 class="fc-title">{{ 'STANDINGS' | translate }}</h4>
+  <h2 class="fc-title">{{ 'STANDINGS' | translate }}</h2>
   <app-teams-select [teamIds]="_teamIds" [(selectedTeamId)]="selectedTeamId"></app-teams-select>
   <app-tourneys-select [teamId]="selectedTeamId" [(selectedTourneyId)]="selectedTourneyId"></app-tourneys-select>
   <app-standings [tourneyId]="selectedTourneyId"></app-standings>
