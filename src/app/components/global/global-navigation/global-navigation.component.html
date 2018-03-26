@@ -14,7 +14,8 @@
           [class.disabled]="item.disabled"
           [routerLink]="item.disabled ? null : item.path"
           [routerLinkActive]="'active'">
-          {{ (item.i18nKey | translate) !== item.i18nKey ? (item.i18nKey | translate) : item.defaultName }}
+          <span *ngIf="item.defaultName === 'Home'" class="fa fa-home"></span>
+          <span *ngIf="item.defaultName !== 'Home'">{{ (item.i18nKey | translate) !== item.i18nKey ? (item.i18nKey | translate) : item.defaultName }}</span>
         </a>
         <a *ngIf="hasSubItems(item)"
           class="nav-link dropdown-toggle"
