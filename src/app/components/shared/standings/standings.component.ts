@@ -51,8 +51,15 @@ export class StandingsComponent implements OnInit {
     .then(result => {
       this.standings = result;
       this.dataSource = new MatTableDataSource(this.standings);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+
+      // waiting for initializing of sort and paginator
+      if (!this.sort || ! this.paginator) {
+        setTimeout(() => {
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        }, 1000);
+      }
+
       this._loaded = true;
       this.logger.logInfo(`'${(<any>this).constructor.name}' loaded the standings (count: ${this.standings.length}) successfully.`);
     });
