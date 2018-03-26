@@ -13,6 +13,10 @@ export class Person implements SharedEntity {
     // Unique
     public nameFirst: string;
     public nameLast: string;
+    public birthDate: Date;
+    public personNumber: number;
+    public personRoleId: number;
+    // TODO: Change FcLabel to class PersonRole
     public role: FcLabel;
     public teams: Team[];
 }
