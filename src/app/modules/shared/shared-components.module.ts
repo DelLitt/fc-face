@@ -42,6 +42,8 @@ import { TourneysRepositoryService } from '../../services/tourneys-repository.se
 import { TourneysSelectComponent } from '../../components/shared/tourneys-select/tourneys-select.component';
 import { TourneyGamesComponent } from '../../components/shared/tourney-games/tourney-games.component';
 import { TeamsSelectComponent } from '../../components/shared/teams-select/teams-select.component';
+import { PlayersStatisticsComponent } from '../../components/shared/players-statistics/players-statistics.component';
+import { StatisticsService } from '../../services/statistics.service';
 
 
 @NgModule({
@@ -76,7 +78,8 @@ import { TeamsSelectComponent } from '../../components/shared/teams-select/teams
     StandingsComponent,
     TourneysSelectComponent,
     TourneyGamesComponent,
-    TeamsSelectComponent
+    TeamsSelectComponent,
+    PlayersStatisticsComponent
   ],
   providers: [
     TextUtilityService,
@@ -86,7 +89,8 @@ import { TeamsSelectComponent } from '../../components/shared/teams-select/teams
     GalleriesRepositoryService,
     VideosRepositoryService,
     StandingsRepositoryService,
-    TourneysRepositoryService
+    TourneysRepositoryService,
+    StatisticsService
   ],
   exports: [
     FcImageSliderComponent,
@@ -103,7 +107,8 @@ import { TeamsSelectComponent } from '../../components/shared/teams-select/teams
     StandingsComponent,
     TourneysSelectComponent,
     TourneyGamesComponent,
-    TeamsSelectComponent
+    TeamsSelectComponent,
+    PlayersStatisticsComponent
   ]
 })
 export class SharedComponentsModule { }
