@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MatchesComponent } from '../../components/results/matches/matches.component';
 import { SharedComponentsModule } from '../shared/shared-components.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { StandingsViewComponent } from '../../components/results/standings-view/standings-view.component';
+
 
 @NgModule({
   imports: [
@@ -11,7 +13,8 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule
   ],
   declarations: [
-    MatchesComponent
+    MatchesComponent,
+    StandingsViewComponent
   ],
   exports: [
     MatchesComponent

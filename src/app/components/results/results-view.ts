@@ -9,7 +9,7 @@ export class ResultsView implements OnInit {
     constructor(
         protected configuration: ConfigurationService,
         protected logger: LogService
-      ) { }
+    ) { }
 
     ngOnInit() {
         this.logger.logDebug(`'${(<any>this).constructor.name}' component is being initialized.`);
