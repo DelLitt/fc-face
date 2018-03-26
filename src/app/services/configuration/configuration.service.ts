@@ -24,4 +24,10 @@ export class ConfigurationService {
     return null;
   }
 
+  // TODO: configuration should be loaded before routing events.
+  // It allows use values instead of primises
+  public get goalkeeperRoleId(): number {
+    return null;
+  }
+
 }

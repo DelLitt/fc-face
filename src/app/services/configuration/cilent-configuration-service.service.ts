@@ -3,6 +3,7 @@ import { ConfigurationService } from './configuration.service';
 
 const MainTeamId = 2091;
 const ReserveTeamId = 2093;
+const GoalkeeperRoleId = 31;
 const YoutTeamsMappingTable = new Map<string, number>([
   ['U11', 2093],
   ['U12', 2091],
@@ -39,5 +40,9 @@ export class CilentConfigurationService extends ConfigurationService {
     return new Promise((resolve, reject) => {
       setTimeout(() => { resolve(YoutTeamsMappingTable); }, 500);
     });
+  }
+
+  public get goalkeeperRoleId(): number {
+    return GoalkeeperRoleId;
   }
 }
