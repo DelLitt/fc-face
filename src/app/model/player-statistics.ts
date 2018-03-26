@@ -1,7 +1,9 @@
 import { Person } from './person';
 
 export class PlayerStatistics {
-    public person: Person;
+    public name: string;
+    public age: number;
+    public personNumber: number;
     public tourneyId: number;
     public teamId: number;
     public assists: number;
@@ -10,4 +12,5 @@ export class PlayerStatistics {
     public substitutes: number;
     public yellows: number;
     public reds: number;
+    public goalkeeperGoals: number;
 }

@@ -14,6 +14,7 @@ export class Person implements SharedEntity {
     public nameFirst: string;
     public nameLast: string;
     public birthDate: Date;
+    public age: number;
     public personNumber: number;
     public personRoleId: number;
     // TODO: Change FcLabel to class PersonRole
