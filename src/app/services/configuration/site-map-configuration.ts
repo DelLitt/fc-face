@@ -8,7 +8,11 @@ export const SiteMapConfiguration: SiteMap = [
         subItems: [
             { defaultName: 'Main team', i18nKey: 'MAIN_TEAM', path: 'club/mainteam', visible: true, clickable: true, disabled: true },
             // tslint:disable-next-line:max-line-length
-            { defaultName: 'Reserve team', i18nKey: 'RESERVE_TEAM', path: 'club/reserveteam', visible: true, clickable: true, disabled: true }
+            { defaultName: 'Reserve team', i18nKey: 'RESERVE_TEAM', path: 'club/reserveteam', visible: true, clickable: true, disabled: true },
+            { defaultName: 'Direction', i18nKey: 'DIRECTION', path: 'club/direction', visible: true, clickable: true, underSeparator: true },
+            { defaultName: 'Coaching staff', i18nKey: 'COACHING_STAFF', path: 'club/coaches', visible: true, clickable: true },
+            { defaultName: 'Medical staff', i18nKey: 'MEDICAL_STAFF', path: 'club/medics', visible: true, clickable: true },
+            { defaultName: 'Specialists', i18nKey: 'SPECIALISTS_STAFF', path: 'club/specialists', visible: true, clickable: true }
         ]
     },
     {
