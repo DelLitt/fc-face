@@ -14,6 +14,7 @@ import { StaticPagesModule } from '././modules/static/static-pages.module';
 import { SearchComponentsModule } from './modules/search/search-components.module';
 import { YouthComponentsModule } from './modules/youth/youth-components.module';
 import { ResultsModule } from './modules/results/results.module';
+import { ClubComponentsModule } from './modules/club/club-components.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -26,7 +27,6 @@ import localeRu from '@angular/common/locales/ru';
 import localeBe from '@angular/common/locales/be';
 import { ConfigurationService } from './services/configuration/configuration.service';
 import { CilentConfigurationService } from './services/configuration/cilent-configuration-service.service';
-import { ClubComponentsModule } from './modules/club/club-components.module';
 
 
 (function registerLocales() {
