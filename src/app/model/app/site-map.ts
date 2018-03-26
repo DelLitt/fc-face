@@ -4,6 +4,7 @@ export interface SiteMapItem {
     path: string;
     visible?: boolean;
     clickable?: boolean;
+    disabled?: boolean;
     subItems?: SiteMapItem[];
 }
 
