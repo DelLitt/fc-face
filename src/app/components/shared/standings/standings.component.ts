@@ -40,7 +40,6 @@ export class StandingsComponent implements OnInit {
 
   ngOnInit() {
     this.logger.logDebug(`'${(<any>this).constructor.name}' component is being initialized.`);
-    this.loadStandings();
   }
 
   private loadStandings() {
