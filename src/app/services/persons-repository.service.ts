@@ -88,6 +88,25 @@ export class PersonsRepositoryService {
     });
   }
 
+  public getSpecialists(count: number, skip: number): Promise<Person[]> {
+    return new Promise((resolve, reject) => {
+      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading specialists.`);
+
+      this.dataSource.getPersons(count, skip, PersonRoleGroup.specialists)
+        .then(result => {
+          if (result) {
+            const persons: Person[] = this.convertResponseToPersons(result);
+            this.logger.logInfo(`'${(<any>this).constructor.name}' loaded specialists successfully.`);
+            resolve(persons);
+          } else {
+            const errorMsg = `'${(<any>this).constructor.name}' was unable to load specialists!`;
+            this.logger.logError(errorMsg);
+            reject(new Error(errorMsg));
+          }
+        });
+    });
+  }
+
   private convertResponseToPersons(response: Array<any>): Person[] {
     const data: Array<any> = response || [];
     if (data.length === 0) { return new Array<Person>(); }

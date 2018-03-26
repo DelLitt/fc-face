@@ -25,6 +25,7 @@ import { PlayersStatisticsViewComponent } from '../../components/results/players
 import { DirectionViewComponent } from '../../components/club/direction-view/direction-view.component';
 import { CoachesViewComponent } from '../../components/club/coaches-view/coaches-view.component';
 import { MedicsViewComponent } from '../../components/club/medics-view/medics-view.component';
+import { SpecialistsViewComponent } from '../../components/club/specialists-view/specialists-view.component';
 
 export const RoutesConfiguration: Routes = [
     {
@@ -54,6 +55,11 @@ export const RoutesConfiguration: Routes = [
     {
         path: 'club/medics',
         component: MedicsViewComponent,
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[2]] }
+    },
+    {
+        path: 'club/specialists',
+        component: SpecialistsViewComponent,
         data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[2]] }
     },
     {

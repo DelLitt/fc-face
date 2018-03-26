@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatProgressSpinnerModule } from '@angular/material';
 import { CoachesViewComponent } from '../../components/club/coaches-view/coaches-view.component';
 import { MedicsViewComponent } from '../../components/club/medics-view/medics-view.component';
+import { SpecialistsViewComponent } from '../../components/club/specialists-view/specialists-view.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MedicsViewComponent } from '../../components/club/medics-view/medics-vi
   declarations: [
     DirectionViewComponent,
     CoachesViewComponent,
-    MedicsViewComponent
+    MedicsViewComponent,
+    SpecialistsViewComponent
   ]
 })
 export class ClubComponentsModule { }
