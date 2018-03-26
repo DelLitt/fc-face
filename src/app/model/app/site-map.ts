@@ -5,6 +5,7 @@ export interface SiteMapItem {
     visible?: boolean;
     clickable?: boolean;
     disabled?: boolean;
+    underSeparator?: boolean;
     subItems?: SiteMapItem[];
 }
 
