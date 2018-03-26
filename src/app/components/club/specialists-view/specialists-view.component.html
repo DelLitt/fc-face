@@ -1,0 +1,15 @@
+<section class="container">
+  <h2 class="fc-title">{{ 'SPECIALISTS_STAFF' | translate }}</h2>  
+  <div *ngIf="!_loaded" class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+  <div *ngIf="_loaded">
+    <div class="row">
+      <div class="col-sm-4" *ngFor="let person of persons">
+        <app-person-card [person]="person" [bgDirPath]="'/assets/img/skin/persons/card'"></app-person-card>
+      </div>
+    </div>
+  </div>
+</section>
