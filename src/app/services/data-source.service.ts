@@ -55,6 +55,9 @@ export class DataSourceService {
     return null;
   }
 
+  public getPlayersStatistics(teamId: number, tourneyIds: number[]): Promise<object[]> {
+    return null;
+  }
 
   public search(text: string, count: number, skip: number = 0): Promise<any> {
     return null;
