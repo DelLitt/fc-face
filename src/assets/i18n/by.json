@@ -81,6 +81,10 @@
 	"GOALS_FOR_SH": "МЗ",
 	"GOALS_AGAINST_SH2": "МП",
 	"POINTS_SH": "А",
+	"SUBS_SH": "З",
+	"ASSISTS_SH": "ГП",
+	"YELLOWS_SH": "ЖК",
+	"REDS_SH": "ЧК",	
 	"EX_TIME": "Дад. час",
 	"EX_TIME_SH": "дад",
 	"PENALTIES": "Пенальти",
@@ -97,5 +101,13 @@
 	"ABOUT_TEAM": "Аб камандзе",
 	"MATCHES": "Матчы",
 	"STANDINGS": "Турнірныя табліцы",
-	"PLAYERS_STATISTICS": "Cтатыстыка гульцоў"
+	"PLAYERS_STATISTICS": "Cтатыстыка гульцоў",
+	"PLAYER": "Гулец",
+	"AGE": "Ўзрост",
+	"GAMES_PLAYED": "Згуляных гульняў",
+	"FROM_THE_BENCH": "Выхадаў на замену",
+	"GOALS_COUNT": "Колькасць галоў",
+	"ASSISTS_COUNT": "Колькасць галявых перадач",
+	"YELLOWS_COUNT": "Колькасць жоўтых картак",
+	"REDS_COUNT": "Колькасць чырвоных картак"
 }

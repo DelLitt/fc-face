@@ -81,6 +81,10 @@
 	"GOALS_FOR_SH": "GF",
 	"GOALS_AGAINST_SH2": "GA",
 	"POINTS_SH": "P",
+	"SUBS_SH": "B",
+	"ASSISTS_SH": "A",
+	"YELLOWS_SH": "YC",
+	"REDS_SH": "RC",
 	"EX_TIME": "Extra time",
 	"EX_TIME_SH": "ext",
 	"PENALTIES": "Penalties",
@@ -97,5 +101,13 @@
 	"ABOUT_TEAM": "About team",
 	"MATCHES": "Matches",
 	"STANDINGS": "Standings",
-	"PLAYERS_STATISTICS": "Players Statistics"
+	"PLAYERS_STATISTICS": "Players Statistics",
+	"PLAYER": "Player",
+	"AGE": "Age",
+	"GAMES_PLAYED": "Games played",
+	"FROM_THE_BENCH": "From the bench",
+	"GOALS_COUNT": "Goals",
+	"ASSISTS_COUNT": "Assists",
+	"YELLOWS_COUNT": "Yellows",
+	"REDS_COUNT": "Reds"	
 }
