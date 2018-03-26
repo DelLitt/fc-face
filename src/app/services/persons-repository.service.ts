@@ -31,6 +31,25 @@ export class PersonsRepositoryService {
       });
   }
 
+  public getDirection(count: number, skip: number): Promise<Person[]> {
+    return new Promise((resolve, reject) => {
+      this.logger.logDebug(`'${(<any>this).constructor.name}' started loading youth management.`);
+
+      this.dataSource.getPersons(count, skip, PersonRoleGroup.direction)
+        .then(result => {
+          if (result) {
+            const persons: Person[] = this.convertResponseToPersons(result);
+            this.logger.logInfo(`'${(<any>this).constructor.name}' loaded youth management successfully.`);
+            resolve(persons);
+          } else {
+            const errorMsg = `'${(<any>this).constructor.name}' was unable to load  youth management!`;
+            this.logger.logError(errorMsg);
+            reject(new Error(errorMsg));
+          }
+        });
+    });
+  }
+
   private convertResponseToPersons(response: Array<any>): Person[] {
     const data: Array<any> = response || [];
     if (data.length === 0) { return new Array<Person>(); }
