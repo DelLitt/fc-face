@@ -112,5 +112,8 @@
 	"REDS_COUNT": "Reds",
 	"CLUB": "Club",
 	"MAIN_TEAM": "Main team",
-  	"RESERVE_TEAM": "Reserve team"
+	"RESERVE_TEAM": "Reserve team",
+	"DIRECTION": "Direction",
+	"MEDICAL_STAFF": "Medical staff",
+	"SPECIALISTS_STAFF": "Specialists"
 }

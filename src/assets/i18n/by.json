@@ -112,5 +112,9 @@
 	"REDS_COUNT": "Колькасць чырвоных картак",
 	"CLUB": "Клуб",
 	"MAIN_TEAM": "Галоўная каманда",
-  	"RESERVE_TEAM": "Дублюючая каманда"
+	"RESERVE_TEAM": "Дублюючая каманда",
+	"COACHES_STAFF": "Трэнерскі склад",
+	"DIRECTION": "Кіруючы склад",
+	"MEDICAL_STAFF": "Медыцынскі склад",
+	"SPECIALISTS_STAFF": "Спецыялісты"
 }
