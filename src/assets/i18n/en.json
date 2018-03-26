@@ -109,5 +109,8 @@
 	"GOALS_COUNT": "Goals",
 	"ASSISTS_COUNT": "Assists",
 	"YELLOWS_COUNT": "Yellows",
-	"REDS_COUNT": "Reds"	
+	"REDS_COUNT": "Reds",
+	"CLUB": "Club",
+	"MAIN_TEAM": "Main team",
+  	"RESERVE_TEAM": "Reserve team"
 }
