@@ -6,8 +6,9 @@ export const SiteMapConfiguration: SiteMap = [
     {
         defaultName: 'Club', i18nKey: 'CLUB', path: 'club', visible: true, clickable: false,
         subItems: [
-            { defaultName: 'Main team', i18nKey: 'MAIN_TEAM', path: 'club/mainteam', visible: true, clickable: true },
-            { defaultName: 'Reserve team', i18nKey: 'RESERVE_TEAM', path: 'club/reserveteam', visible: true, clickable: true }
+            { defaultName: 'Main team', i18nKey: 'MAIN_TEAM', path: 'club/mainteam', visible: true, clickable: true, disabled: true },
+            // tslint:disable-next-line:max-line-length
+            { defaultName: 'Reserve team', i18nKey: 'RESERVE_TEAM', path: 'club/reserveteam', visible: true, clickable: true, disabled: true }
         ]
     },
     {

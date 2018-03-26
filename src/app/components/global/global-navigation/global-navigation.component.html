@@ -11,13 +11,15 @@
       <li class="nav-item" [class.dropdown]="hasSubItems(item)" *ngFor="let item of menuItems">
         <a *ngIf="!hasSubItems(item)" 
           class="nav-link"
-          [routerLink]="item.path"
+          [class.disabled]="item.disabled"
+          [routerLink]="item.disabled ? null : item.path"
           [routerLinkActive]="'active'">
           {{ (item.i18nKey | translate) !== item.i18nKey ? (item.i18nKey | translate) : item.defaultName }}
         </a>
         <a *ngIf="hasSubItems(item)"
           class="nav-link dropdown-toggle"
           [class.active]="isActive(item)"
+          [class.disabled]="item.disabled"
           [attr.data-toggle]="'dropdown'">
           {{ (item.i18nKey | translate) !== item.i18nKey ? (item.i18nKey | translate) : item.defaultName }}
         </a>
@@ -25,7 +27,8 @@
         <div *ngIf="hasSubItems(item)" class="dropdown-menu">
           <a *ngFor="let subItem of item.subItems"
             class="dropdown-item"
-            [routerLink]="[subItem.path]"
+            [class.disabled]="subItem.disabled"
+            [routerLink]="subItem.disabled ? null : subItem.path"
             [routerLinkActive]="'active'">{{ (subItem.i18nKey | translate) !== subItem.i18nKey ? (subItem.i18nKey | translate) : subItem.defaultName }}
           </a>
         </div>
