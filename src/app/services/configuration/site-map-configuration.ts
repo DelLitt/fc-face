@@ -14,7 +14,9 @@ export const SiteMapConfiguration: SiteMap = [
         defaultName: 'Results', i18nKey: 'RESULTS', path: 'results', visible: true, clickable: false,
         subItems: [
             { defaultName: 'Matches', i18nKey: 'MATCHES', path: 'results/matches', visible: true, clickable: true },
-            { defaultName: 'Standings', i18nKey: 'STANDINGS', path: 'results/standings', visible: true, clickable: true }
+            { defaultName: 'Standings', i18nKey: 'STANDINGS', path: 'results/standings', visible: true, clickable: true },
+            // tslint:disable-next-line:max-line-length
+            { defaultName: 'Players Statistics', i18nKey: 'PLAYERS_STATISTICS', path: 'results/players-stats', visible: true, clickable: true }
         ]
     },
     {

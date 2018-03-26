@@ -4,6 +4,7 @@ import { SharedComponentsModule } from '../shared/shared-components.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatchesViewComponent } from '../../components/results/matches-view/matches-view.component';
 import { StandingsViewComponent } from '../../components/results/standings-view/standings-view.component';
+import { PlayersStatisticsViewComponent } from '../../components/results/players-statistics-view/players-statistics-view.component';
 
 
 @NgModule({
@@ -14,10 +15,10 @@ import { StandingsViewComponent } from '../../components/results/standings-view/
   ],
   declarations: [
     MatchesViewComponent,
-    StandingsViewComponent
+    StandingsViewComponent,
+    PlayersStatisticsViewComponent
   ],
   exports: [
-    MatchesViewComponent
   ]
 })
 export class ResultsModule { }

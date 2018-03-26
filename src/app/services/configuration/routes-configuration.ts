@@ -21,6 +21,7 @@ import { YouthTeamGamesComponent } from '../../components/youth/teams/youth-team
 import { YouthTeamResultsComponent } from '../../components/youth/teams/youth-team-results/youth-team-results.component';
 import { StandingsViewComponent } from '../../components/results/standings-view/standings-view.component';
 import { MatchesViewComponent } from '../../components/results/matches-view/matches-view.component';
+import { PlayersStatisticsViewComponent } from '../../components/results/players-statistics-view/players-statistics-view.component';
 
 export const RoutesConfiguration: Routes = [
     {
@@ -45,6 +46,11 @@ export const RoutesConfiguration: Routes = [
     {
         path: 'results/standings',
         component: StandingsViewComponent,
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[3]] }
+    },
+    {
+        path: 'results/players-stats',
+        component: PlayersStatisticsViewComponent,
         data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[3]] }
     },
     {
