@@ -13,6 +13,7 @@ import { GlobalHeaderComponent } from '../../components/global/global-header/glo
 import { GlobalBreadcrumbComponent } from '../../components/global/global-breadcrumb/global-breadcrumb/global-breadcrumb.component';
 import { GlobalSearchComponent } from '../../components/global/global-search/global-search.component';
 import { LanguageBarComponent } from '../../components/global/language-bar/language-bar.component';
+import { GlobalSponsorsComponent } from '../../components/global/global-sponsors/global-sponsors.component';
 
 
 
@@ -29,6 +30,7 @@ import { LanguageBarComponent } from '../../components/global/language-bar/langu
     GlobalHeaderComponent,
     GlobalBreadcrumbComponent,
     GlobalSearchComponent,
+    GlobalSponsorsComponent,
     LanguageBarComponent
   ],
   providers: [
@@ -48,7 +50,8 @@ import { LanguageBarComponent } from '../../components/global/language-bar/langu
     GlobalNavigationComponent,
     GlobalHeaderComponent,
     GlobalBreadcrumbComponent,
-    GlobalSearchComponent
+    GlobalSearchComponent,
+    GlobalSponsorsComponent
   ]
 })
 export class GlobalComponentsModule { }
