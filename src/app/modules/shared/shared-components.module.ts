@@ -44,6 +44,7 @@ import { TourneyGamesComponent } from '../../components/shared/tourney-games/tou
 import { TeamsSelectComponent } from '../../components/shared/teams-select/teams-select.component';
 import { PlayersStatisticsComponent } from '../../components/shared/players-statistics/players-statistics.component';
 import { StatisticsService } from '../../services/statistics.service';
+import { MainBannersComponent } from '../../components/shared/main-banners/main-banners.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { StatisticsService } from '../../services/statistics.service';
     TourneysSelectComponent,
     TourneyGamesComponent,
     TeamsSelectComponent,
-    PlayersStatisticsComponent
+    PlayersStatisticsComponent,
+    MainBannersComponent
   ],
   providers: [
     TextUtilityService,
@@ -108,7 +110,8 @@ import { StatisticsService } from '../../services/statistics.service';
     TourneysSelectComponent,
     TourneyGamesComponent,
     TeamsSelectComponent,
-    PlayersStatisticsComponent
+    PlayersStatisticsComponent,
+    MainBannersComponent
   ]
 })
 export class SharedComponentsModule { }
