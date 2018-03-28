@@ -14,7 +14,7 @@
     [imgSrcLocal]="publication.img"></app-social-networks-sharing>
   </div>  
   <div class="fc-data">     
-    <img *ngIf="publication.showImageInContent" class="embed-responsive pull-left" [src]="publication.img" [alt]="publication.title">
+    <img *ngIf="publication.showImageInContent" class="fc-article-main-img embed-responsive pull-left" [src]="publication.img" [alt]="publication.title">
     <div *ngIf="publication.description" class="fc-lead">{{publication.description}}</div>
     <div *ngIf="publication.content" class="fc-content" [innerHTML]="publication.content"></div>
     <div *ngIf="publication.galleryId > 0 || publication.videoId > 0" class="fc-add">
