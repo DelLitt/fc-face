@@ -14,6 +14,7 @@ import { GlobalBreadcrumbComponent } from '../../components/global/global-breadc
 import { GlobalSearchComponent } from '../../components/global/global-search/global-search.component';
 import { LanguageBarComponent } from '../../components/global/language-bar/language-bar.component';
 import { GlobalSponsorsComponent } from '../../components/global/global-sponsors/global-sponsors.component';
+import { GlobalSiteMapComponent } from '../../components/global/global-site-map/global-site-map.component';
 
 
 
@@ -31,7 +32,8 @@ import { GlobalSponsorsComponent } from '../../components/global/global-sponsors
     GlobalBreadcrumbComponent,
     GlobalSearchComponent,
     GlobalSponsorsComponent,
-    LanguageBarComponent
+    LanguageBarComponent,
+    GlobalSiteMapComponent
   ],
   providers: [
     {provide: LogLevel, useValue: LogLevel.DEBUG},
@@ -51,7 +53,8 @@ import { GlobalSponsorsComponent } from '../../components/global/global-sponsors
     GlobalHeaderComponent,
     GlobalBreadcrumbComponent,
     GlobalSearchComponent,
-    GlobalSponsorsComponent
+    GlobalSponsorsComponent,
+    GlobalSiteMapComponent
   ]
 })
 export class GlobalComponentsModule { }
