@@ -40,6 +40,14 @@ export const SiteMapConfiguration: SiteMap = [
             { defaultName: 'Stadium rules', i18nKey: 'STADIUM_RULES', path: 'info/stadiumrules', visible: true, clickable: true }
         ]
     },
+    {
+        defaultName: 'History', i18nKey: 'HISTORY', path: 'history', visible: true, clickable: true,
+        subItems: [
+            { defaultName: 'Brief history', i18nKey: 'HISTORY_SHORT', path: 'history/short', visible: true, clickable: true },
+            // tslint:disable-next-line:max-line-length
+            { defaultName: 'Detailed History', i18nKey: 'HISTORY_FULL', path: 'history/full', visible: true, clickable: true, disabled: true }
+        ]
+    },
     { defaultName: 'Contacts', i18nKey: 'CONTACTS', path: 'contacts', visible: true, clickable: true },
     { defaultName: 'Search', i18nKey: 'SEARCH', path: 'search', visible: false, clickable: false }
 ];

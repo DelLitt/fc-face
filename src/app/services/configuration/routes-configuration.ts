@@ -26,6 +26,7 @@ import { DirectionViewComponent } from '../../components/club/direction-view/dir
 import { CoachesViewComponent } from '../../components/club/coaches-view/coaches-view.component';
 import { MedicsViewComponent } from '../../components/club/medics-view/medics-view.component';
 import { SpecialistsViewComponent } from '../../components/club/specialists-view/specialists-view.component';
+import { ShortHistoryComponent } from '../../components/history/short-history/short-history.component';
 
 export const RoutesConfiguration: Routes = [
     {
@@ -123,14 +124,26 @@ export const RoutesConfiguration: Routes = [
         data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[5]] }
     },
     {
+        path: 'history',
+        component: ShortHistoryComponent,
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[6]] },
+        children: [
+            {
+             path : 'short',
+             component: ShortHistoryComponent
+            },
+            { path: '', redirectTo: 'home', pathMatch: 'full' }
+        ]
+    },
+    {
         path: 'contacts',
         component: ContactsViewComponent,
-        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[6]] }
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[7]] }
     },
     {
         path: 'search/:text',
         component: SearchResultsComponent,
-        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[7]] }
+        data: { routesChain: [SiteMapConfiguration[0], SiteMapConfiguration[8]] }
     },
     { path: 'not-found', component: PageNotFoundComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
