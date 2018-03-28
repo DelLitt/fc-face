@@ -48,12 +48,12 @@
     }
 
     .cover-var-c {        
-        background: transparentize($blue, 0.5);
+        background: transparentize(theme-color("primary"), 0.5);
         color: $gray-100;
     }
 
     .cover-var-d {        
-        background: $blue;
+        background: theme-color("primary");
         color: $gray-100;
 
         a {
