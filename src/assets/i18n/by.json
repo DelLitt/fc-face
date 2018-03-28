@@ -118,5 +118,8 @@
 	"DIRECTION": "Кіруючы склад",
 	"MEDICAL_STAFF": "Медыцынскі склад",
 	"SPECIALISTS_STAFF": "Спецыялісты",
-  	"PARTNERS_AND_SPONSORS": "Партнёры і спонсары"
+  	"PARTNERS_AND_SPONSORS": "Партнёры і спонсары",
+  	"HISTORY": "Гісторыя",
+	"HISTORY_SHORT": "Скарочаная гісторыя",
+	"HISTORY_FULL": "Падрабязная гісторыя"
 }
