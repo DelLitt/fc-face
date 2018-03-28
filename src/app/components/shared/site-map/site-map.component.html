@@ -1,0 +1,29 @@
+<section class="cover cover-fixed">
+  <div class="cover-var-b">
+    <div class="cover-container">
+      <div class="row">
+        <div class="col-12 text-center" 
+             [class.col-lg-1]="!hasSubItems(item)" 
+             [class.col-lg-2]="hasSubItems(item)"
+             *ngFor="let item of menuItems index as i">
+          <a [class.text-gray]="item.disabled"
+            [routerLink]="item.disabled || !item.clickable ? null : item.path"
+            [routerLinkActive]="'active'">
+            <span class="text-uppercase" style="font-weight: 500;">{{ (item.i18nKey | translate) !== item.i18nKey ? (item.i18nKey | translate) : item.defaultName }}</span>
+          </a>
+          <ul *ngIf="hasSubItems(item)" class="list-unstyled">
+            <li *ngFor="let subItem of item.subItems">
+              <a [class.disabled]="subItem.disabled"
+                  [routerLink]="subItem.disabled ? null : subItem.path"
+                  [routerLinkActive]="'active'"><small>{{ (subItem.i18nKey | translate) !== subItem.i18nKey ? (subItem.i18nKey | translate) : subItem.defaultName }}</small>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row text-primary mt-4">
+        <div class="col text-center">© 2018 - {{ 'OFFICIAL_NAME_N_FORM' | translate }}</div>
+      </div>
+    </div>
+  </div>
+</section>
