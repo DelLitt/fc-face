@@ -11,48 +11,48 @@
     <mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="personNumber">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">#</mat-header-cell>
-        <mat-cell *matCellDef="let row" class="col-1">{{row.personNumber}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="d-none d-sm-block col-sm-2 col-md-1">#</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="d-none d-sm-block col-sm-2 col-md-1">{{row.personNumber}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-3">{{ 'PLAYER' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row" class="col-3">{{row.name}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-4 col-sm-3 col-md-3">{{ 'PLAYER' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-4 col-sm-3 col-md-3">{{row.name}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="age">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2">{{ 'AGE' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row" class="col-2">{{row.age}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="d-none d-sm-block col-sm-2 col-md-1 text-center">{{ 'AGE' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="d-none d-sm-block col-sm-2 col-md-1 text-center">{{row.age}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="games">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">{{ 'GAMES_SH' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row" class="col-1">{{row.games}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2 col-sm-2 text-center">{{ 'GAMES_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-2 col-sm-2 text-center">{{row.games}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="substitutes">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">{{ 'SUBS_SH' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row" class="col-1">{{row.substitutes}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="d-none d-md-block col-md-1 text-center">{{ 'SUBS_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="d-none d-md-block col-md-1 text-center">{{row.substitutes}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="goals">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">{{ 'GOALS_SH' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row" class="col-1">{{row.goals}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2 col-sm-1 text-center">{{ 'GOALS_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-2 col-sm-1 text-center">{{row.goals}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="assists">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">{{ 'ASSISTS_SH' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row" class="col-1">{{row.assists}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="d-none d-md-block col-md-1 text-center">{{ 'ASSISTS_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="d-none d-md-block col-md-1 text-center">{{row.assists}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="yellows">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">{{ 'YELLOWS_SH' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row" class="col-1">{{row.yellows}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2 col-sm-1 text-center">{{ 'YELLOWS_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-2 col-sm-1 text-center">{{row.yellows}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="reds">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-1">{{ 'REDS_SH' | translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let row" class="col-1">{{row.reds}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="col-2 col-sm-1 text-center">{{ 'REDS_SH' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="col-2 col-sm-1 text-center">{{row.reds}}</mat-cell>
       </ng-container>    
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
