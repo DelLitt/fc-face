@@ -27,6 +27,7 @@ import localeRu from '@angular/common/locales/ru';
 import localeBe from '@angular/common/locales/be';
 import { ConfigurationService } from './services/configuration/configuration.service';
 import { CilentConfigurationService } from './services/configuration/cilent-configuration-service.service';
+import { HistoryModule } from './modules/history/history.module';
 
 (function registerLocales() {
   // the second parameter is optional
@@ -65,7 +66,8 @@ export function createTranslateLoader(http: HttpClient) {
     SearchComponentsModule,
     StaticPagesModule,
     ResultsModule,
-    ClubComponentsModule
+    ClubComponentsModule,
+    HistoryModule
   ],
   providers: [
     AlertService,
